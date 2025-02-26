@@ -1,11 +1,7 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'import'],
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-  ],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
   env: {
     es6: true,
     node: true,
@@ -17,9 +13,7 @@ module.exports = {
         'newlines-between': 'always',
         alphabetize: { order: 'asc', caseInsensitive: true },
         groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-        pathGroups: [
-          { pattern: '@repo/**', group: 'internal' },
-        ],
+        pathGroups: [{ pattern: '@repo/**', group: 'internal' }],
       },
     ],
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],

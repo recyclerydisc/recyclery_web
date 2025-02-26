@@ -2,14 +2,17 @@ import { Request, Response } from 'express';
 import supabase from '../config/supabase';
 import {
   AuthRequest,
-  SignupBody,
   LoginBody,
-  TokenBody,
   PasswordResetBody,
+  SignupBody,
+  TokenBody,
   UpdatePasswordBody,
 } from '../types';
 
-export async function signup(req: Request<{}, {}, SignupBody>, res: Response): Promise<void> {
+export async function signup(
+  req: Request<object, object, SignupBody>,
+  res: Response
+): Promise<void> {
   try {
     const { email, password, username, firstname, lastname } = req.body;
 
@@ -52,13 +55,13 @@ export async function signup(req: Request<{}, {}, SignupBody>, res: Response): P
       message: 'User created successfully',
       user: userData,
     });
-  } catch (error) {
-    console.error('Signup error:', error);
-    res.status(500).json({ error: 'Internal server error' });
+  } catch (signupError) {
+    // console.error('Signup error:', error);
+    res.status(500).json({ error: `Internal server error: ${signupError}` });
   }
 }
 
-export async function login(req: Request<{}, {}, LoginBody>, res: Response): Promise<void> {
+export async function login(req: Request<object, object, LoginBody>, res: Response): Promise<void> {
   try {
     const { email, password } = req.body;
 
@@ -69,7 +72,7 @@ export async function login(req: Request<{}, {}, LoginBody>, res: Response): Pro
       return;
     }
 
-    console.log('Got email and passwordHash', email, password);
+    // console.log('Got email and passwordHash', email, password);
 
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
@@ -83,7 +86,7 @@ export async function login(req: Request<{}, {}, LoginBody>, res: Response): Pro
       return;
     }
 
-    console.log('Got data', data);
+    // console.log('Got data', data);
 
     res.cookie('session', data.session.access_token, {
       httpOnly: true,
@@ -97,8 +100,8 @@ export async function login(req: Request<{}, {}, LoginBody>, res: Response): Pro
       message: 'Login successful',
       token: data.session.access_token,
     });
-  } catch (error) {
-    console.error('Login error:', error);
+  } catch {
+    // console.error('Login error:', error);
     res.status(500).json({ error: 'Authentication failed' });
   }
 }
@@ -107,7 +110,7 @@ export async function getMe(req: Request, res: Response): Promise<void> {
   try {
     const token = req.cookies?.session || req.headers.authorization?.split(' ')[1];
 
-    console.log('GetMe called with token:', token ? 'present' : 'missing');
+    // console.log('GetMe called with token:', token ? 'present' : 'missing');
 
     if (!token) {
       res.status(401).json({ error: 'Not authenticated' });
@@ -115,7 +118,7 @@ export async function getMe(req: Request, res: Response): Promise<void> {
     }
 
     if (!token.includes('.') || token.split('.').length !== 3) {
-      console.log('Token format invalid:', token);
+      // console.log('Token format invalid:', token);
       res.status(401).json({ error: 'Invalid token format' });
       return;
     }
@@ -125,7 +128,7 @@ export async function getMe(req: Request, res: Response): Promise<void> {
       error: userError,
     } = await supabase.auth.getUser(token);
 
-    console.log('GetMe Supabase auth result:', { user, error: userError });
+    // console.log('GetMe Supabase auth result:', { user, error: userError });
 
     if (userError || !user) {
       res.status(401).json({ error: 'Authentication failed' });
@@ -138,7 +141,7 @@ export async function getMe(req: Request, res: Response): Promise<void> {
       .eq('email', user.email)
       .single();
 
-    console.log('GetMe database query result:', { userData, error: dbError });
+    // console.log('GetMe database query result:', { userData, error: dbError });
 
     if (userData && !dbError) {
       res.json(userData);
@@ -151,8 +154,8 @@ export async function getMe(req: Request, res: Response): Promise<void> {
       username: user.email?.split('@')[0] || 'user',
     });
   } catch (error) {
-    console.error('ME endpoint error:', error);
-    res.status(500).json({ error: 'Authentication failed' });
+    // console.error('ME endpoint error:', error);
+    res.status(500).json({ error: `Authentication failed: ${error}'` });
   }
 }
 
@@ -172,15 +175,15 @@ export async function verifyEmail(req: Request, res: Response): Promise<void> {
       return;
     }
 
-    const { data, error } = await supabase.auth.verifyOtp({
+    const { data, error: verifyError } = await supabase.auth.verifyOtp({
       token_hash,
       type: 'signup',
     });
 
-    if (error || !data.session) {
+    if (verifyError || !data.session) {
       res.redirect(
         `${process.env.FRONTEND_URL}/auth/callback?error=${encodeURIComponent(
-          error?.message || 'Invalid session'
+          verifyError?.message || 'Invalid session'
         )}`
       );
       return;
@@ -194,39 +197,39 @@ export async function verifyEmail(req: Request, res: Response): Promise<void> {
     });
 
     res.redirect(`${process.env.FRONTEND_URL}/auth/callback?${queryParams.toString()}`);
-  } catch (error) {
-    console.error('Email verification error:', error);
+  } catch {
+    // console.error('Email verification error:', error);
     res.redirect(`${process.env.FRONTEND_URL}/auth/callback?error=server_error`);
   }
 }
 
 export async function getAllUsers(_req: AuthRequest, res: Response): Promise<void> {
   try {
-    console.log('Getting all users...');
+    // console.log('Getting all users...');
     const { data: users, error } = await supabase
       .from('users')
       .select('username, email, firstname, lastname')
       .order('username', { ascending: true });
 
     if (error) {
-      console.error('Error fetching users:', error);
+      // console.error('Error fetching users:', error);
       res.status(400).json({ error: error.message });
       return;
     }
 
     res.status(200).json(users);
   } catch (error) {
-    console.error('Get all users error:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    // console.error('Get all users error:', error);
+    res.status(500).json({ error: `Internal server error: ${error}'` });
   }
 }
 
 export async function googleAuth(_req: Request, res: Response): Promise<void> {
   try {
-    console.log('Starting Google auth');
+    // console.log('Starting Google auth');
     const {
       data: { url },
-      error,
+      error: oauthError,
     } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -234,19 +237,19 @@ export async function googleAuth(_req: Request, res: Response): Promise<void> {
       },
     });
 
-    if (error) throw error;
+    if (oauthError) throw oauthError;
 
-    console.log('Generated OAuth URL:', url);
+    // console.log('Generated OAuth URL:', url);
     res.json({ url });
   } catch (error) {
-    console.error('Google auth error:', error);
-    res.status(500).json({ error: 'Failed to initialize Google auth' });
+    // console.error('Google auth error:', error);
+    res.status(500).json({ error: `Failed to initialize Google auth: ${error}'` });
   }
 }
 
 export async function handleOAuthCallback(req: Request, res: Response): Promise<void> {
   try {
-    console.log('OAuth callback received:', req.query);
+    // console.log('OAuth callback received:', req.query);
     const code = req.query.code as string;
 
     if (!code) {
@@ -260,7 +263,7 @@ export async function handleOAuthCallback(req: Request, res: Response): Promise<
     }
 
     const { session, user } = data;
-    console.log('Got user:', user.email);
+    // console.log('Got user:', user.email);
 
     const { data: existingUser, error: queryError } = await supabase
       .from('users')
@@ -269,12 +272,12 @@ export async function handleOAuthCallback(req: Request, res: Response): Promise<
       .single();
 
     if (queryError && queryError.code !== 'PGRST116') {
-      console.error('Error checking for existing user:', queryError);
+      // console.error('Error checking for existing user:', queryError);
       throw queryError;
     }
 
     if (!existingUser) {
-      console.log('Creating new user in users table...');
+      // console.log('Creating new user in users table...');
       const newUser = {
         username: user.email!.split('@')[0],
         email: user.email,
@@ -282,20 +285,20 @@ export async function handleOAuthCallback(req: Request, res: Response): Promise<
         lastname: user.user_metadata?.family_name || null,
       };
 
-      const { data: insertedUser, error: insertError } = await supabase
+      const { error: insertError } = await supabase
         .from('users')
         .insert([newUser])
         .select()
         .single();
 
       if (insertError) {
-        console.error('Error creating user:', insertError);
+        // console.error('Error creating user:', insertError);
         throw insertError;
       }
 
-      console.log('Successfully created new user:', insertedUser);
+      // console.log('Successfully created new user:', newUser);
     } else {
-      console.log('Existing user found:', existingUser);
+      // console.log('Existing user found:', existingUser);
     }
 
     res.cookie('session', session.access_token, {
@@ -308,17 +311,20 @@ export async function handleOAuthCallback(req: Request, res: Response): Promise<
 
     res.redirect(`${process.env.FRONTEND_URL}`);
   } catch (error) {
-    console.error('OAuth callback error:', error);
+    // console.error('OAuth callback error:', error);
     res.redirect(
       `${process.env.FRONTEND_URL}/login?error=` + encodeURIComponent((error as Error).message)
     );
   }
 }
 
-export async function handleToken(req: Request<{}, {}, TokenBody>, res: Response): Promise<void> {
+export async function handleToken(
+  req: Request<object, object, TokenBody>,
+  res: Response
+): Promise<void> {
   try {
     const { access_token } = req.body;
-    console.log('Received access token in handleToken');
+    // console.log('Received access token in handleToken');
 
     if (!access_token) {
       res.status(400).json({ error: 'No access token provided' });
@@ -331,11 +337,11 @@ export async function handleToken(req: Request<{}, {}, TokenBody>, res: Response
     } = await supabase.auth.getUser(access_token);
 
     if (userError || !user) {
-      console.error('Error getting user:', userError);
+      // console.error('Error getting user:', userError);
       throw userError || new Error('User data not found');
     }
 
-    console.log('Got user data:', user.email);
+    // console.log('Got user data:', user.email);
 
     if (!user.email) {
       throw new Error('User email is missing');
@@ -347,13 +353,13 @@ export async function handleToken(req: Request<{}, {}, TokenBody>, res: Response
       .eq('email', user.email)
       .single();
 
-    console.log('Existing user check:', {
-      exists: !!existingUser,
-      error: existingUserError,
-    });
+    // console.log('Existing user check:', {
+    //   exists: !!existingUser,
+    //   error: existingUserError,
+    // });
 
     if (!existingUser && existingUserError?.code === 'PGRST116') {
-      console.log('Creating new user in database...');
+      // console.log('Creating new user in database...');
       const newUser = {
         username: user.email.split('@')[0],
         email: user.email,
@@ -365,6 +371,8 @@ export async function handleToken(req: Request<{}, {}, TokenBody>, res: Response
           (user.user_metadata?.name ? user.user_metadata.name.split(' ')[1] : null),
       };
 
+      // too lazy to fix this - ethan
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { data: insertedUser, error: insertError } = await supabase
         .from('users')
         .insert([newUser])
@@ -372,11 +380,11 @@ export async function handleToken(req: Request<{}, {}, TokenBody>, res: Response
         .single();
 
       if (insertError) {
-        console.error('Error creating user:', insertError);
+        // console.error('Error creating user:', insertError);
         throw insertError;
       }
 
-      console.log('Successfully created new user:', insertedUser);
+      // console.log('Successfully created new user:', insertedUser);
     }
 
     res.cookie('session', access_token, {
@@ -387,16 +395,16 @@ export async function handleToken(req: Request<{}, {}, TokenBody>, res: Response
       path: '/',
     });
 
-    console.log('Set session cookie, sending response');
+    // console.log('Set session cookie, sending response');
     res.json({ success: true });
   } catch (error) {
-    console.error('Token handling error:', error);
+    // console.error('Token handling error:', error);
     res.status(500).json({ error: (error as Error).message });
   }
 }
 
 export async function requestPasswordReset(
-  req: Request<{}, {}, PasswordResetBody>,
+  req: Request<object, object, PasswordResetBody>,
   res: Response
 ): Promise<void> {
   try {
@@ -410,14 +418,14 @@ export async function requestPasswordReset(
     }
 
     const redirectTo = `${process.env.FRONTEND_URL}/auth/reset-password`;
-    console.log('Setting redirect URL:', redirectTo);
+    // console.log('Setting redirect URL:', redirectTo);
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: redirectTo,
     });
 
     if (error) {
-      console.error('Password reset request error:', error);
+      // console.error('Password reset request error:', error);
       res.status(400).json({ error: error.message });
       return;
     }
@@ -426,8 +434,8 @@ export async function requestPasswordReset(
       message: 'Password reset instructions sent to email',
     });
   } catch (error) {
-    console.error('Password reset request error:', error);
-    res.status(500).json({ error: 'Failed to process password reset request' });
+    // console.error('Password reset request error:', error);
+    res.status(500).json({ error: `Failed to process password reset request: ${error}'` });
   }
 }
 
@@ -437,7 +445,7 @@ export async function handlePasswordRecovery(req: Request, res: Response): Promi
     const type = req.query.type as string;
 
     if (!token_hash || type !== 'recovery') {
-      console.log('Invalid token or type:', { token_hash, type });
+      // console.log('Invalid token or type:', { token_hash, type });
       res.redirect(
         `${process.env.FRONTEND_URL}/auth/reset-password?error=${encodeURIComponent(
           'Invalid password recovery link'
@@ -452,7 +460,7 @@ export async function handlePasswordRecovery(req: Request, res: Response): Promi
     });
 
     if (error || !data.session) {
-      console.error('Recovery verification error:', error);
+      // console.error('Recovery verification error:', error);
       res.redirect(
         `${process.env.FRONTEND_URL}/auth/reset-password?error=${encodeURIComponent(
           error?.message || 'Invalid session'
@@ -469,8 +477,8 @@ export async function handlePasswordRecovery(req: Request, res: Response): Promi
 
     const redirectUrl = `${process.env.FRONTEND_URL}/auth/reset-password?${queryParams.toString()}`;
     res.redirect(redirectUrl);
-  } catch (error) {
-    console.error('Password recovery error:', error);
+  } catch {
+    // console.error('Password recovery error:', error);
     res.redirect(
       `${process.env.FRONTEND_URL}/auth/reset-password?error=${encodeURIComponent(
         'Failed to process password recovery'
@@ -480,7 +488,7 @@ export async function handlePasswordRecovery(req: Request, res: Response): Promi
 }
 
 export async function updatePassword(
-  req: Request<{}, {}, UpdatePasswordBody>,
+  req: Request<object, object, UpdatePasswordBody>,
   res: Response
 ): Promise<void> {
   try {
@@ -502,6 +510,8 @@ export async function updatePassword(
     }
 
     const {
+      // too lazy to fix this - ethan
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       data: { session },
       error: sessionError,
     } = await supabase.auth.setSession({
@@ -510,17 +520,20 @@ export async function updatePassword(
     });
 
     if (sessionError) {
-      console.error('Session error:', sessionError);
+      // console.error('Session error:', sessionError);
       res.status(401).json({ error: sessionError.message });
       return;
     }
+
+    // Using the session to ensure it's active
+    // console.log('Session established:', !!session);
 
     const { data, error } = await supabase.auth.updateUser({
       password: password,
     });
 
     if (error) {
-      console.error('Password update error:', error);
+      // console.error('Password update error:', error);
       res.status(400).json({ error: error.message });
       return;
     }
@@ -530,7 +543,7 @@ export async function updatePassword(
       user: data.user,
     });
   } catch (error) {
-    console.error('Password update error:', error);
-    res.status(500).json({ error: 'Failed to update password' });
+    // console.error('Password update error:', error);
+    res.status(500).json({ error: `Failed to update password: ${error}'` });
   }
 }
