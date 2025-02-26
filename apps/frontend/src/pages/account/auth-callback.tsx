@@ -34,17 +34,14 @@ export default function AuthCallback() {
         }
 
         const baseUrl = import.meta.env.VITE_BACKEND_URL || '';
-        const response = await fetch(
-          `${baseUrl}/auth/callback`,
-          {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ access_token }),
-          }
-        );
+        const response = await fetch(`${baseUrl}/auth/callback`, {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ access_token }),
+        });
 
         if (!response.ok) {
           const error = await response.json();
@@ -53,7 +50,7 @@ export default function AuthCallback() {
 
         localStorage.setItem('authToken', access_token);
 
-        await new Promise((resolve) => setTimeout(resolve, 100));
+        await new Promise(resolve => setTimeout(resolve, 100));
 
         const authSuccess = await checkAuth();
         if (authSuccess) {

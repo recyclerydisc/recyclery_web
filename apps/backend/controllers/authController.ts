@@ -6,7 +6,7 @@ import {
   LoginBody,
   TokenBody,
   PasswordResetBody,
-  UpdatePasswordBody
+  UpdatePasswordBody,
 } from '../types';
 
 export async function signup(req: Request<{}, {}, SignupBody>, res: Response): Promise<void> {
@@ -168,9 +168,7 @@ export async function verifyEmail(req: Request, res: Response): Promise<void> {
     const type = req.query.type as string;
 
     if (!token_hash || type !== 'signup') {
-      res.redirect(
-        `${process.env.FRONTEND_URL}/auth/callback?error=invalid_verification`
-      );
+      res.redirect(`${process.env.FRONTEND_URL}/auth/callback?error=invalid_verification`);
       return;
     }
 
@@ -195,14 +193,10 @@ export async function verifyEmail(req: Request, res: Response): Promise<void> {
       type: 'signup',
     });
 
-    res.redirect(
-      `${process.env.FRONTEND_URL}/auth/callback?${queryParams.toString()}`
-    );
+    res.redirect(`${process.env.FRONTEND_URL}/auth/callback?${queryParams.toString()}`);
   } catch (error) {
     console.error('Email verification error:', error);
-    res.redirect(
-      `${process.env.FRONTEND_URL}/auth/callback?error=server_error`
-    );
+    res.redirect(`${process.env.FRONTEND_URL}/auth/callback?error=server_error`);
   }
 }
 
@@ -259,8 +253,7 @@ export async function handleOAuthCallback(req: Request, res: Response): Promise<
       throw new Error('No code provided');
     }
 
-    const { data, error: exchangeError } =
-      await supabase.auth.exchangeCodeForSession(code);
+    const { data, error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
 
     if (exchangeError || !data.user || !data.session) {
       throw exchangeError || new Error('Invalid user or session data');
@@ -317,12 +310,10 @@ export async function handleOAuthCallback(req: Request, res: Response): Promise<
   } catch (error) {
     console.error('OAuth callback error:', error);
     res.redirect(
-      `${process.env.FRONTEND_URL}/login?error=` +
-        encodeURIComponent((error as Error).message)
+      `${process.env.FRONTEND_URL}/login?error=` + encodeURIComponent((error as Error).message)
     );
   }
 }
-
 
 export async function handleToken(req: Request<{}, {}, TokenBody>, res: Response): Promise<void> {
   try {
@@ -404,8 +395,10 @@ export async function handleToken(req: Request<{}, {}, TokenBody>, res: Response
   }
 }
 
-
-export async function requestPasswordReset(req: Request<{}, {}, PasswordResetBody>, res: Response): Promise<void> {
+export async function requestPasswordReset(
+  req: Request<{}, {}, PasswordResetBody>,
+  res: Response
+): Promise<void> {
   try {
     const { email } = req.body;
 
@@ -434,9 +427,7 @@ export async function requestPasswordReset(req: Request<{}, {}, PasswordResetBod
     });
   } catch (error) {
     console.error('Password reset request error:', error);
-    res
-      .status(500)
-      .json({ error: 'Failed to process password reset request' });
+    res.status(500).json({ error: 'Failed to process password reset request' });
   }
 }
 
@@ -488,7 +479,10 @@ export async function handlePasswordRecovery(req: Request, res: Response): Promi
   }
 }
 
-export async function updatePassword(req: Request<{}, {}, UpdatePasswordBody>, res: Response): Promise<void> {
+export async function updatePassword(
+  req: Request<{}, {}, UpdatePasswordBody>,
+  res: Response
+): Promise<void> {
   try {
     const { password } = req.body;
     const token = req.headers.authorization?.split(' ')[1];

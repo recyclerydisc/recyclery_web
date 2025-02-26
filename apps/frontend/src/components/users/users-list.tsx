@@ -57,15 +57,12 @@ export default function UsersList() {
       try {
         const token = localStorage.getItem('authToken');
         const baseUrl = import.meta.env.VITE_BACKEND_URL || '';
-        const response = await fetch(
-          `${baseUrl}/auth/users`,
-          {
-            credentials: 'include',
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await fetch(`${baseUrl}/auth/users`, {
+          credentials: 'include',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         if (!response.ok) {
           throw new Error('Failed to fetch users');
@@ -97,13 +94,12 @@ export default function UsersList() {
       {users.length === 0 ? (
         <p>No users found.</p>
       ) : (
-        users.map((user) => (
+        users.map(user => (
           <UserCard key={user.email}>
             <UserInfo>
               <div>
                 <UserName>
-                  {user.firstname} {user.lastname} (
-                  {user.username || 'No username'})
+                  {user.firstname} {user.lastname} ({user.username || 'No username'})
                 </UserName>
                 <UserEmail>{user.email}</UserEmail>
               </div>

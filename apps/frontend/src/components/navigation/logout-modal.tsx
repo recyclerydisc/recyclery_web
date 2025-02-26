@@ -73,7 +73,7 @@ const LogoutModal = ({ isOpen, onClose, onLogout }: LogoutModalProps) => {
 
   return (
     <ModalOverlay onClick={onClose}>
-      <ModalContent onClick={(e) => e.stopPropagation()}>
+      <ModalContent onClick={e => e.stopPropagation()}>
         <Title>Confirm Logout</Title>
         <Message>Are you sure you want to log out?</Message>
         <ButtonContainer>

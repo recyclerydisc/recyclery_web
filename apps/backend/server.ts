@@ -10,7 +10,10 @@ dotenv.config();
 const app: Express = express();
 
 interface CorsOptions {
-  origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => void;
+  origin: (
+    origin: string | undefined,
+    callback: (err: Error | null, allow?: boolean) => void
+  ) => void;
   methods: string[];
   allowedHeaders: string[];
   credentials: boolean;
@@ -19,10 +22,7 @@ interface CorsOptions {
 
 const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
-    const allowedOrigins = [
-      process.env.FRONTEND_URL || '',
-      process.env.FRONTEND_URL_DEV || '',
-    ];
+    const allowedOrigins = [process.env.FRONTEND_URL || '', process.env.FRONTEND_URL_DEV || ''];
 
     if (allowedOrigins.includes(origin || '') || !origin) {
       callback(null, true);
@@ -71,10 +71,7 @@ app.use((err: AppError, _req: Request, res: Response, _next: NextFunction) => {
   });
 
   res.status(err.status || 500).json({
-    error:
-      process.env.NODE_ENV === 'production'
-        ? 'Internal Server Error'
-        : err.message,
+    error: process.env.NODE_ENV === 'production' ? 'Internal Server Error' : err.message,
   });
 });
 

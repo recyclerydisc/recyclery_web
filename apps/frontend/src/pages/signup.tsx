@@ -95,7 +95,6 @@ export default function Signup() {
     } finally {
       setIsLoading(false);
     }
-
   };
 
   return (
@@ -151,8 +150,7 @@ export default function Signup() {
         />
 
         <LoginPrompt>
-          Already have an account?{' '}
-          <StyledLink to="/login">Log in</StyledLink>
+          Already have an account? <StyledLink to="/login">Log in</StyledLink>
         </LoginPrompt>
       </Form>
     </SignupContainer>

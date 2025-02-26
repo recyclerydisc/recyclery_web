@@ -189,7 +189,5 @@ export function UserProvider({ children }: UserProviderProps): React.ReactElemen
     updatePassword,
   };
 
-  return (
-    <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
-  );
+  return <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>;
 }

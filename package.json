@@ -9,10 +9,12 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "test": "turbo run test",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{js,ts,tsx,md,json}\""
   },
   "devDependencies": {
-    "turbo": "latest"
+    "turbo": "latest",
+    "prettier": "^3.0.0"
   },
   "packageManager": "npm@9.6.7"
 }

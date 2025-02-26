@@ -86,19 +86,11 @@ export default function NavBar() {
         <SecondaryButton onClick={handleLogoutClick}>Log Out</SecondaryButton>
       ) : (
         <>
-          <PrimaryButton onClick={() => navigate('/signup')}>
-            Sign Up
-          </PrimaryButton>
-          <SecondaryButton onClick={() => navigate('/login')}>
-            Login
-          </SecondaryButton>
+          <PrimaryButton onClick={() => navigate('/signup')}>Sign Up</PrimaryButton>
+          <SecondaryButton onClick={() => navigate('/login')}>Login</SecondaryButton>
         </>
       )}
-      <LogoutModal
-        isOpen={isModalOpen}
-        onClose={handleModalClose}
-        onLogout={handleLogoutConfirm}
-      />
+      <LogoutModal isOpen={isModalOpen} onClose={handleModalClose} onLogout={handleLogoutConfirm} />
     </StyledNav>
   );
 }

@@ -4,7 +4,7 @@ import { useUser } from '../hooks/useUser';
 export function PrivateRoute() {
   const { user, isLoading } = useUser();
 
-  console.log("user: ", user);
+  console.log('user: ', user);
   if (isLoading) {
     return <div>Loading...</div>;
   }

@@ -1,7 +1,7 @@
 import express, { Router } from 'express';
 import authMiddleware from '../middleware/authMiddleware';
 
-import * as authController from "../controllers/authController";
+import * as authController from '../controllers/authController';
 
 const router: Router = express.Router();
 
@@ -19,4 +19,4 @@ router.get('/verify-recovery', authController.handlePasswordRecovery);
 
 router.get('/users', authMiddleware, authController.getAllUsers);
 
-export default router
+export default router;

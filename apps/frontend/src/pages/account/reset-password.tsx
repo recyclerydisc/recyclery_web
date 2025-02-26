@@ -102,13 +102,9 @@ export default function ResetPassword() {
     });
 
     if (!access_token) {
-      setError(
-        'No reset token found. Please request a new password reset link.'
-      );
+      setError('No reset token found. Please request a new password reset link.');
     } else if (type !== 'recovery') {
-      setError(
-        'Invalid reset link type. Please request a new password reset link.'
-      );
+      setError('Invalid reset link type. Please request a new password reset link.');
     }
   }, []);
 
@@ -162,9 +158,7 @@ export default function ResetPassword() {
     const access_token = hashParams.get('access_token');
 
     if (!access_token) {
-      setError(
-        'Reset token not found. Please request a new password reset link.'
-      );
+      setError('Reset token not found. Please request a new password reset link.');
       return;
     }
 
@@ -187,8 +181,7 @@ export default function ResetPassword() {
 
       navigate('/login', {
         state: {
-          message:
-            'Password has been reset successfully. Please login with your new password.',
+          message: 'Password has been reset successfully. Please login with your new password.',
         },
         replace: true,
       });

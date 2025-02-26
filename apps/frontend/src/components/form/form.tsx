@@ -67,7 +67,7 @@ export function Form({
   title,
   subtitle,
   submitText = 'Submit',
-  isSubmitting = false
+  isSubmitting = false,
 }: FormProps) {
   return (
     <StyledForm onSubmit={onSubmit}>

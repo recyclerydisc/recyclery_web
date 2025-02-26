@@ -120,9 +120,10 @@ export default function Login() {
         navigate(redirectPath, { replace: true });
       }
     } catch (err: unknown) {
-      const errorMessage = err instanceof Error
-        ? err.message
-        : 'Login failed. Please check your credentials and try again.';
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : 'Login failed. Please check your credentials and try again.';
       setError(errorMessage);
     } finally {
       setIsLoading(false);
@@ -168,8 +169,7 @@ export default function Login() {
         </ButtonContainer>
 
         <SignupPrompt>
-          Don't have an account?{' '}
-          <StyledLink to="/signup">Sign up</StyledLink>
+          Don't have an account? <StyledLink to="/signup">Sign up</StyledLink>
         </SignupPrompt>
       </LoginForm>
     </LoginContainer>
