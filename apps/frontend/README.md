@@ -112,10 +112,10 @@ VITE_BACKEND_URL=https://your-backend-url.com
 
 ## 🛠️ Common Issues & Fixes
 
-| Issue                        | Solution |
-|------------------------------|----------|
-| "Module not found" error      | Run `npm install` to reinstall dependencies. |
-| Vite not loading `.env` vars | Restart the server after modifying `.env`. |
+| Issue                        | Solution                                              |
+| ---------------------------- | ----------------------------------------------------- |
+| "Module not found" error     | Run `npm install` to reinstall dependencies.          |
+| Vite not loading `.env` vars | Restart the server after modifying `.env`.            |
 | TypeScript errors            | Check `tsconfig.json` and ensure types are installed. |
 
 ---

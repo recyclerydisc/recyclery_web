@@ -71,13 +71,13 @@ npm run lint
 
 ## Additional Scripts
 
-| Script            | Description                                       |
-|------------------|---------------------------------------------------|
-| `npm run dev`    | Starts both frontend and backend applications    |
-| `npm run build`  | Creates a production-ready build                 |
-| `npm run lint`   | Runs ESLint across all workspaces                |
-| `npm run format` | Runs Prettier to format code                     |
-| `npm test`       | Runs test suites (if applicable)                 |
+| Script           | Description                                   |
+| ---------------- | --------------------------------------------- |
+| `npm run dev`    | Starts both frontend and backend applications |
+| `npm run build`  | Creates a production-ready build              |
+| `npm run lint`   | Runs ESLint across all workspaces             |
+| `npm run format` | Runs Prettier to format code                  |
+| `npm test`       | Runs test suites (if applicable)              |
 
 ## Development Guidelines
 

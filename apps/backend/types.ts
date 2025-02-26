@@ -1,5 +1,5 @@
-import { Request } from 'express';
 import { User } from '@supabase/supabase-js';
+import { Request } from 'express';
 
 export interface AuthRequest extends Request {
   user?: User;
@@ -49,5 +49,5 @@ export interface SupabaseUserMetadata {
   given_name?: string;
   family_name?: string;
   name?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }

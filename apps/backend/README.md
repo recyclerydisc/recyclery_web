@@ -120,12 +120,12 @@ FRONTEND_URL_DEV=http://localhost:5173
 
 ## 🛠️ Common Issues & Fixes
 
-| Issue                          | Solution |
-|--------------------------------|----------|
-| "Module not found" error       | Run `npm install` to reinstall dependencies. |
-| `.env` variables not loading   | Restart the server after modifying `.env`. |
-| Supabase authentication fails  | Ensure `SUPABASE_URL` and `SUPABASE_ANON_KEY` are correct. |
-| CORS issues                    | Check `FRONTEND_URL` in `.env` and update `corsOptions`. |
+| Issue                         | Solution                                                   |
+| ----------------------------- | ---------------------------------------------------------- |
+| "Module not found" error      | Run `npm install` to reinstall dependencies.               |
+| `.env` variables not loading  | Restart the server after modifying `.env`.                 |
+| Supabase authentication fails | Ensure `SUPABASE_URL` and `SUPABASE_ANON_KEY` are correct. |
+| CORS issues                   | Check `FRONTEND_URL` in `.env` and update `corsOptions`.   |
 
 ---
 
