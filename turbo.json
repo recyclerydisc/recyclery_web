@@ -9,12 +9,22 @@
       "cache": false,
       "persistent": true
     },
-    "lint": {},
+    "lint": {
+      "outputs": []
+    },
+    "lint:fix": {
+      "outputs": []
+    },
     "test": {
-      "dependsOn": ["build"]
+      "dependsOn": ["build"],
+      "outputs": []
     },
     "format": {
       "cache": false
+    },
+    "check": {
+      "dependsOn": ["lint", "build", "test"],
+      "outputs": []
     }
   }
 }
