@@ -1,13 +1,6 @@
-Here’s an improved and structured `README.md` for the backend application:
+# Backend Application
 
----
-
-### `README.md` for Backend API
-
-```md
-# Backend API
-
-_2025 Discover Program - Backend API_
+_2025 Discover Program - Backend Application_
 
 This repository contains the **Express.js + TypeScript** backend for the Discover Program. It serves as the authentication and data management layer, integrating with **Supabase** for user authentication.
 
