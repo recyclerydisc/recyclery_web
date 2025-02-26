@@ -172,8 +172,6 @@ export function UserProvider({ children }: UserProviderProps): React.ReactElemen
       await loadUser();
     };
     initialize();
-    // We're intentionally not including loadUser in the dependency array
-    // because we only want to call it once when the component mounts
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
