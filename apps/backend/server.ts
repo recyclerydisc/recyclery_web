@@ -1,9 +1,8 @@
-import express, { Express, Request, Response, NextFunction } from 'express';
-import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 import dotenv from 'dotenv';
-
-import authRoutes from './routes/authRoutes';
+import express, { Express, NextFunction, Request, Response } from 'express';
+import authRoutes from './routes/authRoutes.js';
 
 dotenv.config();
 
@@ -38,12 +37,12 @@ const corsOptions: CorsOptions = {
 
 app.use(cors(corsOptions));
 
-if (process.env.NODE_ENV !== 'production') {
-  console.log('CORS Configuration:', {
-    origin: process.env.FRONTEND_URL,
-    credentials: true,
-  });
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   console.log('CORS Configuration:', {
+//     origin: process.env.FRONTEND_URL,
+//     credentials: true,
+//   });
+// }
 
 app.use(cookieParser());
 app.use(express.json());
@@ -64,11 +63,11 @@ interface AppError extends Error {
 }
 
 app.use((err: AppError, _req: Request, res: Response, _next: NextFunction) => {
-  console.error('Error details:', {
-    message: err.message,
-    stack: err.stack,
-    status: err.status || 500,
-  });
+  // console.error('Error details:', {
+  //   message: err.message,
+  //   stack: err.stack,
+  //   status: err.status || 500,
+  // });
 
   res.status(err.status || 500).json({
     error: process.env.NODE_ENV === 'production' ? 'Internal Server Error' : err.message,
@@ -77,9 +76,9 @@ app.use((err: AppError, _req: Request, res: Response, _next: NextFunction) => {
 
 const PORT: number = parseInt(process.env.PORT || '3000', 10);
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`Frontend URL: ${process.env.FRONTEND_URL}`);
+  // console.log(`Server running on port ${PORT}`);
+  // console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  // console.log(`Frontend URL: ${process.env.FRONTEND_URL}`);
 });
 
 export default app;

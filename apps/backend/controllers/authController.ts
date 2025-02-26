@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import supabase from '../config/supabase';
+import supabase from '../config/supabase.js';
 import {
   AuthRequest,
   LoginBody,
@@ -7,7 +7,7 @@ import {
   SignupBody,
   TokenBody,
   UpdatePasswordBody,
-} from '../types';
+} from '../types.js';
 
 export async function signup(
   req: Request<object, object, SignupBody>,

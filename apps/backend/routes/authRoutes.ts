@@ -1,22 +1,20 @@
 import express, { Router } from 'express';
-import authMiddleware from '../middleware/authMiddleware';
+import * as authController from '../controllers/authController.js';
+import authMiddleware from '../middleware/authMiddleware.js';
 
-import * as authController from '../controllers/authController';
+const authRoutes: Router = express.Router();
 
-const router: Router = express.Router();
+authRoutes.post('/signup', authController.signup);
+authRoutes.post('/login', authController.login);
+authRoutes.post('/logout', authController.logout);
+authRoutes.get('/verify', authController.verifyEmail);
+authRoutes.get('/me', authController.getMe);
+authRoutes.get('/google', authController.googleAuth);
+authRoutes.get('/callback', authController.handleOAuthCallback);
+authRoutes.post('/callback', authController.handleToken);
+authRoutes.post('/reset-password', authController.requestPasswordReset);
+authRoutes.put('/reset-password', authController.updatePassword);
+authRoutes.get('/verify-recovery', authController.handlePasswordRecovery);
+authRoutes.get('/users', authMiddleware, authController.getAllUsers);
 
-router.post('/signup', authController.signup);
-router.post('/login', authController.login);
-router.post('/logout', authController.logout);
-router.get('/verify', authController.verifyEmail);
-router.get('/me', authController.getMe);
-router.get('/google', authController.googleAuth);
-router.get('/callback', authController.handleOAuthCallback);
-router.post('/callback', authController.handleToken);
-router.post('/reset-password', authController.requestPasswordReset);
-router.put('/reset-password', authController.updatePassword);
-router.get('/verify-recovery', authController.handlePasswordRecovery);
-
-router.get('/users', authMiddleware, authController.getAllUsers);
-
-export default router;
+export default authRoutes;

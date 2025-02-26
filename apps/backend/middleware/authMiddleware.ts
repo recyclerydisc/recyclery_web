@@ -1,6 +1,6 @@
-import { Response, NextFunction } from 'express';
-import supabase from '../config/supabase';
-import { AuthRequest } from '../types';
+import { NextFunction, Response } from 'express';
+import supabase from '../config/supabase.js';
+import type { AuthRequest } from '../types.js';
 
 const authMiddleware = async (
   req: AuthRequest,
@@ -30,8 +30,8 @@ const authMiddleware = async (
 
     req.user = user;
     next();
-  } catch (error) {
-    console.error('Auth middleware error:', error);
+  } catch {
+    // console.error('Auth middleware error:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };

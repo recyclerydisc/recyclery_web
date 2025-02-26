@@ -4,18 +4,8 @@
 > eslint .
 
 [0m[0m
-[0m[4m/Users/ethanpineda/Desktop/Develop & Inovate for Social Change/full-stack-template-typescript/apps/backend/middleware/authMiddleware.ts[24m[0m
-[0m  [2m34:5[22m  [33mwarning[39m  Unexpected console statement  [2mno-console[22m[0m
-[0m[0m
-[0m[4m/Users/ethanpineda/Desktop/Develop & Inovate for Social Change/full-stack-template-typescript/apps/backend/server.ts[24m[0m
-[0m  [2m42:3[22m  [33mwarning[39m  Unexpected console statement  [2mno-console[22m[0m
-[0m  [2m67:3[22m  [33mwarning[39m  Unexpected console statement  [2mno-console[22m[0m
-[0m  [2m80:3[22m  [33mwarning[39m  Unexpected console statement  [2mno-console[22m[0m
-[0m  [2m81:3[22m  [33mwarning[39m  Unexpected console statement  [2mno-console[22m[0m
-[0m  [2m82:3[22m  [33mwarning[39m  Unexpected console statement  [2mno-console[22m[0m
-[0m[0m
 [0m[4m/Users/ethanpineda/Desktop/Develop & Inovate for Social Change/full-stack-template-typescript/apps/backend/types.ts[24m[0m
 [0m  [2m52:18[22m  [33mwarning[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
 [0m[0m
-[0m[33m[1m✖ 7 problems (0 errors, 7 warnings)[22m[39m[0m
+[0m[33m[1m✖ 1 problem (0 errors, 1 warning)[22m[39m[0m
 [0m[33m[1m[22m[39m[0m
