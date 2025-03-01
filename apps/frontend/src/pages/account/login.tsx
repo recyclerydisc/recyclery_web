@@ -87,7 +87,7 @@ export default function Login() {
         <Link className='bg-red decoration-0 text-[0.9rem] mt-2 self-end' to="/forgot-password">Forgot Password?</Link>
 
         <div className='mt-2'>
-          <button className='w-full p-[10px] border-none rounded-[4px] bg-amber-400 text-white text-[1rem] cursor-pointer transition-colors' type="submit" disabled={isLoading}>
+          <button className='w-full p-[10px] border-none rounded-[4px] bg-maroon-500 hover:bg-maroon-800 text-white text-[1rem] cursor-pointer transition-colors' type="submit" disabled={isLoading}>
             {isLoading ? 'Logging in...' : 'Log In'}
           </button>
         </div>
