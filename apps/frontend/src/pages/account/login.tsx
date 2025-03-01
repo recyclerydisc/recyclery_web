@@ -93,7 +93,7 @@ export default function Login() {
         </div>
 
         <div className='mt-4'>
-          Don't have an account? <Link className='bg-red decoration-0 text-[0.9rem] mt-2 self-end' to="/signup">Sign up</Link>
+          Don't have an account? <Link className='bg-red text-[0.9rem] mt-2 self-end hover:underline' to="/signup">Sign up</Link>
         </div>
       </form>
     </div>

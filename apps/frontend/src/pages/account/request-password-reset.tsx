@@ -1,77 +1,6 @@
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { styled } from 'styled-components';
 import { useUser } from '../../hooks/useUser';
-
-const Container = styled.div`
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 20px;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-
-const Input = styled.input`
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-`;
-
-const Button = styled.button`
-  padding: 10px;
-  background-color: #646cff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: #535bf2;
-  }
-
-  &:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-`;
-
-const ErrorMessage = styled.div`
-  color: red;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 4px;
-  background-color: #ffe6e6;
-`;
-
-const SuccessMessage = styled.div`
-  color: #2e7d32;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 4px;
-  background-color: #edf7ed;
-`;
-
-const StyledLink = styled(Link)`
-  color: #646cff;
-  text-decoration: none;
-  text-align: center;
-  margin-top: 10px;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const Title = styled.h2`
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-`;
 
 export default function RequestPasswordReset() {
   const [email, setEmail] = useState<string>('');
@@ -96,11 +25,11 @@ export default function RequestPasswordReset() {
   };
 
   return (
-    <Container>
-      <Title>Reset Password</Title>
+    <div className='max-w-[400px] mx-[40px] my-auto'>
+      <h2 className='text-center text-amber-400 mb-5'>Reset Password</h2>
       {!success ? (
-        <Form onSubmit={handleSubmit}>
-          <Input
+        <form className='flex flex-col gap-5' onSubmit={handleSubmit}>
+          <input className='p-[10px] border-2 rounded-[4px]'
             type="email"
             placeholder="Enter your email"
             value={email}
@@ -108,22 +37,22 @@ export default function RequestPasswordReset() {
             required
             autoComplete="email"
           />
-          <Button type="submit" disabled={isLoading}>
+          <button className='p-[10px] bg-amber-400 text-white border-none rounded-[4px] cursor-pointer transition-colors hover:bg-amber-600 disabled:bg-amber-300' type="submit" disabled={isLoading}>
             {isLoading ? 'Sending...' : 'Reset Password'}
-          </Button>
-          {error && <ErrorMessage>{error}</ErrorMessage>}
-          <StyledLink to="/login">Back to Login</StyledLink>
-        </Form>
+          </button>
+          {error && <div className='text-red-500 mt-[10px] p-[10px] rounded-[4px] bg-amber-400'>{error}</div>}
+          <Link className='text-amber-400 text-center mt-[10px] hover:underline' to="/login">Back to Login</Link>
+        </form>
       ) : (
         <div>
-          <SuccessMessage>
+          <div className='text-white mt-[10px] p-[10px] rounded-[4px] bg-amber-400'>
             Password reset instructions have been sent to your email. Please check your inbox and
             follow the instructions to reset your password. If you don't receive the email within a
             few minutes, please check your spam folder.
-          </SuccessMessage>
-          <StyledLink to="/login">Back to Login</StyledLink>
+          </div>
+          <Link className='text-amber-400 text-center mt-[10px] hover:underline' to="/login">Back to Login</Link>
         </div>
       )}
-    </Container>
+    </div>
   );
 }
