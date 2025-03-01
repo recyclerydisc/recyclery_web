@@ -5,7 +5,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "moduleResolution": "bundler",
+    "moduleResolution": "bundler"
   },
   "include": ["src", "vite.config.ts"]
 }

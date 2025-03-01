@@ -58,8 +58,8 @@ export default function AuthCallback() {
   }, [navigate, checkAuth]);
 
   return (
-    <div className='flex justify-center items-center min-h-[100vh]'>
-      <p className='text-[1rem] text-amber-400'>Completing authentication...</p>
+    <div className="flex justify-center items-center min-h-[100vh]">
+      <p className="text-[1rem] text-amber-400">Completing authentication...</p>
     </div>
   );
 }

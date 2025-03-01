@@ -55,9 +55,12 @@ export default function Login() {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center min-h-[80vh]'>
-      <form className='flex flex-col gap-4 w-full max-w-[400px] p-8 bg-white shadow' onSubmit={handleSubmit}>
-        <h2 className='mb-4 text-center text-[1.8rem] font-roc'>Log In</h2>
+    <div className="flex flex-col justify-center items-center min-h-[80vh]">
+      <form
+        className="flex flex-col gap-4 w-full max-w-[400px] p-8 bg-white shadow"
+        onSubmit={handleSubmit}
+      >
+        <h2 className="mb-4 text-center text-[1.8rem] font-roc">Log In</h2>
 
         {locationState?.message && (
           <div style={{ color: 'green', marginBottom: '16px', textAlign: 'center' }}>
@@ -65,7 +68,7 @@ export default function Login() {
           </div>
         )}
 
-        {error && <span className='text-center block mb-2'>{error}</span>}
+        {error && <span className="text-center block mb-2">{error}</span>}
 
         <Input.Text
           title="Email"
@@ -84,16 +87,25 @@ export default function Login() {
           required
         />
 
-        <Link className='bg-red decoration-0 text-[0.9rem] mt-2 self-end' to="/forgot-password">Forgot Password?</Link>
+        <Link className="bg-red decoration-0 text-[0.9rem] mt-2 self-end" to="/forgot-password">
+          Forgot Password?
+        </Link>
 
-        <div className='mt-2'>
-          <button className='w-full p-[10px] border-none rounded-[4px] bg-maroon-500 hover:bg-maroon-800 text-white text-[1rem] cursor-pointer transition-colors' type="submit" disabled={isLoading}>
+        <div className="mt-2">
+          <button
+            className="w-full p-[10px] border-none rounded-[4px] bg-maroon-500 hover:bg-maroon-800 text-white text-[1rem] cursor-pointer transition-colors"
+            type="submit"
+            disabled={isLoading}
+          >
             {isLoading ? 'Logging in...' : 'Log In'}
           </button>
         </div>
 
-        <div className='mt-4'>
-          Don't have an account? <Link className='bg-red text-[0.9rem] mt-2 self-end hover:underline' to="/signup">Sign up</Link>
+        <div className="mt-4">
+          Don't have an account?{' '}
+          <Link className="bg-red text-[0.9rem] mt-2 self-end hover:underline" to="/signup">
+            Sign up
+          </Link>
         </div>
       </form>
     </div>

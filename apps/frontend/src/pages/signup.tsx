@@ -66,7 +66,7 @@ export default function Signup() {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center min-h-[80vh] px-8 py-4'>
+    <div className="flex flex-col justify-center items-center min-h-[80vh] px-8 py-4">
       <Form
         onSubmit={handleSubmit}
         title="Create an Account"
@@ -74,7 +74,7 @@ export default function Signup() {
         submitText="Sign Up"
         isSubmitting={isLoading}
       >
-        {error && <p className='text-center block mb-2'>{error}</p>}
+        {error && <p className="text-center block mb-2">{error}</p>}
 
         <Input.Text
           title="Email"
@@ -117,8 +117,11 @@ export default function Signup() {
           required
         />
 
-        <div className='mt-4 text-center'>
-          Already have an account? <Link className='text-amber-500 text-[0.9rem] hover:underline' to="/login">Log in</Link>
+        <div className="mt-4 text-center">
+          Already have an account?{' '}
+          <Link className="text-amber-500 text-[0.9rem] hover:underline" to="/login">
+            Log in
+          </Link>
         </div>
       </Form>
     </div>

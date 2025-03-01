@@ -21,18 +21,24 @@ export default function EmailVerification() {
   }, [searchParams, navigate]);
 
   return (
-    <div className='flex flex-col justify-center items-center text-center pt-[100px]'>
-      {status === 'checking' && <h1 className='text-[2.5em] font-bold m-0'>Checking verification status...</h1>}
+    <div className="flex flex-col justify-center items-center text-center pt-[100px]">
+      {status === 'checking' && (
+        <h1 className="text-[2.5em] font-bold m-0">Checking verification status...</h1>
+      )}
       {status === 'success' && (
         <>
-          <h1 className='text-[2.5em] font-bold m-0'>Email Verified!</h1>
-          <h2 className='text-[1.5em] m-0 font-normal'>{"You'll be redirected to login in 3 seconds..."}</h2>
+          <h1 className="text-[2.5em] font-bold m-0">Email Verified!</h1>
+          <h2 className="text-[1.5em] m-0 font-normal">
+            {"You'll be redirected to login in 3 seconds..."}
+          </h2>
         </>
       )}
       {status === 'error' && (
         <>
-          <h1 className='text-[2.5em] font-bold m-0'>Verification Failed</h1>
-          <h2 className='text-[1.5em] m-0 font-normal'>Please try signing up again or contact support.</h2>
+          <h1 className="text-[2.5em] font-bold m-0">Verification Failed</h1>
+          <h2 className="text-[1.5em] m-0 font-normal">
+            Please try signing up again or contact support.
+          </h2>
         </>
       )}
     </div>

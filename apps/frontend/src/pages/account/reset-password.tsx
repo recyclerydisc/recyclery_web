@@ -94,37 +94,43 @@ export default function ResetPassword() {
   };
 
   return (
-    <div className='max-w-[400px] mx-[40px] my-auto p-[20px]'>
+    <div className="max-w-[400px] mx-[40px] my-auto p-[20px]">
       <h2>Set New Password</h2>
-      <form className='flex flex-col gap-5' onSubmit={handleSubmit}>
-        <div className='flex flex-col'>
-          <input className='p-[10px] border-2 rounded-[4px]'
+      <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+        <div className="flex flex-col">
+          <input
+            className="p-[10px] border-2 rounded-[4px]"
             type="password"
             placeholder="New Password"
             value={password}
             onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
             required
           />
-          <div className='h-[5px] mt-[5px] bg-amber-400 w-[full] transition-all'/>
+          <div className="h-[5px] mt-[5px] bg-amber-400 w-[full] transition-all" />
           {password && (
-            <ul className='text-[0.8rem] text-amber-300 mt-[5px] pl-5'>
+            <ul className="text-[0.8rem] text-amber-300 mt-[5px] pl-5">
               {validatePassword(password).map((req, index) => (
                 <li key={index}>{req}</li>
               ))}
             </ul>
           )}
         </div>
-        <input className='p-[10px] border-2 rounded-[4px]'
+        <input
+          className="p-[10px] border-2 rounded-[4px]"
           type="password"
           placeholder="Confirm New Password"
           value={confirmPassword}
           onChange={(e: ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
           required
         />
-        <button className='p-[10px] bg-amber-400 text-white border-none rounded-[4px] cursor-pointer disabled:bg-amber-300 disabled:cursor-not-allowed' type="submit" disabled={isLoading}>
+        <button
+          className="p-[10px] bg-amber-400 text-white border-none rounded-[4px] cursor-pointer disabled:bg-amber-300 disabled:cursor-not-allowed"
+          type="submit"
+          disabled={isLoading}
+        >
           {isLoading ? 'Updating...' : 'Update Password'}
         </button>
-        {error && <div className='text-red-500 mt-[10px]'>{error}</div>}
+        {error && <div className="text-red-500 mt-[10px]">{error}</div>}
       </form>
     </div>
   );
