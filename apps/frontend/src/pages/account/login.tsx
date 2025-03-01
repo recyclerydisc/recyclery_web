@@ -57,7 +57,7 @@ export default function Login() {
   return (
     <div className='flex flex-col justify-center items-center min-h-[80vh]'>
       <form className='flex flex-col gap-4 w-full max-w-[400px] p-8 bg-white shadow' onSubmit={handleSubmit}>
-        <h2 className='mb-4 text-center text-[1.8rem]'>Log In</h2>
+        <h2 className='mb-4 text-center text-[1.8rem] font-roc'>Log In</h2>
 
         {locationState?.message && (
           <div style={{ color: 'green', marginBottom: '16px', textAlign: 'center' }}>

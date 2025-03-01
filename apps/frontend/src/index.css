@@ -1,3 +1,18 @@
+@font-face {
+  font-family: BookmanCE;
+  src: url("../src/assets/fonts/Bookman_CE_Bold_Italic.ttf");
+}
+
+@font-face {
+  font-family: BrandonGrotesque;
+  src: url("../src/assets/fonts/Brandon_Grotesque_Medium.ttf");
+}
+
+@font-face {
+  font-family: RocGrotesk;
+  src: url("../src/assets/fonts/Roc_Grotesk_Regular.ttf");
+}
+
 @import "tailwindcss";
 
 @theme {
@@ -36,6 +51,25 @@
   --color-green-700: oklch(57.96% 0.1425 124.05);
   --color-green-800: oklch(53.96% 0.1425 124.05);
   --color-green-900: oklch(50.96% 0.1425 124.05);
+
+  --color-background: oklch(98.56% 0.0084 56.32);
+
+  --text-display1: 72px;
+  --text-display2: 56px;
+  --text-button1: 32px;
+  --text-button2: 24px;
+  --text-heading1: 48px;
+  --text-heading2: 40px;
+  --text-subheading1: 36px;
+  --text-subheading2: 32px;
+  --text-body1: 24px;
+  --text-body2: 18px;
+
+  /*
+  --font-bookman: BookmanCE;
+  --font-brandon: BrandonGGrotesque;
+  --font-roc: RocGrotesque;
+  */
 }
 
 :root {
