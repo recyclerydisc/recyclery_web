@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
-import { useUser } from '../hooks/useUser';
 import UsersList from '../components/users/users-list';
+import { useUser } from '../hooks/useUser';
 
 const TextContainer = styled.div`
   display: flex;
@@ -33,12 +33,12 @@ export default function Home() {
   const { user } = useUser();
 
   return (
-    <HomePage>
-      <TextContainer>
-        <Title>Home Page</Title>
-        <Subtitle>Welcome, {user?.firstname || 'User'}!</Subtitle>
-      </TextContainer>
+    <div className='flex flex-col justify-center items-center p-8'>
+      <div className='flex flex-col gap-5'>
+        <h1 className='text-[2.5em] font-bold m-0'>Home Page</h1>
+        <h2 className='font-[1.5em] m-0 font-normal'>Welcome, {user?.firstname || 'User'}</h2>
+      </div>
       <UsersList />
-    </HomePage>
-  );
+    </div>
+  )
 }
