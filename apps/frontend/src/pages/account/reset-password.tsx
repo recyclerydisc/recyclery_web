@@ -1,86 +1,6 @@
-import { useEffect, useState, FormEvent, ChangeEvent } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { styled } from 'styled-components';
 import { useUser } from '../../hooks/useUser';
-
-const Container = styled.div`
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 20px;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-
-const Input = styled.input`
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-`;
-
-const Button = styled.button`
-  padding: 10px;
-  background-color: #646cff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-`;
-
-const ErrorMessage = styled.div`
-  color: red;
-  margin-top: 10px;
-`;
-
-const PasswordStrength = styled.div<{ strength: 'weak' | 'medium' | 'strong' | 'none' }>`
-  height: 5px;
-  margin-top: 5px;
-  background-color: ${({ strength }) => {
-    switch (strength) {
-      case 'weak':
-        return '#ff4d4d';
-      case 'medium':
-        return '#ffd700';
-      case 'strong':
-        return '#32cd32';
-      default:
-        return '#ccc';
-    }
-  }};
-  width: ${({ strength }) => {
-    switch (strength) {
-      case 'weak':
-        return '33%';
-      case 'medium':
-        return '66%';
-      case 'strong':
-        return '100%';
-      default:
-        return '0%';
-    }
-  }};
-  transition: all 0.3s ease;
-`;
-
-const PasswordRequirements = styled.ul`
-  font-size: 0.8rem;
-  color: #666;
-  margin-top: 5px;
-  padding-left: 20px;
-`;
-
-const PasswordContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
 export default function ResetPassword() {
   const [password, setPassword] = useState<string>('');
@@ -107,26 +27,6 @@ export default function ResetPassword() {
       setError('Invalid reset link type. Please request a new password reset link.');
     }
   }, []);
-
-  const checkPasswordStrength = (pass: string): 'weak' | 'medium' | 'strong' | 'none' => {
-    if (!pass) return 'none';
-
-    const hasUpperCase = /[A-Z]/.test(pass);
-    const hasLowerCase = /[a-z]/.test(pass);
-    const hasNumbers = /\d/.test(pass);
-    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(pass);
-
-    const strength =
-      (hasUpperCase ? 1 : 0) +
-      (hasLowerCase ? 1 : 0) +
-      (hasNumbers ? 1 : 0) +
-      (hasSpecialChar ? 1 : 0) +
-      (pass.length >= 8 ? 1 : 0);
-
-    if (strength >= 4) return 'strong';
-    if (strength >= 2) return 'medium';
-    return 'weak';
-  };
 
   const validatePassword = (pass: string): string[] => {
     const requirements: string[] = [];
@@ -194,38 +94,44 @@ export default function ResetPassword() {
   };
 
   return (
-    <Container>
+    <div className="max-w-[400px] mx-[40px] my-auto p-[20px]">
       <h2>Set New Password</h2>
-      <Form onSubmit={handleSubmit}>
-        <PasswordContainer>
-          <Input
+      <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+        <div className="flex flex-col">
+          <input
+            className="p-[10px] border-2 rounded-[4px]"
             type="password"
             placeholder="New Password"
             value={password}
             onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
             required
           />
-          <PasswordStrength strength={checkPasswordStrength(password)} />
+          <div className="h-[5px] mt-[5px] bg-amber-400 w-[full] transition-all" />
           {password && (
-            <PasswordRequirements>
+            <ul className="text-[0.8rem] text-amber-300 mt-[5px] pl-5">
               {validatePassword(password).map((req, index) => (
                 <li key={index}>{req}</li>
               ))}
-            </PasswordRequirements>
+            </ul>
           )}
-        </PasswordContainer>
-        <Input
+        </div>
+        <input
+          className="p-[10px] border-2 rounded-[4px]"
           type="password"
           placeholder="Confirm New Password"
           value={confirmPassword}
           onChange={(e: ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
           required
         />
-        <Button type="submit" disabled={isLoading}>
+        <button
+          className="p-[10px] bg-amber-400 text-white border-none rounded-[4px] cursor-pointer disabled:bg-amber-300 disabled:cursor-not-allowed"
+          type="submit"
+          disabled={isLoading}
+        >
           {isLoading ? 'Updating...' : 'Update Password'}
-        </Button>
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-      </Form>
-    </Container>
+        </button>
+        {error && <div className="text-red-500 mt-[10px]">{error}</div>}
+      </form>
+    </div>
   );
 }

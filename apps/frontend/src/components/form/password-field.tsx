@@ -1,6 +1,5 @@
-import { useState, ChangeEvent } from 'react';
-import { StyledInput, PasswordContainer, IconContainer } from './styles';
-import { EyeIcon, EyeClosedIcon } from './icons';
+import { ChangeEvent, useState } from 'react';
+import { EyeClosedIcon, EyeIcon } from './icons';
 
 interface PasswordFieldProps {
   name: string;
@@ -17,12 +16,12 @@ const PasswordField = (props: PasswordFieldProps) => {
   };
 
   return (
-    <PasswordContainer>
-      <StyledInput type={showPassword ? 'text' : 'password'} {...props} />
-      <IconContainer onClick={toggleShowPassword}>
+    <div className='relative w-fit'>
+      <input className='text-[1rem] p-2 border rounded-[8px] w-full max-w-[375px]' type={showPassword ? 'text' : 'password'} {...props} />
+      <div className='absolute right-[10px] top-2 bg-white cursor-pointer' onClick={toggleShowPassword}>
         {showPassword ? <EyeClosedIcon /> : <EyeIcon />}
-      </IconContainer>
-    </PasswordContainer>
+      </div>
+    </div>
   );
 };
 

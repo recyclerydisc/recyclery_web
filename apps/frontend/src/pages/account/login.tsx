@@ -1,83 +1,7 @@
-import { useState, FormEvent, ChangeEvent } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { styled } from 'styled-components';
-import { useUser } from '../../hooks/useUser';
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Input } from '../../components/form/input';
-import { RedSpan } from '../../components/form/styles';
-
-const LoginContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 80vh;
-`;
-
-const LoginForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  max-width: 400px;
-  padding: 32px;
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-`;
-
-const FormTitle = styled.h2`
-  margin: 0 0 16px 0;
-  text-align: center;
-  font-size: 1.8rem;
-`;
-
-const ButtonContainer = styled.div`
-  margin-top: 8px;
-`;
-
-const LoginButton = styled.button`
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #646cff;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background-color: #535bf2;
-  }
-
-  &:disabled {
-    background-color: #a5a5a5;
-    cursor: not-allowed;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  color: #646cff;
-  text-decoration: none;
-  font-size: 0.9rem;
-  margin-top: 8px;
-  align-self: flex-end;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const SignupPrompt = styled.div`
-  margin-top: 16px;
-  text-align: center;
-`;
-
-const ErrorMessage = styled(RedSpan)`
-  text-align: center;
-  display: block;
-  margin-bottom: 8px;
-`;
+import { useUser } from '../../hooks/useUser';
 
 interface LoginState {
   email: string;
@@ -131,9 +55,12 @@ export default function Login() {
   };
 
   return (
-    <LoginContainer>
-      <LoginForm onSubmit={handleSubmit}>
-        <FormTitle>Log In</FormTitle>
+    <div className="flex flex-col justify-center items-center min-h-[80vh]">
+      <form
+        className="flex flex-col gap-4 w-full max-w-[400px] p-8 bg-white shadow"
+        onSubmit={handleSubmit}
+      >
+        <h2 className="mb-4 text-center text-[1.8rem] font-roc">Log In</h2>
 
         {locationState?.message && (
           <div style={{ color: 'green', marginBottom: '16px', textAlign: 'center' }}>
@@ -141,7 +68,7 @@ export default function Login() {
           </div>
         )}
 
-        {error && <ErrorMessage>{error}</ErrorMessage>}
+        {error && <span className="text-center block mb-2">{error}</span>}
 
         <Input.Text
           title="Email"
@@ -160,18 +87,27 @@ export default function Login() {
           required
         />
 
-        <StyledLink to="/forgot-password">Forgot Password?</StyledLink>
+        <Link className="bg-red decoration-0 text-[0.9rem] mt-2 self-end" to="/forgot-password">
+          Forgot Password?
+        </Link>
 
-        <ButtonContainer>
-          <LoginButton type="submit" disabled={isLoading}>
+        <div className="mt-2">
+          <button
+            className="w-full p-[10px] border-none rounded-[4px] bg-maroon-500 hover:bg-maroon-800 text-white text-[1rem] cursor-pointer transition-colors"
+            type="submit"
+            disabled={isLoading}
+          >
             {isLoading ? 'Logging in...' : 'Log In'}
-          </LoginButton>
-        </ButtonContainer>
+          </button>
+        </div>
 
-        <SignupPrompt>
-          Don't have an account? <StyledLink to="/signup">Sign up</StyledLink>
-        </SignupPrompt>
-      </LoginForm>
-    </LoginContainer>
+        <div className="mt-4">
+          Don't have an account?{' '}
+          <Link className="bg-red text-[0.9rem] mt-2 self-end hover:underline" to="/signup">
+            Sign up
+          </Link>
+        </div>
+      </form>
+    </div>
   );
 }

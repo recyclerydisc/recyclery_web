@@ -1,5 +1,4 @@
 import React from 'react';
-import { InputContainer, InputName, InputTitle, RedSpan } from './styles';
 
 interface TitledInputProps {
   title: string;
@@ -9,13 +8,13 @@ interface TitledInputProps {
 
 const TitledInput = ({ title, required, children }: TitledInputProps) => {
   return (
-    <InputContainer>
-      <InputName>
-        <InputTitle>{title}</InputTitle>
-        {required && <RedSpan>*</RedSpan>}
-      </InputName>
+    <div className='absolute right-[10px] top-[8px] bg-white cursor-pointer'>
+      <h3 className='m-0 text-left font-normal text-[1rem] mb-1'>
+        <span className='mb-1'>{title}</span>
+        {required && <span className='text-red-500'>*</span>}
+      </h3>
       {children}
-    </InputContainer>
+    </div>
   );
 };
 
