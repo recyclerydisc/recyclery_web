@@ -1,56 +1,4 @@
 import { FormEvent, ReactNode } from 'react';
-import { styled } from 'styled-components';
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 32px;
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 450px;
-`;
-
-const FormHeader = styled.div`
-  margin-bottom: 16px;
-`;
-
-const Title = styled.h2`
-  font-size: 1.8rem;
-  margin: 0;
-  text-align: center;
-`;
-
-const Subtitle = styled.p`
-  color: #666;
-  margin: 8px 0 0;
-  text-align: center;
-`;
-
-const SubmitButton = styled.button`
-  width: 100%;
-  padding: 12px;
-  background-color: #646cff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  margin-top: 16px;
-
-  &:hover {
-    background-color: #535bf2;
-  }
-
-  &:disabled {
-    background-color: #a5a5a5;
-    cursor: not-allowed;
-  }
-`;
 
 interface FormProps {
   children: ReactNode;
@@ -70,19 +18,19 @@ export function Form({
   isSubmitting = false,
 }: FormProps) {
   return (
-    <StyledForm onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className='flex flex-col gap-4 p-8 rounded-[8px] bg-white shadow w-full max-w-[450px]'>
       {(title || subtitle) && (
-        <FormHeader>
-          {title && <Title>{title}</Title>}
-          {subtitle && <Subtitle>{subtitle}</Subtitle>}
-        </FormHeader>
+        <div className='mb-4'>
+          {title && <h2 className='text-[1.8rem] m-0 text-center'>{title}</h2>}
+          {subtitle && <p className='text-maroon-500 mx-2 text-center'>{subtitle}</p>}
+        </div>
       )}
 
       {children}
 
-      <SubmitButton type="submit" disabled={isSubmitting}>
+      <button className='w-full p-3 bg-tan-500 text-white border-none rounded-[4px] text-[1rem] font-medium cursor-pointer transition-colors mt-4 hover:bg-tan-900 disabled:bg-amber-500 disabled:cursor-not-allowed' type="submit" disabled={isSubmitting}>
         {isSubmitting ? 'Processing...' : submitText}
-      </SubmitButton>
-    </StyledForm>
+      </button>
+    </form>
   );
 }
