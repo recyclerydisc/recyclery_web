@@ -22,7 +22,7 @@ export default function SideMenuItem({ title, subItems, currentActiveAccordion, 
         {
           subItems.map((subItem) => {
             return (
-              <Link to={subItem.destination} className='w-full flex justify-start items-center gap-4 px-4 py-3 rounded-2xl bg-tan-500 hover:bg-tan-600 group cursor-pointer transition-colors'>
+              <Link key={subItem.title} to={subItem.destination} className='w-full flex justify-start items-center gap-4 px-4 py-3 rounded-2xl bg-tan-500 hover:bg-tan-600 group cursor-pointer transition-colors'>
                 <div>
                   {subItem.icon}
                 </div>
