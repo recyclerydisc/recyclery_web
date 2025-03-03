@@ -1,9 +1,9 @@
 import { Bike } from "lucide-react";
-import { FacebookIcon, InstagramIcon } from "./icons";
+import { FacebookIcon, InstagramIcon } from "../icons/icons";
 
 export default function Footer() {
   return (
-    <div className="p-9 flex flex-col gap-6 bg-darkblue-800 text-white">
+    <div className="p-8 flex flex-col gap-4 bg-darkblue-800 text-white">
       <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
         <div className='flex justify-start items-center gap-2'>
           <Bike className='size-10'/>
@@ -28,10 +28,14 @@ export default function Footer() {
       </div>
       <div className='border-[1px] border-white/10'/>
       <div className="flex justify-between items-center">
-        <p>© Copyright 2025 The Recyclery Collective. All rights reserved.</p>
+        <p>© Copyright 2025 <a href="/" className="hover:underline">The Recyclery Collective</a>. All rights reserved.</p>
         <div className="flex gap-4">
-          <FacebookIcon className="size-8" />
-          <InstagramIcon className="size-8" />
+          <a href="https://www.facebook.com/TheRecyclery" target="_blank" rel="noopener noreferrer">
+            <FacebookIcon className="size-8" />
+          </a>
+          <a href="https://instagram.com/therecyclery/" target="_blank" rel="noopener noreferrer">
+            <InstagramIcon className="size-8" />
+          </a>
         </div>
       </div>
     </div>

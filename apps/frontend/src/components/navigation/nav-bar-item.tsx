@@ -36,7 +36,7 @@ export default function NavbarItem({title, subItems, currentActiveFlyout, handle
         {
           subItems.map((subItem) => {
             return (
-              <div className='w-[400px] flex justify-start items-center gap-4 px-4 py-3 rounded-2xl bg-tan-500 hover:bg-tan-600 group cursor-pointer transition-colors'>
+              <a href='' className='w-[400px] flex justify-start items-center gap-4 px-4 py-3 rounded-2xl bg-tan-500 hover:bg-tan-600 group cursor-pointer transition-colors'>
                 <div>
                   {subItem.icon}
                 </div>
@@ -44,7 +44,7 @@ export default function NavbarItem({title, subItems, currentActiveFlyout, handle
                   <span className='text-body2 font-bold text-nowrap'>{subItem.title}</span>
                   <p>{subItem.description}</p>
                 </div>
-              </div>
+              </a>
             )
           })
         }
