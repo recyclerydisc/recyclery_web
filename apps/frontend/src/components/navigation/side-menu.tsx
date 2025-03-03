@@ -40,7 +40,7 @@ export default function SideMenu({ isSideMenuOpen, setIsSideMenuOpen }: SideMenu
         <div className='flex justify-between items-center px-3'>
           <div className='flex justify-center items-center gap-2'>
             <Bike className='size-10'/>
-            <span className='text-[28px] text-nowrap font-bold'>the recyclery</span>
+            <b className='text-[28px] text-nowrap'>the recyclery</b>
           </div>
           <button className='p-3 cursor-pointer rounded-2xl bg-tan-500 hover:bg-tan-600 transition-colors' onClick={() => setIsSideMenuOpen(false)}>
             <XIcon className='size-5'/>

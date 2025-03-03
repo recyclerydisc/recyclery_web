@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { NavbarSubMenuItemType } from "./nav-bar";
 
 interface NavbarItemProps {
@@ -36,15 +37,15 @@ export default function NavbarItem({title, subItems, currentActiveFlyout, handle
         {
           subItems.map((subItem) => {
             return (
-              <a href='' className='w-[400px] flex justify-start items-center gap-4 px-4 py-3 rounded-2xl bg-tan-500 hover:bg-tan-600 group cursor-pointer transition-colors'>
+              <Link to={subItem.destination} className='w-[400px] flex justify-start items-center gap-4 px-4 py-3 rounded-2xl bg-tan-500 hover:bg-tan-600 group cursor-pointer transition-colors'>
                 <div>
                   {subItem.icon}
                 </div>
                 <div>
-                  <span className='text-body2 font-bold text-nowrap'>{subItem.title}</span>
+                  <b className='text-body2 text-nowrap'>{subItem.title}</b>
                   <p>{subItem.description}</p>
                 </div>
-              </a>
+              </Link>
             )
           })
         }
