@@ -36,26 +36,26 @@ export default function UsersList() {
   }, []);
 
   if (loading) {
-    return <div className='text-center p-[1rem]'>Loading users...</div>;
+    return <div className="text-center p-[1rem]">Loading users...</div>;
   }
 
   if (error) {
-    return <div className='text-pink-500 p-[1rem] text-center'>Error: {error}</div>;
+    return <div className="text-pink-500 p-[1rem] text-center">Error: {error}</div>;
   }
 
   return (
-    <div className='mt-8 w-full max-w-[800px] ml-auto mr-auto'>
+    <div className="mt-8 w-full max-w-[800px] ml-auto mr-auto">
       {users.length === 0 ? (
         <p>No users found.</p>
       ) : (
         users.map(user => (
-          <div className='p-4 mb-4 border rounded-[0.5rem] bg-white shadow' key={user.email}>
-            <div className='flex gap-4 items-center'>
+          <div className="p-4 mb-4 border rounded-[0.5rem] bg-white shadow" key={user.email}>
+            <div className="flex gap-4 items-center">
               <div>
-                <h3 className='m-0 text-[1.1rem] font-semibold'>
+                <h3 className="m-0 text-[1.1rem] font-semibold">
                   {user.firstname} {user.lastname} ({user.username || 'No username'})
                 </h3>
-                <p className='m-0 bg-amber-500'>{user.email}</p>
+                <p className="m-0 bg-amber-500">{user.email}</p>
               </div>
             </div>
           </div>
