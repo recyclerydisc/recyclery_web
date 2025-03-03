@@ -12,6 +12,15 @@ export type NavbarSubMenuItemType = {
 
 export default function NavBar() {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const [currentActiveFlyout, setCurrentActiveFlyout] = useState("")
+
+  function handleFlyoutSelect(flyoutTitle: string) {
+    if (currentActiveFlyout === flyoutTitle) {
+      setCurrentActiveFlyout("")
+    } else {
+      setCurrentActiveFlyout(flyoutTitle)
+    }
+  }
 
   return (
     <>
@@ -21,9 +30,9 @@ export default function NavBar() {
           <span className='text-[28px] text-nowrap font-bold hidden md:inline'>the recyclery</span>
         </div>
         <div className='hidden lg:flex justify-center items-center gap-8'>
-          <NavbarItem title='About Us' subItems={AboutUsSubItems}/>
-          <NavbarItem title='Our Programs' subItems={OurProgramsSubItems}/>
-          <NavbarItem title='Support Us' subItems={SupportUsSubItems}/>
+          <NavbarItem title='About Us' subItems={AboutUsSubItems} currentActiveFlyout={currentActiveFlyout} handleFlyoutSelect={handleFlyoutSelect}/>
+          <NavbarItem title='Our Programs' subItems={OurProgramsSubItems} currentActiveFlyout={currentActiveFlyout} handleFlyoutSelect={handleFlyoutSelect}/>
+          <NavbarItem title='Support Us' subItems={SupportUsSubItems} currentActiveFlyout={currentActiveFlyout} handleFlyoutSelect={handleFlyoutSelect}/>
         </div>
         <div className='space-x-4 hidden lg:block'>
           <button className='bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-2xl text-white text-body2 cursor-pointer transition-colors'>Shop For Bikes</button>

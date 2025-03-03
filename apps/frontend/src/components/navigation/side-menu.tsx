@@ -1,5 +1,5 @@
 import { Bike, XIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AboutUsSubItems, OurProgramsSubItems, SupportUsSubItems } from "./nav-content";
 import SideMenuItem from "./side-menu-item";
 
@@ -9,6 +9,7 @@ interface SideMenuProps {
 }
 
 export default function SideMenu({ isSideMenuOpen, setIsSideMenuOpen }: SideMenuProps) {
+  const menuRef = useRef<HTMLDivElement>(null);
   const [currentActiveAccordion, setCurrentActiveAccordion] = useState("")
 
   function handleAccordionSelect(accordionTitle: string) {
@@ -19,8 +20,22 @@ export default function SideMenu({ isSideMenuOpen, setIsSideMenuOpen }: SideMenu
     }
   }
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsSideMenuOpen(false)
+      }
+    }
+
+    document.addEventListener("click", handleClickOutside, true)
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true)
+    }
+  }, [menuRef, setIsSideMenuOpen])
+
   return (
-    <div className='lg:hidden'>
+    <div ref={menuRef} className='lg:hidden'>
       <div className={`fixed inset-y-0 ${isSideMenuOpen ? "right-0" : "-right-full"} transition-[right] duration-300 bg-tan-500 p-4 w-full md:w-[400px] flex flex-col justify-start gap-4 border border-tan-700 border-l-0 md:border-l-[1px]`}>
         <div className='flex justify-between items-center px-3'>
           <div className='flex justify-center items-center gap-2'>
