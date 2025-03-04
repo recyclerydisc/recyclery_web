@@ -1,16 +1,19 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { UserProvider } from './contexts/user-provider';
 import { PrivateRoute, PublicOnlyRoute } from './components/protected-routes';
+import { UserProvider } from './contexts/user-provider';
 import NavLayout from './layouts/nav-layouts';
-import Home from './pages/home';
 import Login from './pages/account/login';
+import Home from './pages/home';
 import SignUp from './pages/signup';
-import RequestPasswordReset from './pages/account/request-password-reset';
-import ResetPassword from './pages/account/reset-password';
+
+// Pages import added
+
+import './App.css';
 import AuthCallback from './pages/account/auth-callback';
 import EmailVerification from './pages/account/email-verifcation';
+import RequestPasswordReset from './pages/account/request-password-reset';
+import ResetPassword from './pages/account/reset-password';
 import NotFound from './pages/not-found';
-import './App.css';
 
 function App() {
   return (
