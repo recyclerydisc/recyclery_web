@@ -70,7 +70,7 @@ export default function Login() {
 
         {error && <span className="text-center block mb-2">{error}</span>}
 
-        <Input.Text
+        {/* <Input.Text
           title="Email"
           name="email"
           placeholder="example@domain.com"
@@ -85,7 +85,7 @@ export default function Login() {
           value={formState.password}
           onChange={handleChange}
           required
-        />
+        /> */}
 
         <Link className="bg-red decoration-0 text-[0.9rem] mt-2 self-end" to="/forgot-password">
           Forgot Password?
