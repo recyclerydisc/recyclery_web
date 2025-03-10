@@ -20,8 +20,8 @@ export default function NavBar() {
       <nav className="flex justify-between items-center px-7 py-4 bg-tan-500">
         <Link to="/">
           <div className="flex justify-center items-center gap-2">
-            <Bike className="size-10" />
-            <p className="text-heading1 text-nowrap hidden md:inline">the recyclery</p>
+            <Bike className="size-8" />
+            <p className="text-heading2 text-nowrap hidden md:inline">the recyclery</p>
           </div>
         </Link>
         <div className="hidden lg:flex justify-center items-center gap-8">

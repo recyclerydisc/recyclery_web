@@ -7,8 +7,8 @@ export default function Footer() {
     <div className="p-8 flex flex-col gap-4 bg-darkblue-800 text-white">
       <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
         <div className="flex justify-start items-center gap-2">
-          <Bike className="size-10" />
-          <p className="text-heading1 text-nowrap font-roc">the recyclery</p>
+          <Bike className="size-8" />
+          <p className="text-heading2 text-nowrap font-roc">the recyclery</p>
         </div>
         <div className="space-x-4">
           <button className="bg-orange-500 hover:bg-orange-700 px-3 py-2 rounded-2xl text-white text-body2 cursor-pointer transition-colors font-brandon">
@@ -55,10 +55,10 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FacebookIcon className="size-8" />
+            <FacebookIcon className="size-6" />
           </Link>
           <Link to="https://instagram.com/therecyclery/" target="_blank" rel="noopener noreferrer">
-            <InstagramIcon className="size-8" />
+            <InstagramIcon className="size-6" />
           </Link>
         </div>
       </div>
