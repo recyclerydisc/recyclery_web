@@ -29,9 +29,7 @@ export default function Footer() {
           </p>
         </div>
         <div>
-          <p className="font-brandon">
-            Phone: 773-262-5900
-          </p>
+          <p className="font-brandon">Phone: 773-262-5900</p>
           <p className="font-brandon">
             <b>Email:</b> info@therecyclery.org
           </p>
