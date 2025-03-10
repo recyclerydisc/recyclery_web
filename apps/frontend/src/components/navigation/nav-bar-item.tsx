@@ -32,7 +32,7 @@ export default function NavbarItem({ title, subItems }: NavbarItemProps) {
         className="inline-flex items-center gap-1 cursor-pointer"
         onClick={() => setIsFlyoutOpen(!isFlyoutOpen)}
       >
-        <span className="text-body2">{title}</span>
+        <span className="text-body2 font-brandon">{title}</span>
         <ChevronDown
           className={`size-5 ${isFlyoutOpen ? 'rotate-180' : ''} transition-transform`}
         />
@@ -49,8 +49,8 @@ export default function NavbarItem({ title, subItems }: NavbarItemProps) {
             >
               <div>{subItem.icon}</div>
               <div>
-                <b className="text-body2 text-nowrap">{subItem.title}</b>
-                <p>{subItem.description}</p>
+                <p className="text-nowrap">{subItem.title}</p>
+                <p className="font-brandon">{subItem.description}</p>
               </div>
             </Link>
           );

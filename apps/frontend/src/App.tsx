@@ -32,7 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<NavLayout />}>
             <Route index element={<Home />} />
-            
+
             <Route element={<PublicOnlyRoute />}>
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<SignUp />} />
@@ -41,7 +41,7 @@ function App() {
             <Route path="auth/callback" element={<AuthCallback />} />
             <Route path="auth/reset-password" element={<ResetPassword />} />
             <Route path="auth/verify-email" element={<EmailVerification />} />
-            
+
             {/*
               About Us
             */}

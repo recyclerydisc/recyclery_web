@@ -18,19 +18,11 @@ function TeamCard({ name, imageSrc, defaultContent, hoverContent }: TeamCardProp
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img
-        src={imageSrc}
-        alt={name}
-        className="w-32 h-32"
-      />
+      <img src={imageSrc} alt={name} className="w-32 h-32" />
       <p className="font-semibold">{name}</p>
       {defaultContent && <div className="mt-2">{defaultContent}</div>}
 
-      {hoverContent && isHovered && (
-        <div className="absolute">
-          {hoverContent}
-        </div>
-      )}
+      {hoverContent && isHovered && <div className="absolute">{hoverContent}</div>}
     </div>
   );
 }
@@ -44,9 +36,7 @@ function WhoWeAre() {
       <main className="max-w-screen-xl mx-auto p-4">
         <section className="mb-8 text-center">
           <h1 className="text-3xl">Who We Are</h1>
-          <p className="text-lg">
-            text.
-          </p>
+          <p className="text-lg">text.</p>
         </section>
 
         <section>
@@ -63,7 +53,6 @@ function WhoWeAre() {
       </main>
 
       {/* <Footer />*/}
-      
     </>
   );
 }

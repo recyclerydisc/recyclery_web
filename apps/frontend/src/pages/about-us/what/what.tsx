@@ -12,23 +12,17 @@ function WhatWeDo() {
       <main className="max-w-screen-xl mx-auto p-4">
         <section className="mb-8 text-center">
           <h1 className="text-3xl">What We Do</h1>
-          <p className="text-lg">
-            Text
-          </p>
+          <p className="text-lg">Text</p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-xl">Our Mission</h2>
-          <p>
-            Text
-          </p>
+          <p>Text</p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-2">our vision</h2>
-          <p>
-            Text
-          </p>
+          <p>Text</p>
         </section>
 
         <section className="mb-8">
