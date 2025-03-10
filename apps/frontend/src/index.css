@@ -1,16 +1,19 @@
 @font-face {
-  font-family: BookmanCE;
+  font-family: "bookman";
+  font-display: swap;
   src: url("../src/assets/fonts/Bookman_CE_Bold_Italic.ttf");
 }
 
 @font-face {
-  font-family: BrandonGrotesque;
+  font-family: "brandon";
+  font-display: swap;
   src: url("../src/assets/fonts/Brandon_Grotesque_Medium.ttf");
 }
 
 @font-face {
-  font-family: RocGrotesk;
-  src: url("../src/assets/fonts/Roc_Grotesk_Regular.ttf");
+  font-family: "roc";
+  font-display: swap;
+  src: url("../src/assets/fonts/Roc_Grotesk_Bold.ttf");
 }
 
 @import "tailwindcss";
@@ -54,26 +57,23 @@
 
   --color-background: oklch(98.56% 0.0084 56.32);
 
-  --text-display1: 72px;
-  --text-display2: 56px;
-  --text-button1: 32px;
-  --text-button2: 24px;
-  --text-heading1: 48px;
-  --text-heading2: 40px;
-  --text-subheading1: 36px;
-  --text-subheading2: 32px;
-  --text-body1: 24px;
+  --text-display1: 44px;
+  --text-display2: 40px;
+  --text-heading1: 28px;
+  --text-heading2: 26px;
+  --text-subheading1: 24px;
+  --text-subheading2: 22px;
+  --text-body1: 20px;
   --text-body2: 18px;
 
-  /*
-  --font-bookman: BookmanCE;
-  --font-brandon: BrandonGGrotesque;
-  --font-roc: RocGrotesque;
-  */
+  --font-bookman: bookman, sans-serif;
+  --font-brandon: brandon, sans-serif;
+  --font-roc: roc, sans-serif;
 }
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-roc), Avenir, Helvetica, Arial, sans-serif;
+  font-size: var(--text-body2);
   line-height: 1.5;
   font-weight: 400;
 

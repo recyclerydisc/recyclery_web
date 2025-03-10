@@ -8,13 +8,13 @@ export default function Footer() {
       <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
         <div className="flex justify-start items-center gap-2">
           <Bike className="size-10" />
-          <b className="text-[28px] text-nowrap">the recyclery</b>
+          <p className="text-heading1 text-nowrap">the recyclery</p>
         </div>
         <div className="space-x-4">
-          <button className="bg-orange-500 hover:bg-orange-700 px-3 py-2 rounded-2xl text-white text-body2 cursor-pointer transition-colors">
+          <button className="bg-orange-500 hover:bg-orange-700 px-3 py-2 rounded-2xl text-white text-body2 cursor-pointer transition-colors font-brandon">
             Donate
           </button>
-          <button className="bg-orange-500 hover:bg-orange-700 px-3 py-2 rounded-2xl text-white text-body2 cursor-pointer transition-colors">
+          <button className="bg-orange-500 hover:bg-orange-700 px-3 py-2 rounded-2xl text-white text-body2 cursor-pointer transition-colors font-brandon">
             Join Our Newsletter
           </button>
         </div>
@@ -22,27 +22,27 @@ export default function Footer() {
       <div className="border-[1px] border-white/10" />
       <div className="flex flex-col gap-4 lg:flex-row lg:justify-between lg:items-center">
         <div>
-          <b>Let's stay in touch!</b>
-          <p>
+          <p className="font-roc text-subheading2">Let's stay in touch!</p>
+          <p className="font-brandon">
             Have a question? Please feel free to visit us in-person or contact us via phone or
             email.
           </p>
         </div>
         <div>
-          <p>
-            <b>Phone:</b> 773-262-5900
+          <p className="font-brandon">
+            Phone: 773-262-5900
           </p>
-          <p>
+          <p className="font-brandon">
             <b>Email:</b> info@therecyclery.org
           </p>
-          <p>
+          <p className="font-brandon">
             <b>Address:</b> 7628 N Paulina St. 60626 Chicago, IL
           </p>
         </div>
       </div>
       <div className="border-[1px] border-white/10" />
       <div className="flex justify-between items-center">
-        <p>
+        <p className="font-brandon text-body2">
           © Copyright 2025{' '}
           <Link to="/" className="hover:underline">
             The Recyclery Collective
