@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
-import TitledInput from './titled-input';
 import PasswordField from './password-field';
+import TitledInput from './titled-input';
 
 interface InputPasswordProps {
   title: string;
@@ -9,6 +9,7 @@ interface InputPasswordProps {
   placeholder?: string;
   value?: string;
   required?: boolean;
+  className?: string; // to allow for tailwind styling (?)
 }
 
 const InputPassword = ({ title, ...rest }: InputPasswordProps) => {
