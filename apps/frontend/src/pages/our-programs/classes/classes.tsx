@@ -10,29 +10,24 @@ function Classes() {
         <section className="mb-8 text-center">
           <h1 className="text-3xl">Classes</h1>
           <p className="text-lg">
-            We teach bicycle maintenance through our introductory Tune Up Class and our advanced Overhaul Class.
+            We teach bicycle maintenance through our introductory Tune Up Class and our advanced
+            Overhaul Class.
           </p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-2">mechanics 101</h2>
-          <p>
-            text
-          </p>
+          <p>text</p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-2">overhaul class</h2>
-          <p>
-            text
-          </p>
+          <p>text</p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold mb-2">sign up</h2>
-          <p>
-            text and cards 
-          </p>
+          <p>text and cards</p>
         </section>
       </main>
 

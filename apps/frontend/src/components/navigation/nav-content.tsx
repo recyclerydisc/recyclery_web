@@ -46,26 +46,26 @@ export const OurProgramsSubItems: NavbarSubMenuItemType[] = [
 export const SupportUsSubItems: NavbarSubMenuItemType[] = [
   {
     icon: <Bike className="size-6" />,
-    title: "Support Us",
+    title: 'Support Us',
     description: "Donate money to help fund The Recyclery's programs",
     destination: '/support-us/contribute-financially',
   },
   {
     icon: <Bike className="size-6" />,
-    title: "Our Supporters",
-    description: "Learn about our top supporters",
-    destination: "/support-us/our-supporters",
+    title: 'Our Supporters',
+    description: 'Learn about our top supporters',
+    destination: '/support-us/our-supporters',
   },
   {
     icon: <Bike className="size-6" />,
-    title: "Donate a Bike",
-    description: "Donate your old bikes to either support our programs or help people in need",
+    title: 'Donate a Bike',
+    description: 'Donate your old bikes to either support our programs or help people in need',
     destination: '/support-us/donate-a-bike',
   },
   {
     icon: <Bike className="size-6" />,
-    title: "Become a volunteer",
-    description: "Help improve our programs by offering your skills and expertise",
-    destination: "/support-us/donate-time",
+    title: 'Become a volunteer',
+    description: 'Help improve our programs by offering your skills and expertise',
+    destination: '/support-us/donate-time',
   },
 ];

@@ -9,16 +9,12 @@ function Freecyclery() {
       <main className="max-w-screen-xl mx-auto p-4">
         <section className="mb-8 text-center">
           <h1 className="text-3xl">Freecyclery</h1>
-          <p className="text-lg">
-            text
-          </p>
+          <p className="text-lg">text</p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-2">about our program</h2>
-          <p>
-            Wtext
-          </p>
+          <p>Wtext</p>
         </section>
 
         <section className="mb-8">
@@ -31,16 +27,12 @@ function Freecyclery() {
 
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-2">make a referral today</h2>
-          <p>
-            (Placeholder for referral form or instructions on how to submit a referral.)
-          </p>
+          <p>(Placeholder for referral form or instructions on how to submit a referral.)</p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold mb-2">freecyclery partners</h2>
-          <p>
-            (Placeholder for partner logos or a grid of partner organizations.)
-          </p>
+          <p>(Placeholder for partner logos or a grid of partner organizations.)</p>
         </section>
       </main>
 

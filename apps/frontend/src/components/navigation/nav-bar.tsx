@@ -20,8 +20,8 @@ export default function NavBar() {
       <nav className="flex justify-between items-center px-7 py-4 bg-tan-500">
         <Link to="/">
           <div className="flex justify-center items-center gap-2">
-            <Bike className="size-10" />
-            <b className="text-[28px] text-nowrap hidden md:inline">the recyclery</b>
+            <Bike className="size-8" />
+            <p className="text-heading2 text-nowrap hidden md:inline">the recyclery</p>
           </div>
         </Link>
         <div className="hidden lg:flex justify-center items-center gap-8">
@@ -31,12 +31,12 @@ export default function NavBar() {
         </div>
         <div className="space-x-4 hidden lg:block">
           <Link to="https://therecyclery.square.site/">
-            <button className="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-2xl text-white text-body2 cursor-pointer transition-colors">
+            <button className="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-2xl text-white cursor-pointer transition-colors font-brandon">
               Shop For Bikes
             </button>
           </Link>
           <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
-            <button className="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-2xl text-white text-body2 cursor-pointer transition-colors">
+            <button className="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-2xl text-white cursor-pointer transition-colors font-brandon">
               Donate
             </button>
           </Link>
