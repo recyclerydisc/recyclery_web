@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 @font-face {
   font-family: "bookman";
   font-display: swap;
@@ -15,8 +17,6 @@
   font-display: swap;
   src: url("../src/assets/fonts/Roc_Grotesk_Bold.ttf");
 }
-
-@import "tailwindcss";
 
 @theme {
   --color-maroon-500: oklch(31.47% 0.1034 21.93);
@@ -74,8 +74,6 @@
 :root {
   font-family: var(--font-roc), Avenir, Helvetica, Arial, sans-serif;
   font-size: var(--text-body2);
-  line-height: 1.5;
-  font-weight: 400;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
