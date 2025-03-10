@@ -27,7 +27,7 @@ export default function NavbarItem({ title, subItems }: NavbarItemProps) {
   }, [itemRef, setIsFlyoutOpen]);
 
   return (
-    <div ref={itemRef} className="relative group">
+    <div ref={itemRef} className="relative group z-10">
       <button
         className="inline-flex items-center gap-1 cursor-pointer"
         onClick={() => setIsFlyoutOpen(!isFlyoutOpen)}
