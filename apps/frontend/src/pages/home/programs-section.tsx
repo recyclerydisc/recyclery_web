@@ -1,5 +1,5 @@
-import Program from './program';
 import { Link } from 'react-router-dom';
+import Program from './program';
 
 export default function ProgramsSection() {
   return (
