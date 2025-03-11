@@ -3,7 +3,7 @@ import { PublicOnlyRoute } from './components/protected-routes';
 import { UserProvider } from './contexts/user-provider';
 import NavLayout from './layouts/nav-layouts';
 import Login from './pages/account/login';
-import Home from './pages/home';
+import Home from './pages/home/home';
 import SignUp from './pages/signup';
 // Pages import added
 
