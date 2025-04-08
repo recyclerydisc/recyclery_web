@@ -1,7 +1,7 @@
-import CalendarSection from './calendar-section';
-import HeroSection from './hero-section';
-import ProgramsSection from './programs-section';
-import VideoSection from './video-section';
+import CalendarSection from '../../components/home/calendar-section';
+import HeroSection from '../../components/home/hero-section';
+import ProgramsSection from '../../components/home/programs-section';
+import VideoSection from '../../components/home/video-section';
 
 export default function Home() {
   return (
