@@ -35,7 +35,7 @@ export default function SideMenu({ isSideMenuOpen, setIsSideMenuOpen }: SideMenu
   }, [menuRef, setIsSideMenuOpen]);
 
   return (
-    <div ref={menuRef} className="lg:hidden">
+    <div ref={menuRef} className="lg:hidden z-50">
       <div
         className={`fixed inset-y-0 ${isSideMenuOpen ? 'right-0' : '-right-full'} transition-[right] duration-300 bg-tan-500 p-4 w-full md:w-[400px] flex flex-col justify-start gap-4 border border-tan-700 border-l-0 md:border-l-[1px]`}
       >

@@ -62,11 +62,11 @@ function WhoWeAre() {
   return (
     <main className="w-full">
       <section className="w-full h-[275px] lg:px-[120px] md:px-[96px] px-[64px] flex flex-col justify-center items-center text-center bg-black text-white">
-        <h1 className="text-heading1">staff and collective members</h1>
+        <h1 className="text-heading1">who we are</h1>
         <p className="text-body1 font-brandon">The seed idea of The Recyclery was planted in 2005, with 2025 marking our 20th anniversary as well as our milestone of refurbishing 10,000 bikes.</p>
       </section>
       <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9">
-        <h2 className="text-subheading1 text-orange-500 mb-2">our team</h2>
+        <h2 className="text-subheading1 text-orange-500 mb-2">staff and collective members</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {
             members.map((member) => {
