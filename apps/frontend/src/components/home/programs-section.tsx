@@ -1,20 +1,18 @@
-import { Link } from 'react-router-dom';
 import Program from './program';
+import { A, H2 } from '../generic/styled-tags';
 
 export default function ProgramsSection() {
   return (
     <section className="bg-background px-16 pt-10 pb-16">
-      <h2 className="text-4xl text-orange-500">our programs</h2>
+      <H2>our programs</H2>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-8">
         <Program title={'open shop'} learnMoreLink={'/our-programs/openshop'}>
           You can work on your own bike during Open Shop. All levels of experience are welcome.
           <br />
           <br />
           For femme, trans, women and non-binary community,{' '}
-          <Link to="/our-programs/ftwnb" className="underline hover:text-blue-600 transition">
-            FTWN-B Shop Time
-          </Link>{' '}
-          (Sundays 3-6pm) is another opportunity to work on your bike.
+          <A to="/our-programs/ftwnb">FTWN-B Shop Time</A> (Sundays 3-6pm) is another opportunity to
+          work on your bike.
           <br />
           <br />
           <u>HOURS:</u>
@@ -47,22 +45,13 @@ export default function ProgramsSection() {
           Overhaul Class. The classes are meant for adults, and you should bring your own bike.
           <br />
           <br />
-          To register, visit our{' '}
-          <Link
-            to="https://therecyclery.square.site/"
-            className="underline hover:text-blue-600 transition"
-          >
-            online shop
-          </Link>{' '}
-          (Sundays 3-6pm) is another opportunity to work on your bike.
+          To register, visit our <A to="https://therecyclery.square.site/">online shop</A> (Sundays
+          3-6pm) is another opportunity to work on your bike.
           <br />
           <br />
           <u>HOURS:</u>
           <br />
-          Variable, see{' '}
-          <Link to="/our-programs/classes" className="underline hover:text-blue-600 transition">
-            sign up page
-          </Link>
+          Variable, see <A to="/our-programs/classes">sign up page</A>
         </Program>
       </div>
     </section>
