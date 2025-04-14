@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import NavbarItem from './nav-bar-item';
 import { AboutUsSubItems, OurProgramsSubItems, SupportUsSubItems } from './nav-content';
 import SideMenu from './side-menu';
+import { BlueButtonLink } from '../generic/buttons';
 
 export type NavbarSubMenuItemType = {
   icon: ReactNode;
@@ -30,16 +31,10 @@ export default function NavBar() {
           <NavbarItem title="Support Us" subItems={SupportUsSubItems} />
         </div>
         <div className="space-x-4 hidden lg:block">
-          <Link to="https://therecyclery.square.site/">
-            <button className="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-2xl text-white cursor-pointer transition-colors font-brandon">
-              Shop For Bikes
-            </button>
-          </Link>
-          <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
-            <button className="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-2xl text-white cursor-pointer transition-colors font-brandon">
-              Donate
-            </button>
-          </Link>
+          <BlueButtonLink to="https://therecyclery.square.site/">Shop For Bikes</BlueButtonLink>
+          <BlueButtonLink to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
+            Donate
+          </BlueButtonLink>
         </div>
         <div className="lg:hidden block">
           <button

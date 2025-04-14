@@ -1,7 +1,9 @@
+import { H2 } from '../generic/styled-tags';
+
 function CalendarSection() {
   return (
     <section className="bg-tan-500 px-16 pt-10 pb-12">
-      <h2 className="text-4xl text-orange-500">our event calendar</h2>
+      <H2>our event calendar</H2>
       <p className="text-body2 pt-4 font-brandon">
         The calendar below shows all events for the Recyclery. Any upcoming events will also be
         updated here!
