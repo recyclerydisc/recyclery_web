@@ -1,6 +1,7 @@
 //import NavBar from '../../components/navigation/nav-bar';
 //import Footer from '../../components/footer/footer';
 import { Link } from 'react-router-dom';
+import bikerepairPic from '../../../assets/images/pages/our-programs/FTWNB/FTWN-B.jpg';
 
 function FTWNB() {
   return (
@@ -27,7 +28,7 @@ function FTWNB() {
           </section>
 
           {/* Row one of 2x2 */}
-          <section className="flex flex-col md:flex-row items-center justify-between gap-8 mb-20 mx-20">
+          <section className="flex flex-col md:flex-row items-stretch justify-between gap-8 mb-20 mx-60">
             {/* Left text block */}
             <div>
               <h2 className="text-3xl font-bold mb-2">in this program...</h2>
@@ -35,6 +36,7 @@ function FTWNB() {
                 <p className="mb-4">
                   Bring in your bike and learn some repair skills from talented mechanics
                 </p>
+
                 <p className="mb-4">
                   Volunteer and fix up bikes for our{' '}
                   <Link
@@ -51,7 +53,7 @@ function FTWNB() {
 
             {/* image */}
             <div>
-              <p>image</p>
+              <img className="w-[400px]" src={bikerepairPic} alt="Bike repair"></img>
             </div>
           </section>
 
