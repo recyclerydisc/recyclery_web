@@ -5,7 +5,7 @@ function WhatWeDo() {
         <h1 className="text-heading1">what we do</h1>
         <p className="text-body1 font-brandon">The seed idea of The Recyclery was planted in 2005, with 2025 marking our 20th anniversary as well as our milestone of refurbishing 10,000 bikes.</p>
       </section>
-      <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9 flex sm:flex-row-reverse flex-col justify-center items-center gap-16">
+      <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9 flex lg:flex-row-reverse flex-col justify-center items-center lg:gap-16 gap-8">
         <div className="flex flex-col gap-6">
           <div>
             <h2 className="text-subheading1 text-orange-500 mb-2">our mission</h2>
@@ -16,7 +16,7 @@ function WhatWeDo() {
             <p className="font-brandon">We envision a diverse, resilient neighborhood filled with knowledgeable, self-reliant cyclists.</p>
           </div>
         </div>
-        <div className="bg-black md:min-w-[300px] min-w-[200px] md:min-h-[400px] min-h-[266px] rounded-2xl text-white text-center">filler image</div>
+        <div className="bg-black lg:min-w-[300px] min-w-full lg:min-h-[400px] min-h-[300px] rounded-2xl text-white text-center">filler image</div>
       </section>
       <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9 bg-tan-500">
         <h2 className="text-subheading1 text-orange-500 mb-2">our core values</h2>

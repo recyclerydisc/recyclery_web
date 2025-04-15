@@ -8,14 +8,14 @@ interface MemberCardProps {
 
 function MemberCard({ name, img, description }: MemberCardProps) {
   return (
-    <div>
-      <div className="w-full h-[250px] bg-tan-500 relative rounded-2xl overflow-hidden">
-        <img src={img} alt={name} className="absolute inset-0 bg-cover bg-center z-0"></img>
-        <div className="opacity-0 hover:opacity-40 bg-black duration-300 absolute inset-0 flex justify-center items-center p-4 text-white font-brandon">
-          {description}
+    <div className="w-full h-[300px] flex justify-center items-center">
+      <div className="bg-tan-500 w-full max-w-[250px] h-full rounded-2xl overflow-hidden">
+        <img className="h-[200px]"/>
+        <div className="w-full h-[100px] flex flex-col justify-center items-center text-center px-4">
+          <p>{name}</p>
+          <p>{description}</p>
         </div>
       </div>
-      <h3 className="text-orange-500 text-subheading2 text-center w-full mt-2">{name}</h3>
     </div>
   );
 }
@@ -67,7 +67,7 @@ function WhoWeAre() {
       </section>
       <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9">
         <h2 className="text-subheading1 text-orange-500 mb-2">staff and collective members</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {
             members.map((member) => {
               return (
