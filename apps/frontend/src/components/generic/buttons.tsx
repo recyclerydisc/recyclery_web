@@ -26,6 +26,7 @@ export function OrangeButtonLink({ to, children }: { to: string; children: React
 interface ButtonProps {
   children: React.ReactNode;
   onClick: () => void;
+  to?: string; 
 }
 
 export function BlueButton({ children, onClick }: ButtonProps) {
