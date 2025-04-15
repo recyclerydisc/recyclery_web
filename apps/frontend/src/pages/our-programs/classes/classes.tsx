@@ -5,13 +5,9 @@ import ClassSignup from '../../../components/classes/class-signup';
 export default function Classes() {
   return (
     <div>
-    <ClassHero /> 
-    <ClassDescription />
-    <ClassSignup />
-        
-      
+      <ClassHero /> 
+      <ClassDescription />
+      <ClassSignup />
     </div>
- 
-    
   );
 }
