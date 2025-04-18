@@ -1,8 +1,8 @@
 //import NavBar from '../../components/navigation/nav-bar';
 //import Footer from '../../components/footer/footer';
-import { Link } from 'react-router-dom';
 import transfeministSymbol from '../../../assets/images/our-programs/FTWNB/A_Transfeminist-Symbol_black-and-white.png';
 import bikerepairPic from '../../../assets/images/our-programs/FTWNB/FTWN-B.jpg';
+import { A } from '../../../components/generic/styled-tags';
 
 function FTWNB() {
   return (
@@ -19,8 +19,11 @@ function FTWNB() {
         <main className="max-w-screen-xl mx-auto p-4">
           <section className="mb-16 text-center">
             <h1 className="text-3xl m-4">FTWN-B Shop</h1>
-            <p className="text-3xl">for people identifying as femme, trans,</p>
-            <p className="text-3xl">women, or non-binary.</p>
+            <p className="text-3xl">
+              for people identifying as femme, trans,
+              <br />
+              women, or non-binary.
+            </p>
 
             {/* rounded button */}
             <div className="m-3">
@@ -40,12 +43,9 @@ function FTWNB() {
 
                 <p className="mb-8">
                   Volunteer and fix up bikes for our{' '}
-                  <Link
-                    to="https://www.therecyclery.org/our-programs/freecyclery/"
-                    className="text-blue-500 underline"
-                  >
+                  <A to="https://www.therecyclery.org/our-programs/freecyclery/">
                     Freecyclery Progam
-                  </Link>
+                  </A>
                 </p>
 
                 <p>Hang out with fellow FTWN-B bike riders</p>
@@ -80,12 +80,7 @@ function FTWNB() {
           <section className="mb-4 font-brandon text-xs flex justify-end">
             <p>
               *We ask for people who don't identify as FTWN-B to come to our general{' '}
-              <Link
-                to="https://www.therecyclery.org/our-programs/open-shop/"
-                className="text-blue-500 underline"
-              >
-                Open Shop Hours
-              </Link>{' '}
+              <A to="https://www.therecyclery.org/our-programs/open-shop/">Open Shop Hours</A>{' '}
               instead
             </p>
           </section>
