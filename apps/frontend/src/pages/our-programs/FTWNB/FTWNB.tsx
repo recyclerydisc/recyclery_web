@@ -1,7 +1,8 @@
 //import NavBar from '../../components/navigation/nav-bar';
 //import Footer from '../../components/footer/footer';
 import { Link } from 'react-router-dom';
-import bikerepairPic from '../../../assets/images/pages/our-programs/FTWNB/FTWN-B.jpg';
+import transfeministSymbol from '../../../assets/images/our-programs/FTWNB/A_Transfeminist-Symbol_black-and-white.png';
+import bikerepairPic from '../../../assets/images/our-programs/FTWNB/FTWN-B.jpg';
 
 function FTWNB() {
   return (
@@ -28,16 +29,16 @@ function FTWNB() {
           </section>
 
           {/* Row one of 2x2 */}
-          <section className="flex flex-col md:flex-row items-stretch justify-between gap-8 mb-20 mx-60">
+          <section className="flex flex-col md:flex-row items-stretch justify-between gap-8 mb-15 mx-60">
             {/* Left text block */}
             <div>
               <h2 className="text-3xl font-bold mb-2">in this program...</h2>
               <div className="font-brandon">
-                <p className="mb-4">
+                <p className="mb-8">
                   Bring in your bike and learn some repair skills from talented mechanics
                 </p>
 
-                <p className="mb-4">
+                <p className="mb-8">
                   Volunteer and fix up bikes for our{' '}
                   <Link
                     to="https://www.therecyclery.org/our-programs/freecyclery/"
@@ -53,22 +54,25 @@ function FTWNB() {
 
             {/* image */}
             <div>
-              <img className="w-[400px]" src={bikerepairPic} alt="Bike repair"></img>
+              <img className="w-[400px] rounded-full" src={bikerepairPic} alt="Bike repair"></img>
             </div>
           </section>
 
           {/* Row two of 2x2 */}
-          <section className="flex flex-col md:flex-row items-center justify-between gap-8 mb-20 mx-20">
+          <section className="flex flex-col md:flex-row items-stretch justify-between gap-20 mb-20 mx-60">
             {/* Image */}
             <div>
-              <p>image</p>
+              <img className="w-[800px]" src={transfeministSymbol} alt="Transfeminist symbol"></img>
             </div>
             {/* text block */}
-            <div>
-              <p className="font-brandon">
+            <div className="font-brandon text-2xl text-center">
+              <p>
                 This program is specifically catering to the Femme, Trans, Women, and Non-Binary
-                members of our community.* We're aiming to provide a welcoming, safe space for
-                individuals who have historically been excluded by the bicycling community.
+                members of our community.*
+              </p>
+              <p>
+                We're aiming to provide a welcoming, safe space for individuals who have
+                historically been excluded by the bicycling community.
               </p>
             </div>
           </section>
