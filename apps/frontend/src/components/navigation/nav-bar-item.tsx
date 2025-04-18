@@ -49,7 +49,7 @@ export default function NavbarItem({ title, subItems }: NavbarItemProps) {
             >
               <div>{subItem.icon}</div>
               <div>
-                <p className="text-nowrap">{subItem.title}</p>
+                <b className="text-nowrap">{subItem.title}</b>
                 <p className="font-brandon">{subItem.description}</p>
               </div>
             </Link>

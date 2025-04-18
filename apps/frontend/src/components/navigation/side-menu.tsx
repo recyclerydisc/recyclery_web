@@ -2,6 +2,7 @@ import { Bike, XIcon } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { AboutUsSubItems, OurProgramsSubItems, SupportUsSubItems } from './nav-content';
 import SideMenuItem from './side-menu-item';
+import { BlueButtonLink } from '../generic/buttons';
 
 interface SideMenuProps {
   isSideMenuOpen: boolean;
@@ -74,12 +75,10 @@ export default function SideMenu({ isSideMenuOpen, setIsSideMenuOpen }: SideMenu
         </div>
         <div className="border-[1px] border-tan-700" />
         <div className="flex flex-col gap-4 justify-center items-start">
-          <button className="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-2xl text-white text-body2 cursor-pointer transition-colors">
-            Shop For Bikes
-          </button>
-          <button className="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-2xl text-white text-body2 cursor-pointer transition-colors">
+          <BlueButtonLink to="https://therecyclery.square.site/">Shop For Bikes</BlueButtonLink>
+          <BlueButtonLink to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
             Donate
-          </button>
+          </BlueButtonLink>
         </div>
       </div>
     </div>
