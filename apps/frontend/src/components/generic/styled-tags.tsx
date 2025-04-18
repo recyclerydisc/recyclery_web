@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export function H1({ children }: { children: React.ReactNode }) {
-  return <h1 className="sm:text-7xl text-4xl">{children}</h1>;
+  return <h1 className="sm:text-7xl text-5xl">{children}</h1>;
 }
 
 export function H2({ children }: { children: React.ReactNode }) {

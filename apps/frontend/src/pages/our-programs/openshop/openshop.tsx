@@ -1,12 +1,15 @@
+import OpenshopHero from "../../../assets/images/our-programs/openshop/openshop-hero.png";
+import OpenshopSection1 from "../../../assets/images/our-programs/openshop/openshop-section-1.png";
+import { BgImage } from "../../../components/generic/bg-image";
 import { A, H1, H2 } from "../../../components/generic/styled-tags";
 
 function OpenShop() {
     return (
       <main className="w-full">
-        <section className="w-full h-[275px] lg:px-[120px] md:px-[96px] px-[64px] flex flex-col justify-center items-center text-center bg-black text-white">
+        <BgImage image={OpenshopHero} className="min-h-[32rem]">
           <H1>open shop</H1>
-          <p className="text-body1 font-brandon">Use our tools to fix your own bike with the instruction of Recyclery mechanics.</p>
-        </section>
+          <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">Use our tools to fix your own bike with the instruction of Recyclery mechanics.</p>
+        </BgImage>
         <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9 flex lg:flex-row flex-col justify-center items-center lg:gap-16 gap-8">
           <div className="flex flex-col gap-6">
             <div>
@@ -19,7 +22,7 @@ function OpenShop() {
               </div>
             </div>
           </div>
-          <div className="bg-black lg:min-w-[300px] min-w-full lg:min-h-[400px] min-h-[300px] rounded-2xl text-white text-center">filler image</div>
+          <img src={OpenshopSection1} alt="Two people working on a bike" className="max-w-[450px] w-full rounded-2xl object-fit" />
         </section>
         <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9 bg-tan-500">
           <H2>hours</H2>

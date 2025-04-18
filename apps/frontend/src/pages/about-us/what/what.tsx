@@ -1,14 +1,14 @@
-import DunAwesomePicture from "../../../assets/images/about-us/what/Dun-Awesome-Picture.png";
-import EarnABike from "../../../assets/images/about-us/what/Earn-a-Bike.png";
+import WhatHero from "../../../assets/images/about-us/what/what-hero.png";
+import WhatSection1 from "../../../assets/images/about-us/what/what-section-1.png";
 import { BgImage } from "../../../components/generic/bg-image";
 import { H1, H2, H3 } from "../../../components/generic/styled-tags";
 
 function WhatWeDo() {
   return (
     <main className="w-full">
-      <BgImage image={DunAwesomePicture} className="min-h-[32rem]">
+      <BgImage image={WhatHero} className="min-h-[32rem]">
         <H1>what we do</H1>
-        <p className="text-heading2 pt-8 max-w-[56rem] font-brandon">The seed idea of The Recyclery was planted in 2005, with 2025 marking our 20th anniversary as well as our milestone of refurbishing 10,000 bikes.</p>
+        <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">The seed idea of The Recyclery was planted in 2005, with 2025 marking our 20th anniversary as well as our milestone of refurbishing 10,000 bikes.</p>
       </BgImage>
       <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9 flex md:flex-row-reverse flex-col justify-center items-center md:gap-16 gap-8">
         <div className="flex flex-col gap-6">
@@ -21,7 +21,7 @@ function WhatWeDo() {
             <p className="font-brandon">We envision a diverse, resilient neighborhood filled with knowledgeable, self-reliant cyclists.</p>
           </div>
         </div>
-        <img src={EarnABike} alt="Person with bike" className="max-w-[300px] w-full rounded-2xl object-fit" />
+        <img src={WhatSection1} alt="Person with bike" className="max-w-[300px] w-full rounded-2xl object-fit" />
       </section>
       <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9 bg-tan-500">
         <H2>our core values</H2>
