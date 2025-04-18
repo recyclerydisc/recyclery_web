@@ -1,5 +1,5 @@
-import { H1, H2 } from "../../../components/generic/styled-tags";
 import { ReactNode } from 'react';
+import { H1, H2 } from "../../../components/generic/styled-tags";
 
 interface MemberCardProps {
   name: string;
@@ -9,13 +9,11 @@ interface MemberCardProps {
 
 function MemberCard({ name, img, description }: MemberCardProps) {
   return (
-    <div className="w-full h-[300px] flex justify-center items-center">
-      <div className="bg-tan-500 w-full max-w-[250px] h-full rounded-2xl overflow-hidden">
-        <img className="h-[200px]"/>
-        <div className="w-full h-[100px] flex flex-col justify-center items-center text-center px-4">
-          <p>{name}</p>
-          <p>{description}</p>
-        </div>
+    <div className="w-full sm:max-w-none h-[300px] flex flex-col justify-start items-center gap-2">
+      <img src={img} className="w-full max-w-[275px] sm:max-w-none h-[225px] bg-black rounded-2xl object-fill" />
+      <div className="w-full max-w-[275px] sm:max-w-none flex flex-col justify-center items-center text-center px-4">
+        <p>{name}</p>
+        <p className="font-brandon">{description}</p>
       </div>
     </div>
   );
