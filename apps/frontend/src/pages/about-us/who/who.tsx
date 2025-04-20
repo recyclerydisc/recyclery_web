@@ -1,25 +1,7 @@
-import { ReactNode } from 'react';
 import WhoHero from "../../../assets/images/about-us/who/who-hero.png";
+import MemberCard, { MemberCardProps } from "../../../components/about-us/member-card";
 import { BgImage } from "../../../components/generic/bg-image";
 import { H1, H2 } from "../../../components/generic/styled-tags";
-
-interface MemberCardProps {
-  name: string;
-  img: string;
-  description: ReactNode;
-}
-
-function MemberCard({ name, img, description }: MemberCardProps) {
-  return (
-    <div className="w-full sm:max-w-none h-[300px] flex flex-col justify-start items-center gap-2">
-      <img src={img} alt={name} className="w-full max-w-[275px] sm:max-w-none h-[225px] bg-black rounded-2xl object-fill" />
-      <div className="w-full max-w-[275px] sm:max-w-none flex flex-col justify-center items-center text-center px-4">
-        <p>{name}</p>
-        <p className="font-brandon">{description}</p>
-      </div>
-    </div>
-  );
-}
 
 const members : MemberCardProps[] = [
   {
@@ -68,11 +50,11 @@ function WhoWeAre() {
       </BgImage>
       <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9">
         <H2>staff and collective members</H2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {
             members.map((member) => {
               return (
-                <MemberCard name={member.name} img={member.img} description={member.description} />
+                <MemberCard {...member} />
               )
             })
           }
