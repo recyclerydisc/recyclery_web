@@ -14,7 +14,7 @@ export default function Partners() {
   });
 
   return (
-    <section className="bg-background px-16 py-16 flex flex-col items-center text-center">
+    <section className="bg-background px-8 md:px-16 py-16 flex flex-col items-center text-center">
       <H2>freecyclery partners</H2>
       <div className="flex justify-center flex-wrap gap-x-12 gap-y-2 mt-8 max-w-[72rem]">
         {images.map(image => (

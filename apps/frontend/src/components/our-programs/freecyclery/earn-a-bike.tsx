@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function EarnABike() {
   return (
-    <section className="bg-tan-500 px-16 py-16 flex flex-col items-center text-center">
+    <section className="bg-tan-500 px-8 md:px-16 py-16 flex flex-col items-center text-center">
       <H2>earn-a-bike fellowship programs</H2>
       <p className="text-body1 mt-8 font-brandon md:px-12 lg:max-w-[48rem]">
         As an alternative to a referral from a partner organization, we offer opportunities for

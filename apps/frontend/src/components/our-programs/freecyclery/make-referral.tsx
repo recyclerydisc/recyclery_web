@@ -9,7 +9,7 @@ import Accordion from './accordion';
 export default function MakeReferral() {
   return (
     <section
-      className="px-16 py-16 flex flex-col items-center bg-background [background-size:0] md:[background-size:100%_100%]"
+      className="px-8 md:px-16 py-16 flex flex-col items-center bg-background [background-size:0] md:[background-size:100%_100%]"
       style={{
         backgroundImage: `url("${squigglyCross}")`,
       }}

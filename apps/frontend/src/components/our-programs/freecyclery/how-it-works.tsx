@@ -5,7 +5,7 @@ import arrow from '../../../assets/images/our-programs/freecyclery/arrow.svg';
 
 export default function HowItWorks() {
   return (
-    <section className="bg-tan-500 px-16 py-16 flex flex-col items-center">
+    <section className="bg-tan-500 px-8 md:px-16 py-16 flex flex-col items-center">
       <H2>how does it work?</H2>
       <p className="text-body1 pt-4 font-brandon">
         The Freecyclery Program provides
