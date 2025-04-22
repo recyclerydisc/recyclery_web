@@ -1,4 +1,4 @@
-import headerPoster from '../../assets/header-poster.jpg';
+import headerPoster from '../../assets/images/home/header-poster.jpg';
 import { BgImage } from '../generic/bg-image';
 import { BlueButtonLink, OrangeButtonLink } from '../generic/buttons';
 import { H1 } from '../generic/styled-tags';

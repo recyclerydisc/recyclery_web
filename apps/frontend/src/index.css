@@ -73,6 +73,8 @@
   font-family: var(--font-roc), Avenir, Helvetica, Arial, sans-serif;
   font-size: var(--text-body2);
 
+  background-color: var(--color-background);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
