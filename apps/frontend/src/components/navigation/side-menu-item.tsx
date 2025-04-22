@@ -41,7 +41,7 @@ export default function SideMenuItem({
               <div>{subItem.icon}</div>
               <div>
                 <b className="text-body2 text-nowrap">{subItem.title}</b>
-                <p>{subItem.description}</p>
+                <p className="font-brandon">{subItem.description}</p>
               </div>
             </Link>
           );
