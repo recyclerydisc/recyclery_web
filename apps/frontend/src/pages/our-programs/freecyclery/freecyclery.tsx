@@ -1,44 +1,23 @@
-//import NavBar from '../../components/navigation/nav-bar';
-//import Footer from '../../components/footer/footer';
+import headerPoster from '../../../assets/images/our-programs/freecyclery/freecyclery-header.png';
+import { H1 } from '../../../components/generic/styled-tags';
+import { BgImage } from '../../../components/generic/bg-image';
+import AboutSection from '../../../components/our-programs/freecyclery/about-section';
+import HowItWorks from '../../../components/our-programs/freecyclery/how-it-works';
+import MakeReferral from '../../../components/our-programs/freecyclery/make-referral';
+import EarnABike from '../../../components/our-programs/freecyclery/earn-a-bike';
+import Partners from '../../../components/our-programs/freecyclery/partners';
 
-function Freecyclery() {
+export default function Freecyclery() {
   return (
     <>
-      {/* <NavBar /> */}
-
-      <main className="max-w-screen-xl mx-auto p-4">
-        <section className="mb-8 text-center">
-          <h1 className="text-3xl">Freecyclery</h1>
-          <p className="text-lg">text</p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold mb-2">about our program</h2>
-          <p>Wtext</p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl">how does it work?</h2>
-          <ul className="list-disc list-inside">
-            <li>Referrals:</li>
-            <li>Earn-a-Bike:</li>
-          </ul>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold mb-2">make a referral today</h2>
-          <p>(Placeholder for referral form or instructions on how to submit a referral.)</p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-semibold mb-2">freecyclery partners</h2>
-          <p>(Placeholder for partner logos or a grid of partner organizations.)</p>
-        </section>
-      </main>
-
-      {/* <Footer /> */}
+      <BgImage image={headerPoster} className="min-h-[24rem]">
+        <H1>freecyclery</H1>
+      </BgImage>
+      <AboutSection />
+      <HowItWorks />
+      <MakeReferral />
+      <EarnABike />
+      <Partners />
     </>
   );
 }
-
-export default Freecyclery;
