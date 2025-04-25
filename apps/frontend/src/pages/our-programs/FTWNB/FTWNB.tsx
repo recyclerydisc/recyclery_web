@@ -29,8 +29,8 @@ function FTWNB() {
             </div>
           </section>
 
-          {/* Row one of 2x2 */}
-          <section className="flex flex-col md:flex-row items-stretch justify-between gap-8 mb-15 p-8">
+          {/* Row one of text and pic */}
+          <section className="flex flex-col md:flex-row items-stretch justify-between gap-8 mb-15 mt-15 p-8">
             {/* Left text block */}
             <div>
               <h2 className="text-4xl font-bold mb-4">in this program...</h2>
@@ -65,22 +65,6 @@ function FTWNB() {
               <img className="w-[800px] rounded-full" src={bikerepairPic} alt="Bike repair"></img>
             </div>
           </section>
-
-          {/* <section className="flex flex-col md:flex-row items-stretch justify-between gap-50 mb-20 p-8">
-            <div>
-              <img className="w-[600px]" src={transfeministSymbol} alt="Transfeminist symbol"></img>
-            </div>
-            <div className="font-brandon text-2xl text-center">
-              <p>
-                This program is specifically catering to the Femme, Trans, Women, and Non-Binary
-                members of our community.*
-              </p>
-              <p>
-                We're aiming to provide a welcoming, safe space for individuals who have
-                historically been excluded by the bicycling community.
-              </p>
-            </div>
-          </section> */}
 
           <section className="mb-4 font-brandon text-xs flex justify-end">
             <p>
