@@ -42,7 +42,7 @@ function FTWNB() {
                 <p className="mb-4">
                   Volunteer and fix up bikes for our{' '}
                   <A to="https://www.therecyclery.org/our-programs/freecyclery/">
-                    Freecyclery Progam
+                    Freecyclery Program
                   </A>
                 </p>
 
