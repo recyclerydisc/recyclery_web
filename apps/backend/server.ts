@@ -2,6 +2,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express, { Express, NextFunction, Request, Response } from 'express';
+import supabase from './config/supabase.js';
 import authRoutes from './routes/authRoutes.js';
 
 dotenv.config();
@@ -73,6 +74,37 @@ app.use((err: AppError, _req: Request, res: Response, _next: NextFunction) => {
     error: process.env.NODE_ENV === 'production' ? 'Internal Server Error' : err.message,
   });
 });
+
+
+// GET endpoint to fetch a specific image URL
+// app.get('/images/:id', async (req: Request, res: Response) => {
+//   const img_ID = parseInt(req.params.id);
+
+//   const { data } = await supabase
+//     .from('IMAGES')
+//     .select('bucket_link')
+//     .eq('img_id', img_ID)
+//     .single();
+
+
+//     res.json({ bucket_link: data?.bucket_link})
+//  /// 
+
+// });
+
+app.get('/images/:id', async (req: Request, res: Response) => {
+  const img_ID = parseInt(req.params.id);
+  const { data } = await supabase
+    .from('IMAGES')
+    .select('bucket_link')
+    .eq('img_id', img_ID)
+    .single();
+
+  res.setHeader('Content-Type', 'application/json');
+  res.json({ bucket_link: data?.bucket_link || null });
+});
+
+
 
 const PORT: number = parseInt(process.env.PORT || '3000', 10);
 app.listen(PORT, () => {

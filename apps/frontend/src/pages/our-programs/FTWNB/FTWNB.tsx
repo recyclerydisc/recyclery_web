@@ -1,9 +1,22 @@
 //import NavBar from '../../components/navigation/nav-bar';
 //import Footer from '../../components/footer/footer';
-import bikerepairPic from '../../../assets/images/our-programs/FTWNB/FTWN-B.jpg';
+import { useEffect, useState } from 'react';
 import { A } from '../../../components/generic/styled-tags';
 
 function FTWNB() {
+  const [imageURL, setImageUrl] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    fetch(`/images/1`)
+      .then(res => res.json())
+      .then(data => {
+        setImageUrl(data.bucket_link);
+      })
+      .catch(err => {
+        console.error('ciup', err);
+      });
+  }, []);
+
   return (
     <>
       {/* <NavBar /> */}
@@ -60,7 +73,7 @@ function FTWNB() {
 
             {/* image */}
             <div>
-              <img className="w-[800px] rounded-full" src={bikerepairPic} alt="Bike repair"></img>
+              <img className="w-[800px] rounded-full" src={imageURL} alt="Bike repair"></img>
             </div>
           </section>
 
