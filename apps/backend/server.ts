@@ -1,8 +1,9 @@
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import express, { Express, NextFunction, Request, Response } from 'express';
+import express, { Express, NextFunction, Request, Response, RequestHandler } from 'express';
 import authRoutes from './routes/authRoutes.js';
+import supabase from './config/supabase.js';
 
 dotenv.config();
 
@@ -73,6 +74,70 @@ app.use((err: AppError, _req: Request, res: Response, _next: NextFunction) => {
     error: process.env.NODE_ENV === 'production' ? 'Internal Server Error' : err.message,
   });
 });
+
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
+
+// PUT to upload photos 
+app.put('/upload/:id', (async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    const { file, fileName } = req.body;
+
+    if (!file || !fileName) {
+      return res.status(400).json({ error: 'No file uploaded or missing file name' });
+    }
+
+    const fileBuffer = Buffer.from(file, 'base64');
+    const allowedExtensions = ['jpeg', 'png', 'jpg', 'heic', 'gif', 'webp'];
+    const fileExtension = fileName.split('.').pop()?.toLowerCase();
+
+    if (!fileExtension || !allowedExtensions.includes(fileExtension)) {
+      return res.status(400).json({ error: 'Unsupported file type' });
+    }
+
+    const uniqueFileName = `images/${id}-${Date.now()}.${fileExtension}`;
+    
+    const { error: uploadError } = await supabase.storage
+      .from('IMAGES') // Replace with your bucket name
+      .upload(uniqueFileName, fileBuffer, {
+        contentType: `image/${fileExtension}`,
+        upsert: true,
+      });
+
+    if (uploadError) {
+      return res.status(500).json({ error: 'Failed to upload image to Supabase' });
+    }
+    
+    const { data: publicUrl } = supabase.storage.from('IMAGES').getPublicUrl(uniqueFileName);
+    
+    // Update the database with the new bucket link
+    const { data: dbdata, error: dbError } = await supabase
+      .from('IMAGES') // Replace with your table name
+      .update({ bucket_link: publicUrl })
+      .eq('img_id', id)
+      .select('*')
+      .single();
+
+    if (dbError) {
+      return res.status(500).json({ error: 'Failed to update database' });
+    }
+
+    if (!dbdata) {
+      return res.status(404).json({ error: 'Image not found' });
+    }
+
+    return res.status(200).json({
+      message: 'Image uploaded and database updated successfully',
+      dbdata,
+    });
+
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+}) as RequestHandler
+);
 
 const PORT: number = parseInt(process.env.PORT || '3000', 10);
 app.listen(PORT, () => {
