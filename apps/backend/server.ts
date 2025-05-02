@@ -76,22 +76,6 @@ app.use((err: AppError, _req: Request, res: Response, _next: NextFunction) => {
 });
 
 
-// GET endpoint to fetch a specific image URL
-// app.get('/images/:id', async (req: Request, res: Response) => {
-//   const img_ID = parseInt(req.params.id);
-
-//   const { data } = await supabase
-//     .from('IMAGES')
-//     .select('bucket_link')
-//     .eq('img_id', img_ID)
-//     .single();
-
-
-//     res.json({ bucket_link: data?.bucket_link})
-//  /// 
-
-// });
-
 app.get('/images/:id', async (req: Request, res: Response) => {
   const img_ID = parseInt(req.params.id);
   const { data } = await supabase
