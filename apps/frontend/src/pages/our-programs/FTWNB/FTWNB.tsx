@@ -41,9 +41,7 @@ function FTWNB() {
 
                 <p className="mb-4">
                   Volunteer and fix up bikes for our{' '}
-                  <A to="https://www.therecyclery.org/our-programs/freecyclery/">
-                    Freecyclery Program
-                  </A>
+                  <A to="/our-programs/freecyclery/">Freecyclery Program</A>
                 </p>
 
                 <p className="mb-24">Hang out with fellow FTWN-B bike riders</p>
@@ -69,8 +67,7 @@ function FTWNB() {
           <section className="mb-4 font-brandon text-xs flex justify-end">
             <p>
               *We ask for people who don't identify as FTWN-B to come to our general{' '}
-              <A to="https://www.therecyclery.org/our-programs/open-shop/">Open Shop Hours</A>{' '}
-              instead
+              <A to="/our-programs/openshop/">Open Shop Hours</A> instead
             </p>
           </section>
         </main>
