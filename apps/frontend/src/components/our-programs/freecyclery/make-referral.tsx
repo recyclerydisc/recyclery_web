@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Mail } from 'lucide-react';
-import { A, H2 } from '../../generic/styled-tags';
+import { A, H2, Section } from '../../generic/styled-tags';
 import deliveryBike from '../../../assets/images/our-programs/freecyclery/delivery-bike.png';
 import squigglyCross from '../../../assets/images/our-programs/freecyclery/squiggly-cross.svg';
 import DashedBorder from './dashed-border';
@@ -8,14 +8,14 @@ import Accordion from './accordion';
 
 export default function MakeReferral() {
   return (
-    <section
-      className="px-8 md:px-16 py-16 flex flex-col items-center bg-background [background-size:0] md:[background-size:100%_100%]"
+    <Section
+      className="flex flex-col items-center [background-size:0] md:[background-size:100%_100%]"
       style={{
         backgroundImage: `url("${squigglyCross}")`,
       }}
     >
       <H2>make a referral today</H2>
-      <div className="bg-tan-500 max-w-[64rem] mt-8 p-2 rounded-[16px]">
+      <div className="bg-tan-500 max-w-[64rem] p-2 rounded-[16px]">
         <DashedBorder className="grid md:grid-cols-2 gap-6 md:gap-4 px-8 py-12 items-center">
           <div>
             <h3 className="text-heading2">contact us</h3>
@@ -67,6 +67,6 @@ export default function MakeReferral() {
         </A>{' '}
         or contact us! We are always open to exploring new collaborations.
       </p>
-    </section>
+    </Section>
   );
 }
