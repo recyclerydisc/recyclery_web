@@ -69,11 +69,7 @@ app.use((err: AppError, _req: Request, res: Response, _next: NextFunction) => {
   //   stack: err.stack,
   //   status: err.status || 500,
   // });
-  console.error('Error details:', {
-    message: err.message,
-    stack: err.stack,
-    status: err.status || 500,
-  });
+
   res.status(err.status || 500).json({
     error: process.env.NODE_ENV === 'production' ? 'Internal Server Error' : err.message,
   });
@@ -93,11 +89,8 @@ app.put('/upload/:id', (async (req, res) => {
       return res.status(400).json({ error: 'No file uploaded or missing file name' });
     }
 
-    console.log('ID:', id);
-    console.log('File Name:', fileName);
-
     const fileBuffer = Buffer.from(file, 'base64');
-    console.log('File Buffer:', fileBuffer);
+
 
     const allowedExtensions = ['jpeg', 'png', 'jpg', 'heic', 'gif', 'webp'];
     const fileExtension = fileName.split('.').pop()?.toLowerCase();
@@ -107,7 +100,6 @@ app.put('/upload/:id', (async (req, res) => {
     }
 
     const uniqueFileName = `images/${id}-${Date.now()}.${fileExtension}`;
-    console.log('Unique File Name:', uniqueFileName);
     
     const { error: uploadError } = await supabase.storage
       .from('IMAGES') // Replace with your bucket name
@@ -117,7 +109,6 @@ app.put('/upload/:id', (async (req, res) => {
       });
 
     if (uploadError) {
-      console.error('Upload Error:', uploadError);
       return res.status(500).json({ error: 'Failed to upload image to Supabase' });
     }
     
@@ -147,7 +138,6 @@ app.put('/upload/:id', (async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Unexpected Error:', error);
     res.status(500).json({ error });
   }
 }) as RequestHandler
