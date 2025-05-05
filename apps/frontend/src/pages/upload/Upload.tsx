@@ -1,6 +1,7 @@
 import React, { useState, DragEvent, ChangeEvent } from 'react';
 import styled from 'styled-components';
 import drop from '../../assets/images/upload/drop.png';
+import { useParams } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -109,7 +110,7 @@ const Upload: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [dragActive, setDragActive] = useState(false);
-
+  const { id } = useParams<{ id: string }>();
   const handleDrag = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -142,12 +143,19 @@ const Upload: React.FC = () => {
     }
     const formData = new FormData();
     formData.append('file', file);
-
+    formData.append('fileName', file.name);
+    
     try {
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/upload`, {
-        method: 'POST',
-        body: formData,
-      });
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/upload/${id}`, { // Replace '2' with the actual ID
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              file: await file.text(), // Convert file to base64
+              fileName: file.name,
+            }),
+          });
 
       if (!response.ok) {
         throw new Error('Failed to upload file');
