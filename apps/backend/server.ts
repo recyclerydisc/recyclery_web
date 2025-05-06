@@ -1,9 +1,17 @@
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import express, { Express, NextFunction, Request, Response, RequestHandler } from 'express';
-import authRoutes from './routes/authRoutes.js';
+import express, { Express, NextFunction, Request, RequestHandler, Response } from 'express';
 import supabase from './config/supabase.js';
+import authRoutes from './routes/authRoutes.js';
+
+import multer from 'multer';
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+interface MulterRequest extends Request {
+  file?: Express.Multer.File;
+}
+const upload = multer({ limits: { fileSize: 50 * 1024 * 1024 } }); // 50MB limit
 
 dotenv.config();
 
@@ -35,7 +43,16 @@ const corsOptions: CorsOptions = {
   credentials: true,
   maxAge: 86400,
 };
-
+app.use(cookieParser());
+app.use(
+  express.json({ limit: '50mb' })           // ↑ allow big JSON bodies
+);
+app.use(
+  express.urlencoded({                       // ↑ if you ever post urlencoded too
+    limit: '50mb',
+    extended: true,
+  })
+);
 app.use(cors(corsOptions));
 
 // if (process.env.NODE_ENV !== 'production') {
@@ -45,8 +62,6 @@ app.use(cors(corsOptions));
 //   });
 // }
 
-app.use(cookieParser());
-app.use(express.json());
 
 app.use((req, res, next) => {
   req.url = req.url.replace(/\/+/g, '/');
@@ -75,21 +90,19 @@ app.use((err: AppError, _req: Request, res: Response, _next: NextFunction) => {
   });
 });
 
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 // PUT to upload photos 
-app.put('/upload/:id', (async (req, res) => {
+app.put('/upload/:id', upload.single('file'), (async (req, res) => {
   try {
     const { id } = req.params;
-    
-    const { file, fileName } = req.body;
+    const file = req.file;
 
-    if (!file || !fileName) {
+    if (!file) {
       return res.status(400).json({ error: 'No file uploaded or missing file name' });
     }
 
-    const fileBuffer = Buffer.from(file, 'base64');
+    const fileBuffer = file.buffer;
+    const fileName = file.originalname;
 
 
     const allowedExtensions = ['jpeg', 'png', 'jpg', 'heic', 'gif', 'webp'];
@@ -112,14 +125,17 @@ app.put('/upload/:id', (async (req, res) => {
       return res.status(500).json({ error: 'Failed to upload image to Supabase' });
     }
     
-    const { data: publicUrl } = supabase.storage.from('IMAGES').getPublicUrl(uniqueFileName);
-    if (!publicUrl) {
+    const { data: publicUrlData } = supabase.storage
+      .from('IMAGES')
+      .getPublicUrl(uniqueFileName);
+    
+    if (!publicUrlData?.publicUrl) {
       return res.status(500).json({ error: 'Failed to generate public URL' });
     }
     // Update the database with the new bucket link
     const { data: dbdata, error: dbError } = await supabase
       .from('IMAGES') // Replace with your table name
-      .update({ bucket_link: publicUrl })
+      .update({ bucket_link: publicUrlData.publicUrl })
       .eq('img_id', id)
       .select('*')
       .single();

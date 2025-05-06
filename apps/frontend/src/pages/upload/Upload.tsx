@@ -1,7 +1,7 @@
-import React, { useState, DragEvent, ChangeEvent } from 'react';
+import React, { ChangeEvent, DragEvent, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import drop from '../../assets/images/upload/drop.png';
-import { useParams } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -145,18 +145,15 @@ const Upload: React.FC = () => {
     formData.append('file', file);
     formData.append('fileName', file.name);
     
+
     try {
         const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/upload/${id}`, { // Replace '2' with the actual ID
             method: 'PUT',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              file: await file.text(), // Convert file to base64
-              fileName: file.name,
-            }),
-          });
-
+            body: formData,
+        });
+        console.log('Response status:', response.status); // Log response status
+        const responseData = await response.json();
+        console.log('Response data:', responseData); // Log response data
       if (!response.ok) {
         throw new Error('Failed to upload file');
       }
