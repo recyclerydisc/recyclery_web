@@ -1,13 +1,13 @@
-import { H2 } from '../../generic/styled-tags';
+import { H2, Section } from '../../generic/styled-tags';
 import DashedBorder from './dashed-border';
 import { Link } from 'react-router-dom';
 import React from 'react';
 
 export default function EarnABike() {
   return (
-    <section className="bg-tan-500 px-8 md:px-16 py-16 flex flex-col items-center text-center">
+    <Section className="flex flex-col items-center text-center" tan>
       <H2>earn-a-bike fellowship programs</H2>
-      <p className="text-body1 mt-8 font-brandon md:px-12 lg:max-w-[48rem]">
+      <p className="text-body1 font-brandon md:px-12 lg:max-w-[48rem]">
         As an alternative to a referral from a partner organization, we offer opportunities for
         adults and youth to earn a Freecyclery bike through our Earn-a-Bike Fellowship programs.
       </p>
@@ -41,6 +41,6 @@ export default function EarnABike() {
           </DashedBorder>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

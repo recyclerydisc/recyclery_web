@@ -1,11 +1,11 @@
 import Program from './program';
-import { A, H2 } from '../generic/styled-tags';
+import { A, H2, Section } from '../generic/styled-tags';
 
 export default function ProgramsSection() {
   return (
-    <section className="bg-background px-16 pt-10 pb-16">
+    <Section>
       <H2>our programs</H2>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <Program title={'open shop'} learnMoreLink={'/our-programs/openshop'}>
           You can work on your own bike during Open Shop. All levels of experience are welcome.
           <br />
@@ -54,6 +54,6 @@ export default function ProgramsSection() {
           Variable, see <A to="/our-programs/classes">sign up page</A>
         </Program>
       </div>
-    </section>
+    </Section>
   );
 }

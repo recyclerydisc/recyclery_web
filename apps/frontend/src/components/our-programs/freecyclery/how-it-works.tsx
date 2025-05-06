@@ -1,13 +1,13 @@
 import { Bike, Megaphone } from 'lucide-react';
-import { A, H2 } from '../../generic/styled-tags';
+import { A, H2, Section } from '../../generic/styled-tags';
 import circleSketch from '../../../assets/images/our-programs/freecyclery/circle-sketch.svg';
 import arrow from '../../../assets/images/our-programs/freecyclery/arrow.svg';
 
 export default function HowItWorks() {
   return (
-    <section className="bg-tan-500 px-8 md:px-16 py-16 flex flex-col items-center">
+    <Section className="flex flex-col items-center" tan>
       <H2>how does it work?</H2>
-      <p className="text-body1 pt-4 font-brandon">
+      <p className="text-body1 font-brandon">
         The Freecyclery Program provides
         <span
           className="relative inline-flex items-center justify-center w-12 h-12"
@@ -32,8 +32,11 @@ export default function HowItWorks() {
           </div>
           <h3 className="text-subheading1">Referrals</h3>
           <p className="text-body2 pt-2 font-brandon">
-            Our dedicated <A to="#">Freecyclery Partners</A> refer individuals to us to receive a
-            free bicycle.
+            Our dedicated{' '}
+            <a href="#partners" className="underline text-blue-500 hover:text-blue-800 transition">
+              Freecyclery Partners
+            </a>{' '}
+            refer individuals to us to receive a free bicycle.
           </p>
         </div>
         <div>
@@ -52,6 +55,6 @@ export default function HowItWorks() {
           </p>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
