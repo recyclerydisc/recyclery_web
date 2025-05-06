@@ -1,7 +1,7 @@
 import WhatHero from '../../../assets/images/about-us/what/what-hero.png';
 import WhatSection1 from '../../../assets/images/about-us/what/what-section-1.png';
 import { BgImage } from '../../../components/generic/bg-image';
-import { H1, H2, H3 } from '../../../components/generic/styled-tags';
+import { H1, H2, H3, Section } from '../../../components/generic/styled-tags';
 
 function WhatWeDo() {
   return (
@@ -13,7 +13,7 @@ function WhatWeDo() {
           as well as our milestone of refurbishing 10,000 bikes.
         </p>
       </BgImage>
-      <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9 flex md:flex-row-reverse flex-col justify-center items-center md:gap-16 gap-8">
+      <Section className="flex md:flex-row-reverse flex-col justify-center items-center md:gap-16 gap-8">
         <div className="flex flex-col gap-6">
           <div>
             <H2>our mission</H2>
@@ -35,8 +35,8 @@ function WhatWeDo() {
           alt="Person with bike"
           className="max-w-[300px] w-full rounded-2xl object-fit"
         />
-      </section>
-      <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9 bg-tan-500">
+      </Section>
+      <Section tan>
         <H2>our core values</H2>
         <div className="flex flex-col gap-8">
           <div className="flex md:flex-row flex-col justify-center items-start gap-8">
@@ -92,8 +92,8 @@ function WhatWeDo() {
             </div>
           </div>
         </div>
-      </section>
-      <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9">
+      </Section>
+      <Section>
         <H2>testimonials</H2>
         <div className="flex lg:flex-row flex-col justify-center items-center gap-8 lg:h-[250px]">
           <div className="h-full flex-1 flex flex-col justify-between space-y-8 lg:space-y-0">
@@ -121,7 +121,7 @@ function WhatWeDo() {
             </div>
           </div>
         </div>
-      </section>
+      </Section>
     </main>
   );
 }

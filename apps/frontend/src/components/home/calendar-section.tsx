@@ -1,10 +1,10 @@
-import { H2 } from '../generic/styled-tags';
+import { H2, Section } from '../generic/styled-tags';
 
 function CalendarSection() {
   return (
-    <section className="bg-tan-500 px-16 pt-10 pb-12">
-      <H2>our event calendar</H2>
-      <p className="text-body2 pt-4 font-brandon">
+    <Section tan>
+      <H2 className="!mb-4">our event calendar</H2>
+      <p className="text-body2 font-brandon">
         The calendar below shows all events for the Recyclery. Any upcoming events will also be
         updated here!
       </p>
@@ -20,7 +20,7 @@ function CalendarSection() {
         frameBorder="0"
         scrolling="no"
       ></iframe>
-    </section>
+    </Section>
   );
 }
 

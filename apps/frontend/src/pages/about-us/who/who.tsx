@@ -1,7 +1,7 @@
 import WhoHero from '../../../assets/images/about-us/who/who-hero.png';
 import MemberCard, { MemberCardProps } from '../../../components/about-us/member-card';
 import { BgImage } from '../../../components/generic/bg-image';
-import { H1, H2 } from '../../../components/generic/styled-tags';
+import { H1, H2, Section } from '../../../components/generic/styled-tags';
 
 const members: MemberCardProps[] = [
   {
@@ -51,14 +51,14 @@ function WhoWeAre() {
           as well as our milestone of refurbishing 10,000 bikes.
         </p>
       </BgImage>
-      <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9">
+      <Section>
         <H2>staff and collective members</H2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {members.map(member => {
             return <MemberCard {...member} />;
           })}
         </div>
-      </section>
+      </Section>
     </main>
   );
 }
