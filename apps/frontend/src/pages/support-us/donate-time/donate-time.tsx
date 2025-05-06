@@ -1,3 +1,11 @@
+import HeroSection from '../../../components/support-us/donate-time/hero-section';
+import VolunteerMission from '../../../components/support-us/donate-time/volunteer-mission';
+
 export default function DonateTime() {
-  return <h1 className="text-4xl">become a volunteer</h1>;
+  return (
+    <>
+      <HeroSection />
+      <VolunteerMission />
+    </>
+  );
 }
