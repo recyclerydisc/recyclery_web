@@ -1,12 +1,36 @@
-import WhatHero from '../../../assets/images/about-us/what/what-hero.png';
-import WhatSection1 from '../../../assets/images/about-us/what/what-section-1.png';
+import { useEffect, useState } from 'react';
 import { BgImage } from '../../../components/generic/bg-image';
 import { H1, H2, H3, Section } from '../../../components/generic/styled-tags';
 
 function WhatWeDo() {
+  const [heroimageURL, setHeroImageUrl] = useState<string | undefined>(undefined);
+  const [whatsec1URL, setWhatSec1ImageURL] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    fetch(`/images/2`)
+      .then(res => res.json())
+      .then(data => {
+        setHeroImageUrl(data.bucket_link);
+      })
+      .catch(err => {
+        console.error('image URL was not fetched correctly', err);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(`/images/3`)
+      .then(res => res.json())
+      .then(data => {
+        setWhatSec1ImageURL(data.bucket_link);
+      })
+      .catch(err => {
+        console.error('image URL was not fetched correctly', err);
+      });
+  }, []);
+
   return (
     <main className="w-full">
-      <BgImage image={WhatHero} className="min-h-[32rem]">
+      <BgImage image={heroimageURL} className="min-h-[32rem]">
         <H1>what we do</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
           The seed idea of The Recyclery was planted in 2005, with 2025 marking our 20th anniversary
@@ -31,7 +55,7 @@ function WhatWeDo() {
           </div>
         </div>
         <img
-          src={WhatSection1}
+          src={whatsec1URL}
           alt="Person with bike"
           className="max-w-[300px] w-full rounded-2xl object-fit"
         />
