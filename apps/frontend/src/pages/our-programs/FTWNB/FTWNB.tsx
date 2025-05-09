@@ -7,13 +7,13 @@ function FTWNB() {
   const [imageURL, setImageUrl] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    fetch(`/images/1`)
+    fetch(`/images/2`)
       .then(res => res.json())
       .then(data => {
         setImageUrl(data.bucket_link);
       })
       .catch(err => {
-        console.error('ciup', err);
+        console.error('image URL was not fetched correctly', err);
       });
   }, []);
 

@@ -1,6 +1,6 @@
 interface BgImageProps {
   children: React.ReactNode;
-  image: string;
+  image: string | undefined;
   opacity?: number;
   className?: string;
 }

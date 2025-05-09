@@ -1,7 +1,7 @@
 import OpenshopHero from '../../../assets/images/our-programs/openshop/openshop-hero.png';
 import OpenshopSection1 from '../../../assets/images/our-programs/openshop/openshop-section-1.png';
 import { BgImage } from '../../../components/generic/bg-image';
-import { A, H1, H2 } from '../../../components/generic/styled-tags';
+import { A, H1, H2, Section } from '../../../components/generic/styled-tags';
 
 function OpenShop() {
   return (
@@ -12,7 +12,7 @@ function OpenShop() {
           Use our tools to fix your own bike with the instruction of Recyclery mechanics.
         </p>
       </BgImage>
-      <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9 flex lg:flex-row flex-col justify-center items-center lg:gap-16 gap-8">
+      <Section className="flex lg:flex-row flex-col justify-center items-center lg:gap-16 gap-8">
         <div className="flex flex-col gap-6">
           <div>
             <H2>what is open shop?</H2>
@@ -43,8 +43,8 @@ function OpenShop() {
           alt="Two people working on a bike"
           className="max-w-[450px] w-full rounded-2xl object-fit"
         />
-      </section>
-      <section className="w-full lg:px-[120px] md:px-[96px] px-[64px] py-9 bg-tan-500">
+      </Section>
+      <Section tan>
         <H2>hours</H2>
         <div className="space-y-4 font-brandon">
           <ul>
@@ -58,7 +58,7 @@ function OpenShop() {
             <A to="https://therecyclery.bigcartel.com/">online shop.</A>
           </p>
         </div>
-      </section>
+      </Section>
     </main>
   );
 }
