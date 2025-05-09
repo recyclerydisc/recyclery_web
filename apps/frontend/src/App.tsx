@@ -17,6 +17,7 @@ import ContributeFinancially from './pages/support-us/contribute-financially/con
 import DonateABike from './pages/support-us/donate-a-bike/donate-a-bike';
 import DonateTime from './pages/support-us/donate-time/donate-time';
 import OurSupporters from './pages/support-us/our-supporters/our-supporters';
+import UploadPage from './pages/upload/Upload'; 
 
 import './App.css';
 import AuthCallback from './pages/account/auth-callback';
@@ -41,7 +42,8 @@ function App() {
             <Route path="auth/callback" element={<AuthCallback />} />
             <Route path="auth/reset-password" element={<ResetPassword />} />
             <Route path="auth/verify-email" element={<EmailVerification />} />
-
+            {/* Protected Route for Upload Page */}
+            <Route path="/upload/:id" element={<UploadPage />} />
             {/*
               About Us
             */}
