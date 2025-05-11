@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { BlueButton, OrangeButtonLink } from "../../../components/generic/buttons";
+import { Link } from "react-router-dom";
+import { BlueButton, OrangeButton } from "../../../components/generic/buttons";
 import { H2, H3, Section } from "../../../components/generic/styled-tags";
 
 export default function ContributeFinancially() {
   const [currentTab, setCurrentTab] = useState("50");
-
 
   return (
     <Section>
@@ -23,7 +23,11 @@ export default function ContributeFinancially() {
           <div className="w-full hidden md:block">
             <H3 className="mb-4">ready to donate?</H3>
             <p className="font-brandon mb-4">We greatly appreciate and welcome any donation amount!</p>
-            <OrangeButtonLink to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G&ssrt=1746749857705">Donate Now!</OrangeButtonLink>
+            <OrangeButton >
+              <Link to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G&ssrt=1746749857705">
+                Donate Now!
+              </Link>
+            </OrangeButton>
           </div>
         </div>
         <div className="w-full p-4 rounded-2xl bg-white shadow flex flex-col 2xl:flex-row justify-start items-center gap-4 flex-4/7">
@@ -59,7 +63,11 @@ export default function ContributeFinancially() {
         <div className="w-full block md:hidden">
             <H3 className="mb-4">ready to donate?</H3>
             <p className="font-brandon mb-4">We greatly appreciate and welcome any donation amount!</p>
-            <OrangeButtonLink to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G&ssrt=1746749857705">Donate Now!</OrangeButtonLink>
+            <OrangeButton >
+              <Link to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G&ssrt=1746749857705">
+                Donate Now!
+              </Link>
+            </OrangeButton>
           </div>
       </div>
     </Section>

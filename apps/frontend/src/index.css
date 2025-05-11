@@ -67,6 +67,8 @@
   --font-bookman: bookman, sans-serif;
   --font-brandon: brandon, sans-serif;
   --font-roc: roc, sans-serif;
+
+  --breakpoint-xs: 350px;
 }
 
 :root {

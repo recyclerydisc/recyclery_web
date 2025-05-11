@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function BlueButtonLink({ to, children }: { to: string; children: React.ReactNode }) {
   return (
@@ -16,7 +16,7 @@ export function OrangeButtonLink({ to, children }: { to: string; children: React
   return (
     <Link
       to={to}
-      className="bg-orange-500 hover:bg-orange-700 px-3 py-2 rounded-2xl text-white text-body2 cursor-pointer transition-colors font-brandon"
+      className="bg-orange-500 hover:bg-orange-700 px-3 py-2 rounded-2xl text-white text-body2 cursor-pointer transition-colors font-brandon w-auto"
     >
       {children}
     </Link>
@@ -25,8 +25,8 @@ export function OrangeButtonLink({ to, children }: { to: string; children: React
 
 interface ButtonProps {
   children: React.ReactNode;
-  onClick: () => void;
-  to?: string; 
+  onClick?: () => void;
+  to?: string;
 }
 
 export function BlueButton({ children, onClick }: ButtonProps) {
