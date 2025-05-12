@@ -1,6 +1,6 @@
 import { Bike } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { OrangeButton } from '../generic/buttons';
+import { Button } from '../generic/buttons';
 import { FacebookIcon, InstagramIcon } from '../icons/icons';
 
 export default function Footer() {
@@ -12,14 +12,14 @@ export default function Footer() {
           <p className="text-heading2 text-nowrap font-roc">the recyclery</p>
         </div>
         <div className="flex flex-col xs:flex-row gap-4">
-          <OrangeButton onClick={() => {}}>
+          <Button color="orange">
             <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
               Donate
             </Link>
-          </OrangeButton>
-          <OrangeButton onClick={() => {}}>
+          </Button>
+          <Button color="orange">
             Join Our Newsletter
-          </OrangeButton>
+          </Button>
         </div>
       </div>
       <div className="border-[1px] border-white/10" />

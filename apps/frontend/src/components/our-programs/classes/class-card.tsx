@@ -1,4 +1,5 @@
-import { BlueButton } from "../../generic/buttons";
+import { Link } from "react-router-dom";
+import { Button } from "../../generic/buttons";
 
 interface ClassCardProps {
     title: string;
@@ -47,9 +48,11 @@ export default function ClassCard({
             </span>
             <p className="text-gray-600 mb-2">{sessions}</p>
             <p className="text-gray-600 mb-4">{description}</p>
-            <BlueButton to={buttonLink} onClick={() => {}}>
+            <Button>
+              <Link to={buttonLink}>
                 {buttonText}
-            </BlueButton>
+              </Link>
+            </Button>
         </div>
     );
 }

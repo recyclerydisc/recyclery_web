@@ -2,7 +2,7 @@ import { Bike, Menu } from 'lucide-react';
 import { ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavContent } from '../../content/nav-content';
-import { BlueButtonLink } from '../generic/buttons';
+import { Button } from '../generic/buttons';
 import NavbarItem from './nav-bar-item';
 import SideMenu from './side-menu';
 
@@ -33,10 +33,16 @@ export default function NavBar() {
           }
         </div>
         <div className="space-x-4 hidden lg:block">
-          <BlueButtonLink to="https://therecyclery.square.site/">Shop For Bikes</BlueButtonLink>
-          <BlueButtonLink to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
-            Donate
-          </BlueButtonLink>
+          <Button>
+            <Link to="https://therecyclery.square.site/">
+              Shop For Bikes
+            </Link>
+          </Button>
+          <Button>
+            <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
+              Donate
+            </Link>
+          </Button>
         </div>
         <div className="lg:hidden block">
           <button

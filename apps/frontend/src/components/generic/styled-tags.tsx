@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
-export function H1({ children, className }: { children: React.ReactNode; className?: string }) {
-  return <h1 className={`sm:text-7xl text-5xl ${className}`}>{children}</h1>;
+export type HeadingProps = {
+  children: ReactNode,
+  className?: string,
 }
 
-export function H2({ children, className }: { children: React.ReactNode; className?: string }) {
-  return <h2 className={`text-3xl sm:text-4xl mb-8 text-orange-500 ${className}`}>{children}</h2>;
+export function H1({ children, className }: HeadingProps) {
+  return <h1 className={`sm:text-7xl text-5xl text-white ${className}`}>{children}</h1>;
 }
 
-export function H3({ children, className }: { children: React.ReactNode; className?: string }) {
-  return <h3 className={`text-xl sm:text-2xl text-orange-500 ${className}`}>{children}</h3>;
+export function H2({ children, className }: HeadingProps) {
+  return <h2 className={`text-3xl sm:text-4xl mb-8 ${className} text-orange-500`}>{children}</h2>;
+}
+
+export function H3({ children, className }: HeadingProps) {
+  return <h3 className={`text-xl sm:text-2xl ${className} text-black`}>{children}</h3>;
 }
 
 interface AProps {

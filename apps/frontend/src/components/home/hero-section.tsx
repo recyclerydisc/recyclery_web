@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import headerPoster from '../../assets/images/home/header-poster.jpg';
 import { BgImage } from '../generic/bg-image';
-import { BlueButtonLink, OrangeButtonLink } from '../generic/buttons';
+import { Button } from '../generic/buttons';
 import { H1 } from '../generic/styled-tags';
 
 export default function HeroSection() {
@@ -12,8 +13,16 @@ export default function HeroSection() {
         access to tools, skills, and opportunities for collaboration.
       </p>
       <div className="flex sm:flex-row flex-col justify-center items-center gap-x-4 gap-y-2 pt-6">
-        <OrangeButtonLink to="#">Join Our Newsletter</OrangeButtonLink>
-        <BlueButtonLink to="https://therecyclery.square.site/">Shop Our Bikes</BlueButtonLink>
+        <Button color="orange">
+          <Link to="#">
+            Join Our Newsletter
+          </Link>
+        </Button>
+        <Button>
+          <Link to="https://therecyclery.square.site/">
+            Shop Our Bikes
+          </Link>
+        </Button>
       </div>
     </BgImage>
   );

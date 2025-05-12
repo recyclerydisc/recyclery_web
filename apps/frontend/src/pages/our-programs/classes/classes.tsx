@@ -4,10 +4,10 @@ import ClassSignup from '../../../components/our-programs/classes/class-signup';
 
 export default function Classes() {
   return (
-    <div>
+    <main>
       <ClassHero />
       <ClassDescription />
       <ClassSignup />
-    </div>
+    </main>
   );
 }

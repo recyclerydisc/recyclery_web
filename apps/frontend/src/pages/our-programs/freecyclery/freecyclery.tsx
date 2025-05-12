@@ -9,7 +9,7 @@ import Partners from '../../../components/our-programs/freecyclery/partners';
 
 export default function Freecyclery() {
   return (
-    <>
+    <main>
       <BgImage image={headerPoster} className="min-h-[32rem]">
         <H1>freecyclery</H1>
       </BgImage>
@@ -18,6 +18,6 @@ export default function Freecyclery() {
       <MakeReferral />
       <EarnABike />
       <Partners />
-    </>
+    </main>
   );
 }

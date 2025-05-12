@@ -5,7 +5,7 @@ import { A } from '../../../components/generic/styled-tags';
 
 function FTWNB() {
   return (
-    <>
+    <main>
       {/* <NavBar /> */}
 
       <section
@@ -74,7 +74,7 @@ function FTWNB() {
       </section>
 
       {/* <Footer /> */}
-    </>
+    </main>
   );
 }
 
