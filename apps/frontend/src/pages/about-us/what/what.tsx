@@ -5,7 +5,7 @@ import { H1, H2, H3, Section } from '../../../components/generic/styled-tags';
 
 function WhatWeDo() {
   return (
-    <main className="w-full">
+    <main>
       <BgImage image={WhatHero} className="min-h-[32rem]">
         <H1>what we do</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
@@ -33,7 +33,7 @@ function WhatWeDo() {
         <img
           src={WhatSection1}
           alt="Person with bike"
-          className="max-w-[300px] w-full rounded-2xl object-fit"
+          className="max-w-[400px] w-full rounded-2xl object-fit"
         />
       </Section>
       <Section tan>
