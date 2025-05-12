@@ -33,7 +33,7 @@ function WhatWeDo() {
         <img
           src={WhatSection1}
           alt="Person with bike"
-          className="max-w-[300px] w-full rounded-2xl object-fit"
+          className="max-w-[400px] w-full rounded-2xl object-fit"
         />
       </Section>
       <Section tan>

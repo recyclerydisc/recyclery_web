@@ -20,3 +20,10 @@ export type NavContentType = {
     destination: string;
   }[];
 }
+
+export type CollectionPointType = {
+  title: string;
+  url: string;
+  address: string;
+  phone: string;
+}

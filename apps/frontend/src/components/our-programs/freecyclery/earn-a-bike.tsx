@@ -17,7 +17,7 @@ export default function EarnABike() {
       </p>
       <div className="grid md:grid-cols-2 mt-8 gap-6">
         <div className="max-w-64 p-2 bg-green-500 text-white rounded-2xl h-[375px]">
-          <DashedBorder color="F0D9C2" className="flex flex-col justify-between items-center px-5 py-8">
+          <DashedBorder color="FFFFFF" className="flex flex-col justify-between items-center px-5 py-8">
             <div>
               <p className="text-5xl">1.</p>
               <H3 className="mt-2 text-white">Complete the Volunteer Application</H3>
@@ -32,7 +32,7 @@ export default function EarnABike() {
           </DashedBorder>
         </div>
           <div className="max-w-64 p-2 bg-green-500 text-white rounded-2xl h-[375px]">
-            <DashedBorder color="F0D9C2" className="flex flex-col justify-between items-center px-5 py-8">
+            <DashedBorder color="FFFFFF" className="flex flex-col justify-between items-center px-5 py-8">
             <div>
               <p className="text-5xl">2.</p>
               <H3 className="mt-2 text-white">Complete the Online or In-Person Orientation</H3>
