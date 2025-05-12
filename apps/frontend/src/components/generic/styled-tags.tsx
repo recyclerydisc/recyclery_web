@@ -11,11 +11,11 @@ export function H1({ children, className }: HeadingProps) {
 }
 
 export function H2({ children, className }: HeadingProps) {
-  return <h2 className={`text-3xl sm:text-4xl mb-8 ${className} text-orange-500`}>{children}</h2>;
+  return <h2 className={`text-3xl sm:text-4xl mb-8 text-orange-500 ${className} `}>{children}</h2>;
 }
 
 export function H3({ children, className }: HeadingProps) {
-  return <h3 className={`text-xl sm:text-2xl ${className} text-black`}>{children}</h3>;
+  return <h3 className={`text-xl sm:text-2xl text-black ${className}`}>{children}</h3>;
 }
 
 interface AProps {
