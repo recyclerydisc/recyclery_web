@@ -1,12 +1,6 @@
-import { ReactNode } from 'react';
+import { MemberType } from '@/types';
 
-export type MemberCardProps = {
-  name: string;
-  img: string;
-  description: ReactNode;
-};
-
-function MemberCard({ name, img, description }: MemberCardProps) {
+function MemberCard({ name, img, description }: MemberType) {
   return (
     <div className="aspect-2/1 flex flex-col items-center justify-start gap-2">
       <img

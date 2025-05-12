@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom';
 import { Mail } from 'lucide-react';
-import { A, H2, Section } from '../../generic/styled-tags';
+import { Link } from 'react-router-dom';
 import deliveryBike from '../../../assets/images/our-programs/freecyclery/delivery-bike.png';
 import squigglyCross from '../../../assets/images/our-programs/freecyclery/squiggly-cross.svg';
-import DashedBorder from './dashed-border';
-import Accordion from './accordion';
+import { referralAccordionContent } from '../../../content/referral-info';
+import Accordion from '../../generic/accordion';
+import DashedBorder from '../../generic/dashed-border';
+import { A, H2, Section } from '../../generic/styled-tags';
 
 export default function MakeReferral() {
   return (
@@ -15,8 +16,8 @@ export default function MakeReferral() {
       }}
     >
       <H2>make a referral today</H2>
-      <div className="bg-tan-500 max-w-[64rem] p-2 rounded-[16px]">
-        <DashedBorder className="grid md:grid-cols-2 gap-6 md:gap-4 px-8 py-12 items-center">
+      <div className="bg-tan-500 max-w-[64rem] p-2 rounded-2xl">
+        <DashedBorder className="grid md:grid-cols-2 gap-6 md:gap-4 p-8 items-center">
           <div>
             <h3 className="text-heading2">contact us</h3>
             <p className="text-body2 font-brandon">Send an email with the following information:</p>
@@ -34,28 +35,7 @@ export default function MakeReferral() {
             />
           </div>
           <Accordion
-            items={[
-              {
-                title: 'Client Info',
-                content:
-                  'What are the client’s first and last names, pronouns, height, weight and age?',
-              },
-              {
-                title: 'Client’s Preferred Bike Type',
-                content:
-                  'Does the client have a preferred bike type? We will do our best to match a client with a bike of their choice, but are constrained by what we have available at any given time.',
-              },
-              {
-                title: 'Why Does this Client Need a Bike?',
-                content:
-                  'Please help us understand how having a working bike will make a difference to this client.',
-              },
-              {
-                title: 'The $25 Helmet & Lock Cost',
-                content:
-                  'Will the agency or the client pay the $25 to cover the lock and helmet cost? Our shop depends on donations from individuals and organizations, so your help to defray our costs is appreciated!',
-              },
-            ]}
+            items={referralAccordionContent}
           />
         </DashedBorder>
       </div>

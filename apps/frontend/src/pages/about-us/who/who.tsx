@@ -1,45 +1,8 @@
 import WhoHero from '../../../assets/images/about-us/who/who-hero.png';
-import MemberCard, { MemberCardProps } from '../../../components/about-us/member-card';
+import MemberCard from '../../../components/about-us/who-we-are/member-card';
 import { BgImage } from '../../../components/generic/bg-image';
 import { H1, H2, Section } from '../../../components/generic/styled-tags';
-
-const members: MemberCardProps[] = [
-  {
-    name: 'Charlie',
-    img: '',
-    description: 'Daytime Freecyclery Host',
-  },
-  {
-    name: 'Max',
-    img: '',
-    description: 'Daytime Freecyclery Host',
-  },
-  {
-    name: 'Dana',
-    img: '',
-    description: 'Evening Freecyclery Host',
-  },
-  {
-    name: 'Tom',
-    img: '',
-    description: 'Collective Member',
-  },
-  {
-    name: 'Tzip',
-    img: '',
-    description: 'Freecyclery Coordinator & Collective Member',
-  },
-  {
-    name: 'Rohan',
-    img: '',
-    description: 'Collective Member',
-  },
-  {
-    name: 'Nina',
-    img: '',
-    description: 'Collective Member',
-  },
-];
+import { members } from '../../../content/members';
 
 function WhoWeAre() {
   return (
@@ -54,8 +17,8 @@ function WhoWeAre() {
       <Section>
         <H2>staff and collective members</H2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {members.map(member => {
-            return <MemberCard {...member} />;
+          {members.map((member, index) => {
+            return <MemberCard key={index} {...member} />;
           })}
         </div>
       </Section>

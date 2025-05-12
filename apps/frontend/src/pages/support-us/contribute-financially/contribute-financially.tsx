@@ -1,75 +1,42 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BlueButton, OrangeButton } from "../../../components/generic/buttons";
-import { H2, H3, Section } from "../../../components/generic/styled-tags";
+import WhoHero from '../../../assets/images/about-us/who/who-hero.png';
+import Accordion from "../../../components/generic/accordion";
+import { BgImage } from "../../../components/generic/bg-image";
+import { OrangeButton } from "../../../components/generic/buttons";
+import DashedBorder from "../../../components/generic/dashed-border";
+import { H1, H2, H3, Section } from "../../../components/generic/styled-tags";
+import { donationAccordionContent } from "../../../content/donation-info";
 
 export default function ContributeFinancially() {
-  const [currentTab, setCurrentTab] = useState("50");
-
   return (
-    <Section>
-      <H2>contribute financially</H2>
-      <div className="flex flex-col md:flex-row justify-center items-start gap-8">
-        <div className="w-full flex flex-col justify-start items-center flex-3/7">
-          <div className=" w-full">
-            <p className="font-brandon mb-4">Click to see what your donation amount directly correlates to in our programs.</p>
-          </div>
-          <div className="w-full grid grid-rows-2 grid-cols-2 gap-3 md:mb-8">
-            <BlueButton onClick={() => setCurrentTab("50")}>$50</BlueButton>
-            <BlueButton onClick={() => setCurrentTab("200")}>$200</BlueButton>
-            <BlueButton onClick={() => setCurrentTab("500")}>$500</BlueButton>
-            <BlueButton onClick={() => setCurrentTab("800")}>$800</BlueButton>
-          </div>
-          <div className="w-full hidden md:block">
-            <H3 className="mb-4">ready to donate?</H3>
-            <p className="font-brandon mb-4">We greatly appreciate and welcome any donation amount!</p>
-            <OrangeButton >
-              <Link to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G&ssrt=1746749857705">
-                Donate Now!
-              </Link>
-            </OrangeButton>
-          </div>
+    <main>
+      <BgImage image={WhoHero} className="min-h-[32rem]">
+        <H1>contribute financially</H1>
+        <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
+          Donate money directly to help fund our programs
+        </p>
+      </BgImage>
+      <Section>
+        <H2 className="text-center">make a donation today</H2>
+        <div className="bg-tan-500 p-2 rounded-2xl">
+          <DashedBorder className="flex flex-col md:flex-row justify-center items-start gap-8 p-8">
+            <div className="flex-1">
+              <H3 className="text-black">how does my donation help?</H3>
+              <p className="font-brandon mb-4">Click on one of the options below to see what your donation amount directly correlates to in our programs.</p>
+              <Accordion items={donationAccordionContent}/>
+            </div>
+            <div className="flex-1">
+              <H3 className="mb-4">ready to donate?</H3>
+              <p className="font-brandon mb-4">Regardless of how much you are able or willing to donate, we greatly appreciate your support!</p>
+              <OrangeButton>
+                <Link to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G&ssrt=1746749857705">
+                  Make A Donation
+                </Link>
+              </OrangeButton>
+            </div>
+          </DashedBorder>
         </div>
-        <div className="w-full p-4 rounded-2xl bg-white shadow flex flex-col 2xl:flex-row justify-start items-center gap-4 flex-4/7">
-          {
-            currentTab === "50" && (
-              <>
-                <img src="" alt="" className="size-full max-w-[450px] max-h-[300px] aspect-3/2 object-cover bg-black rounded-2xl"/>
-                <p className="font-brandon">Pays for two people in need to get suited with helments at locks.</p>
-              </>
-          )}
-          {
-            currentTab === "200" && (
-              <>
-                <img src="" alt="" className="size-full max-w-[450px] max-h-[300px] aspect-3/2 object-cover bg-black rounded-2xl"/>
-                <p className="font-brandon">Gives a refurbished bike to someone in need.</p>
-              </>
-          )}
-          {
-            currentTab === "500" && (
-              <>
-                <img src="" alt="" className="size-full max-w-[450px] max-h-[300px] aspect-3/2 object-cover bg-black rounded-2xl"/>
-                <p className="font-brandon">Provides job training for seven young adults.</p>
-              </>
-            )}
-          {
-            currentTab === "800" && (
-              <>
-                <img src="" alt="" className="size-full max-w-[450px] max-h-[300px] aspect-3/2 object-cover bg-black rounded-2xl"/>
-                <p className="font-brandon ">Provides new tools for our community and volunteers.</p>
-              </>
-            )}
-        </div>
-        <div className="w-full block md:hidden">
-            <H3 className="mb-4">ready to donate?</H3>
-            <p className="font-brandon mb-4">We greatly appreciate and welcome any donation amount!</p>
-            <OrangeButton >
-              <Link to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G&ssrt=1746749857705">
-                Donate Now!
-              </Link>
-            </OrangeButton>
-          </div>
-      </div>
-    </Section>
+      </Section>
+    </main>
   );
 }

@@ -1,6 +1,4 @@
-import { BlueButton } from "../generic/buttons";
-import React from "react";
-
+import { BlueButton } from "../../generic/buttons";
 
 interface ClassCardProps {
     title: string;
@@ -13,14 +11,14 @@ interface ClassCardProps {
 
 export default function ClassCard({
     title,
-    level, 
+    level,
     sessions,
     description,
     buttonText,
     buttonLink,
 }: ClassCardProps) {
     const levelStyles = {
-        beginner: "bg-green-500 text-white", 
+        beginner: "bg-green-500 text-white",
         advanced: "text-white",
     };
 
@@ -28,8 +26,8 @@ export default function ClassCard({
         <div className="bg-white rounded-lg shadow-lg p-6 text-left"
         style={{
             boxShadow: "6px 6px 4px 0px #4E85A2, 5px 5px 4px 0px #00000040 inset", // Drop shadow and inner shadow
-        }}> 
-            
+        }}>
+
             <h3
                 className="font-brandon font-medium italic text-4xl leading-none mb-4"
                 style={{

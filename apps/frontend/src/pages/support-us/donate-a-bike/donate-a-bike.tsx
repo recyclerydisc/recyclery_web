@@ -8,7 +8,7 @@ export default function DonateABike() {
       <BgImage image={WhatHero} className="min-h-[32rem]">
         <H1>donate a bike</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
-          Support the recyclery by donating your used bicycles, parts, and tools.
+         Donate your old bikes to either support our programs or help people in need
         </p>
       </BgImage>
       <Section >

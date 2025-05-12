@@ -1,19 +1,17 @@
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { NavbarSubMenuItemType } from './nav-bar';
+import { NavContentType } from '../../types';
 
-interface SideMenuItemProps {
-  title: string;
-  subItems: NavbarSubMenuItemType[];
+type SideMenuItemProps = {
   currentActiveAccordion: string;
   handleAccordionSelect: (arg0: string) => void;
-}
+} & NavContentType;
 
 export default function SideMenuItem({
-  title,
-  subItems,
   currentActiveAccordion,
   handleAccordionSelect,
+  title,
+  items,
 }: SideMenuItemProps) {
   return (
     <div
@@ -31,17 +29,17 @@ export default function SideMenuItem({
         </div>
       </button>
       <div className="space-y-2 px-2">
-        {subItems.map(subItem => {
+        {items.map((item) => {
           return (
             <Link
-              key={subItem.title}
-              to={subItem.destination}
+              key={item.title}
+              to={item.destination}
               className="w-full flex justify-start items-center gap-4 px-4 py-3 rounded-2xl bg-tan-500 hover:bg-tan-600 group cursor-pointer transition-colors"
             >
-              <div>{subItem.icon}</div>
+              <div>{item.icon}</div>
               <div>
-                <b className="text-body2 text-nowrap">{subItem.title}</b>
-                <p className="font-brandon">{subItem.description}</p>
+                <b className="text-body2 text-nowrap">{item.title}</b>
+                <p className="font-brandon">{item.description}</p>
               </div>
             </Link>
           );

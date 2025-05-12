@@ -1,4 +1,4 @@
-import { H2, Section } from '../generic/styled-tags';
+import { H2, Section } from '../../generic/styled-tags';
 import ClassCard from './class-card';
 
 export default function ClassSignup() {

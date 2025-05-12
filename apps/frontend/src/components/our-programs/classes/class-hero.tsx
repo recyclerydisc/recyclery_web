@@ -1,5 +1,5 @@
-import { H1 } from '../generic/styled-tags';
-import { BgImage } from '../generic/bg-image';
+import { BgImage } from '../../generic/bg-image';
+import { H1 } from '../../generic/styled-tags';
 import headerImage from '../classes/header-image.png';
 
 export default function ClassHero() {

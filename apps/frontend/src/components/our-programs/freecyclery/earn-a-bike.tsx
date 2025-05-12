@@ -1,7 +1,6 @@
-import { H2, Section } from '../../generic/styled-tags';
-import DashedBorder from './dashed-border';
 import { Link } from 'react-router-dom';
-import React from 'react';
+import DashedBorder from '../../generic/dashed-border';
+import { H2, Section } from '../../generic/styled-tags';
 
 export default function EarnABike() {
   return (

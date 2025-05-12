@@ -1,11 +1,7 @@
 import { CircleCheckBig, CircleMinus, CirclePlus } from 'lucide-react';
-import DashedBorder from './dashed-border';
 import { useState } from 'react';
-
-interface AccordionItem {
-  title: string;
-  content: string;
-}
+import { AccordionItem } from '../../types';
+import DashedBorder from './dashed-border';
 
 interface AccordionProps {
   items: AccordionItem[];
@@ -29,7 +25,7 @@ export default function Accordion({ items }: AccordionProps) {
             aria-expanded={toggled === index}
           >
             <CircleCheckBig className="min-w-5 min-h-5" />
-            <h3 className="text-subheading2">{item.title}</h3>
+            <h3 className="text-subheading2 text-left">{item.title}</h3>
             <div className="grow" />
             {toggled === index ? (
               <CircleMinus className="min-w-5 min-h-5" />

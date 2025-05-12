@@ -1,7 +1,7 @@
 import { Bike, XIcon } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { NavContent } from '../../content/nav-content';
 import { BlueButtonLink } from '../generic/buttons';
-import { AboutUsSubItems, OurProgramsSubItems, SupportUsSubItems } from './nav-content';
 import SideMenuItem from './side-menu-item';
 
 interface SideMenuProps {
@@ -54,24 +54,16 @@ export default function SideMenu({ isSideMenuOpen, setIsSideMenuOpen }: SideMenu
         </div>
         <div className="border-[1px] border-tan-700" />
         <div className="space-y-3">
-          <SideMenuItem
-            title="About Us"
-            subItems={AboutUsSubItems}
-            currentActiveAccordion={currentActiveAccordion}
-            handleAccordionSelect={handleAccordionSelect}
-          />
-          <SideMenuItem
-            title="Our Programs"
-            subItems={OurProgramsSubItems}
-            currentActiveAccordion={currentActiveAccordion}
-            handleAccordionSelect={handleAccordionSelect}
-          />
-          <SideMenuItem
-            title="Support Us"
-            subItems={SupportUsSubItems}
-            currentActiveAccordion={currentActiveAccordion}
-            handleAccordionSelect={handleAccordionSelect}
-          />
+          {
+            NavContent.map((item, index) => (
+              <SideMenuItem
+                key={index}
+                {...item}
+                currentActiveAccordion={currentActiveAccordion}
+                handleAccordionSelect={handleAccordionSelect}
+              />
+            ))
+          }
         </div>
         <div className="border-[1px] border-tan-700" />
         <div className="flex flex-col gap-4 justify-center items-start">

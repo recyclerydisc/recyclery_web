@@ -1,10 +1,10 @@
 import { Bike, Menu } from 'lucide-react';
 import { ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
-import NavbarItem from './nav-bar-item';
-import { AboutUsSubItems, OurProgramsSubItems, SupportUsSubItems } from './nav-content';
-import SideMenu from './side-menu';
+import { NavContent } from '../../content/nav-content';
 import { BlueButtonLink } from '../generic/buttons';
+import NavbarItem from './nav-bar-item';
+import SideMenu from './side-menu';
 
 export type NavbarSubMenuItemType = {
   icon: ReactNode;
@@ -26,9 +26,11 @@ export default function NavBar() {
           </div>
         </Link>
         <div className="hidden lg:flex justify-center items-center gap-8">
-          <NavbarItem title="About Us" subItems={AboutUsSubItems} />
-          <NavbarItem title="Our Programs" subItems={OurProgramsSubItems} />
-          <NavbarItem title="Support Us" subItems={SupportUsSubItems} />
+          {
+            NavContent.map((item, index) => (
+              <NavbarItem key={index} {...item}/>
+            ))
+          }
         </div>
         <div className="space-x-4 hidden lg:block">
           <BlueButtonLink to="https://therecyclery.square.site/">Shop For Bikes</BlueButtonLink>
