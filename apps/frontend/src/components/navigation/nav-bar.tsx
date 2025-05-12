@@ -26,17 +26,13 @@ export default function NavBar() {
           </div>
         </Link>
         <div className="hidden lg:flex justify-center items-center gap-8">
-          {
-            NavContent.map((item, index) => (
-              <NavbarItem key={index} {...item}/>
-            ))
-          }
+          {NavContent.map((item, index) => (
+            <NavbarItem key={index} {...item} />
+          ))}
         </div>
         <div className="space-x-4 hidden lg:block">
           <Button>
-            <Link to="https://therecyclery.square.site/">
-              Shop For Bikes
-            </Link>
+            <Link to="https://therecyclery.square.site/">Shop For Bikes</Link>
           </Button>
           <Button>
             <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">

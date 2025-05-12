@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export type MemberType = {
   name: string;
@@ -9,7 +9,7 @@ export type MemberType = {
 export type AccordionItem = {
   title: string;
   content: string;
-}
+};
 
 export type NavContentType = {
   title: string;
@@ -19,11 +19,11 @@ export type NavContentType = {
     description: string;
     destination: string;
   }[];
-}
+};
 
 export type CollectionPointType = {
   title: string;
   url: string;
   address: string;
   phone: string;
-}
+};

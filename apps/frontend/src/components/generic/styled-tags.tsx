@@ -2,9 +2,9 @@ import React, { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
 export type HeadingProps = {
-  children: ReactNode,
-  className?: string,
-}
+  children: ReactNode;
+  className?: string;
+};
 
 export function H1({ children, className }: HeadingProps) {
   return <h1 className={`sm:text-7xl text-5xl text-white ${className}`}>{children}</h1>;

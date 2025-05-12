@@ -34,9 +34,7 @@ export default function MakeReferral() {
               className="hidden md:block w-[50%] mt-6 mx-auto"
             />
           </div>
-          <Accordion
-            items={referralAccordionContent}
-          />
+          <Accordion items={referralAccordionContent} />
         </DashedBorder>
       </div>
       <p className="text-body2 font-brandon mt-6 md:px-12 lg:px-24 text-center">

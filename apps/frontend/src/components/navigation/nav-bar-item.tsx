@@ -35,7 +35,7 @@ export default function NavbarItem({ title, items }: NavContentType) {
       <div
         className={`absolute top-full -left-7 mt-4 transition-opacity duration-200 ${isFlyoutOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'} bg-tan-500 rounded-2xl p-3 border border-tan-700 shadow-lg space-y-2`}
       >
-        {items.map((item) => {
+        {items.map(item => {
           return (
             <Link
               key={item.title}

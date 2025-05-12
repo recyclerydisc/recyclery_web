@@ -3,7 +3,7 @@ import { NavContentType } from '../types';
 
 export const NavContent: NavContentType[] = [
   {
-    title: "About Us",
+    title: 'About Us',
     items: [
       {
         icon: <Bike className="size-6" />,
@@ -17,15 +17,16 @@ export const NavContent: NavContentType[] = [
         description: 'Get to know some of our team members',
         destination: '/about-us/who',
       },
-    ]
+    ],
   },
   {
-    title: "Our Programs",
+    title: 'Our Programs',
     items: [
       {
         icon: <Bike className="size-6" />,
         title: 'Open Shop',
-        description: 'Use our tools to fix your own bike with the instruction of Recyclery mechanics',
+        description:
+          'Use our tools to fix your own bike with the instruction of Recyclery mechanics',
         destination: '/our-programs/openshop',
       },
       {
@@ -46,15 +47,15 @@ export const NavContent: NavContentType[] = [
         description: 'Learn about the process of maintaining and overhauling your own bike',
         destination: '/our-programs/classes',
       },
-    ]
+    ],
   },
   {
-    title: "Support Us",
+    title: 'Support Us',
     items: [
       {
         icon: <Bike className="size-6" />,
         title: 'Contribute Financially',
-        description: "Donate money directly to help fund our programs",
+        description: 'Donate money directly to help fund our programs',
         destination: '/support-us/contribute-financially',
       },
       {
@@ -66,7 +67,7 @@ export const NavContent: NavContentType[] = [
       {
         icon: <Bike className="size-6" />,
         title: 'Donate a Bike',
-        description: "Donate your old bikes to either support our programs or help people in need",
+        description: 'Donate your old bikes to either support our programs or help people in need',
         destination: '/support-us/donate-a-bike',
       },
       {
@@ -75,9 +76,9 @@ export const NavContent: NavContentType[] = [
         description: 'Help improve our programs by offering your skills and expertise',
         destination: '/support-us/donate-time',
       },
-    ]
+    ],
   },
-]
+];
 
 // export const AboutUsSubItems: NavbarSubMenuItemType[] = [
 //   {

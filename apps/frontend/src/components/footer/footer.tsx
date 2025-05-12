@@ -17,9 +17,7 @@ export default function Footer() {
               Donate
             </Link>
           </Button>
-          <Button color="orange">
-            Join Our Newsletter
-          </Button>
+          <Button color="orange">Join Our Newsletter</Button>
         </div>
       </div>
       <div className="border-[1px] border-white/10" />

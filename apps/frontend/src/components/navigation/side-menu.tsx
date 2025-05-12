@@ -55,23 +55,19 @@ export default function SideMenu({ isSideMenuOpen, setIsSideMenuOpen }: SideMenu
         </div>
         <div className="border-[1px] border-tan-700" />
         <div className="space-y-3">
-          {
-            NavContent.map((item, index) => (
-              <SideMenuItem
-                key={index}
-                {...item}
-                currentActiveAccordion={currentActiveAccordion}
-                handleAccordionSelect={handleAccordionSelect}
-              />
-            ))
-          }
+          {NavContent.map((item, index) => (
+            <SideMenuItem
+              key={index}
+              {...item}
+              currentActiveAccordion={currentActiveAccordion}
+              handleAccordionSelect={handleAccordionSelect}
+            />
+          ))}
         </div>
         <div className="border-[1px] border-tan-700" />
         <div className="flex flex-col gap-4 justify-center items-start">
           <Button>
-            <Link to="https://therecyclery.square.site/">
-              Shop For Bikes
-            </Link>
+            <Link to="https://therecyclery.square.site/">Shop For Bikes</Link>
           </Button>
           <Button>
             <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">

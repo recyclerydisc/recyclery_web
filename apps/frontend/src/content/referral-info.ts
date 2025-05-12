@@ -1,10 +1,9 @@
-import { AccordionItem } from "../types";
+import { AccordionItem } from '../types';
 
 export const referralAccordionContent: AccordionItem[] = [
   {
     title: 'Client Info',
-    content:
-      'What are the client’s first and last names, pronouns, height, weight and age?',
+    content: 'What are the client’s first and last names, pronouns, height, weight and age?',
   },
   {
     title: 'Client’s Preferred Bike Type',
@@ -21,4 +20,4 @@ export const referralAccordionContent: AccordionItem[] = [
     content:
       'Will the agency or the client pay the $25 to cover the lock and helmet cost? Our shop depends on donations from individuals and organizations, so your help to defray our costs is appreciated!',
   },
-]
+];

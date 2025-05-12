@@ -14,14 +14,10 @@ export default function HeroSection() {
       </p>
       <div className="flex sm:flex-row flex-col justify-center items-center gap-x-4 gap-y-2 pt-6">
         <Button color="orange">
-          <Link to="#">
-            Join Our Newsletter
-          </Link>
+          <Link to="#">Join Our Newsletter</Link>
         </Button>
         <Button>
-          <Link to="https://therecyclery.square.site/">
-            Shop Our Bikes
-          </Link>
+          <Link to="https://therecyclery.square.site/">Shop Our Bikes</Link>
         </Button>
       </div>
     </BgImage>

@@ -29,7 +29,7 @@ export default function SideMenuItem({
         </div>
       </button>
       <div className="space-y-2 px-2">
-        {items.map((item) => {
+        {items.map(item => {
           return (
             <Link
               key={item.title}
