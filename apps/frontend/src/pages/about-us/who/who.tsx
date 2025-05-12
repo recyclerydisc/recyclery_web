@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import WhoHero from '../../../assets/images/about-us/who/who-hero.png';
 import MemberCard, { MemberCardProps } from '../../../components/about-us/member-card';
 import { BgImage } from '../../../components/generic/bg-image';
 import { H1, H2, Section } from '../../../components/generic/styled-tags';
@@ -42,16 +43,21 @@ const members: MemberCardProps[] = [
 ];
 
 function WhoWeAre() {
-  const [imageURL, setImageUrl] = useState<string | undefined>(undefined);
+  const [imageURL, setImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     fetch(`/images/4`)
       .then(res => res.json())
       .then(data => {
-        setImageUrl(data.bucket_link);
+        if (data?.bucket_link) {
+          setImageURL(data.bucket_link);
+        } else {
+          setImageURL(WhoHero);
+        }
       })
       .catch(err => {
         console.error('image URL was not fetched correctly', err);
+        setImageURL(WhoHero);
       });
   }, []);
 

@@ -1,19 +1,25 @@
 //import NavBar from '../../components/navigation/nav-bar';
 //import Footer from '../../components/footer/footer';
 import { useEffect, useState } from 'react';
+import bikerepairPic from '../../../assets/images/our-programs/FTWNB/FTWN-B.jpg';
 import { A } from '../../../components/generic/styled-tags';
 
 function FTWNB() {
-  const [imageURL, setImageUrl] = useState<string | undefined>(undefined);
+  const [imageURL, setImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    fetch(`/images/2`)
+    fetch(`/images/9`)
       .then(res => res.json())
       .then(data => {
-        setImageUrl(data.bucket_link);
+        if (data?.bucket_link) {
+          setImageURL(data.bucket_link);
+        } else {
+          setImageURL(bikerepairPic);
+        }
       })
       .catch(err => {
         console.error('image URL was not fetched correctly', err);
+        setImageURL(bikerepairPic);
       });
   }, []);
 

@@ -1,19 +1,25 @@
 import { useEffect, useState } from 'react';
+import headerPoster from '../../assets/images/home/header-poster.jpg';
 import { BgImage } from '../generic/bg-image';
 import { BlueButtonLink, OrangeButtonLink } from '../generic/buttons';
 import { H1 } from '../generic/styled-tags';
 
 function HeroSection() {
-  const [imageURL, setImageUrl] = useState<string | undefined>(undefined);
+  const [imageURL, setImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     fetch(`/images/1`)
       .then(res => res.json())
       .then(data => {
-        setImageUrl(data.bucket_link);
+        if (data?.bucket_link) {
+          setImageURL(data.bucket_link);
+        } else {
+          setImageURL(headerPoster);
+        }
       })
       .catch(err => {
         console.error('image URL was not fetched correctly', err);
+        setImageURL(headerPoster);
       });
   }, []);
 

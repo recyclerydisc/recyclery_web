@@ -1,19 +1,26 @@
 import { useEffect, useState } from 'react';
+import WhatHero from '../../../assets/images/about-us/what/what-hero.png';
+import WhatSection1 from '../../../assets/images/about-us/what/what-section-1.png';
 import { BgImage } from '../../../components/generic/bg-image';
 import { H1, H2, H3, Section } from '../../../components/generic/styled-tags';
 
 function WhatWeDo() {
-  const [heroimageURL, setHeroImageUrl] = useState<string | undefined>(undefined);
+  const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);
   const [whatsec1URL, setWhatSec1ImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     fetch(`/images/2`)
       .then(res => res.json())
       .then(data => {
-        setHeroImageUrl(data.bucket_link);
+        if (data?.bucket_link) {
+          setHeroImageURL(data.bucket_link);
+        } else {
+          setHeroImageURL(WhatHero);
+        }
       })
       .catch(err => {
         console.error('image URL was not fetched correctly', err);
+        setHeroImageURL(WhatHero);
       });
   }, []);
 
@@ -21,10 +28,15 @@ function WhatWeDo() {
     fetch(`/images/3`)
       .then(res => res.json())
       .then(data => {
-        setWhatSec1ImageURL(data.bucket_link);
+        if (data?.bucket_link) {
+          setWhatSec1ImageURL(data.bucket_link);
+        } else {
+          setWhatSec1ImageURL(WhatSection1);
+        }
       })
       .catch(err => {
         console.error('image URL was not fetched correctly', err);
+        setWhatSec1ImageURL(WhatSection1);
       });
   }, []);
 

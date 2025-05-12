@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import headerPoster from '../../../assets/images/our-programs/freecyclery/freecyclery-header.png';
 import { BgImage } from '../../../components/generic/bg-image';
 import { H1 } from '../../../components/generic/styled-tags';
 import AboutSection from '../../../components/our-programs/freecyclery/about-section';
@@ -8,17 +9,22 @@ import MakeReferral from '../../../components/our-programs/freecyclery/make-refe
 import Partners from '../../../components/our-programs/freecyclery/partners';
 
 function Freecyclery() {
-  const [heroimageURL, setHeroImageURl] = useState<string | undefined>(undefined);
+  const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);
   const [secimageURL, setSecImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     fetch(`/images/7`)
       .then(res => res.json())
       .then(data => {
-        setHeroImageURl(data.bucket_link);
+        if (data?.bucket_link) {
+          setHeroImageURL(data.bucket_link);
+        } else {
+          setHeroImageURL(headerPoster);
+        }
       })
       .catch(err => {
         console.error('image URL was not fetched correctly', err);
+        setHeroImageURL(headerPoster);
       });
   }, []);
 

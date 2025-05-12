@@ -1,19 +1,26 @@
 import { useEffect, useState } from 'react';
+import OpenshopHero from '../../../assets/images/our-programs/openshop/openshop-hero.png';
+import OpenshopSection1 from '../../../assets/images/our-programs/openshop/openshop-section-1.png';
 import { BgImage } from '../../../components/generic/bg-image';
 import { A, H1, H2, Section } from '../../../components/generic/styled-tags';
 
 function OpenShop() {
-  const [heroimageURL, setHeroImageURl] = useState<string | undefined>(undefined);
+  const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);
   const [secimageURL, setSecImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     fetch(`/images/5`)
       .then(res => res.json())
       .then(data => {
-        setHeroImageURl(data.bucket_link);
+        if (data?.bucket_link) {
+          setHeroImageURL(data.bucket_link);
+        } else {
+          setHeroImageURL(OpenshopHero);
+        }
       })
       .catch(err => {
         console.error('image URL was not fetched correctly', err);
+        setHeroImageURL(OpenshopHero);
       });
   }, []);
 
@@ -21,10 +28,15 @@ function OpenShop() {
     fetch(`/images/6`)
       .then(res => res.json())
       .then(data => {
-        setSecImageURL(data.bucket_link);
+        if (data?.bucket_link) {
+          setSecImageURL(data.bucket_link);
+        } else {
+          setSecImageURL(OpenshopSection1);
+        }
       })
       .catch(err => {
         console.error('image URL was not fetched correctly', err);
+        setSecImageURL(OpenshopSection1);
       });
   }, []);
 
