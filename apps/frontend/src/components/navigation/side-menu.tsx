@@ -1,8 +1,8 @@
 import { Bike, XIcon } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { BlueButtonLink } from '../generic/buttons';
 import { AboutUsSubItems, OurProgramsSubItems, SupportUsSubItems } from './nav-content';
 import SideMenuItem from './side-menu-item';
-import { BlueButtonLink } from '../generic/buttons';
 
 interface SideMenuProps {
   isSideMenuOpen: boolean;
@@ -38,12 +38,12 @@ export default function SideMenu({ isSideMenuOpen, setIsSideMenuOpen }: SideMenu
   return (
     <div ref={menuRef} className="lg:hidden z-50">
       <div
-        className={`fixed inset-y-0 ${isSideMenuOpen ? 'right-0' : '-right-full'} transition-[right] duration-300 bg-tan-500 p-4 w-full md:w-[400px] flex flex-col justify-start gap-4 border border-tan-700 border-l-0 md:border-l-[1px]`}
+        className={`fixed inset-y-0 ${isSideMenuOpen ? 'right-0' : '-right-full'} transition-[right] duration-300 bg-tan-500 p-4 w-full md:w-[400px] h-screen overflow-y-auto no-scrollbar flex flex-col justify-start gap-4 border border-tan-700 border-l-0 md:border-l-[1px]`}
       >
         <div className="flex justify-between items-center px-3">
           <div className="flex justify-center items-center gap-2">
-            <Bike className="size-10" />
-            <b className="text-[28px] text-nowrap">the recyclery</b>
+            <Bike className="size-8" />
+            <b className="text-[28px] text-nowrap hidden md:inline">the recyclery</b>
           </div>
           <button
             className="p-3 cursor-pointer rounded-2xl bg-tan-500 hover:bg-tan-600 transition-colors"

@@ -17,7 +17,7 @@ export default function SideMenuItem({
 }: SideMenuItemProps) {
   return (
     <div
-      className={`flex flex-col transition-all duration-200 ${currentActiveAccordion === title ? 'max-h-[500px] ease-in' : 'max-h-[44px] ease-out'} overflow-hidden`}
+      className={`flex flex-col transition-all duration-200 ${currentActiveAccordion === title ? 'max-h-screen ease-in' : 'max-h-[44px] ease-out'} overflow-hidden`}
     >
       <button
         className="flex justify-between items-center px-3 cursor-pointer"
