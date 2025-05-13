@@ -158,7 +158,29 @@ app.put('/upload/:id', upload.single('file'), (async (req, res) => {
   }
 }) as RequestHandler
 );
-
+// for UploadHours
+app.put(
+  '/uploadhours/:id',
+  express.json({ limit: '1mb' }), (async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { hours } = req.body as { hours?: string };
+      if (!hours) {
+        return res.status(400).json({ error: 'Missing hours text' });
+      }
+      const { error: dbErr, data: dbData } = await supabase
+        .from('HOURS')
+        .update({ content: hours })
+        .eq('hour_id', id)
+        .select('*')
+        .single();
+      if (dbErr) throw dbErr;
+      res.json({ message: 'Hours updated', hours: dbData });
+    } catch (error) {
+      res.status(500).json({ error });
+    }
+  }) as RequestHandler
+);
 const PORT: number = parseInt(process.env.PORT || '3000', 10);
 app.listen(PORT, () => {
   // console.log(`Server running on port ${PORT}`);
