@@ -4,6 +4,7 @@ import ClassDescription from '../../../components/our-programs/classes/class-des
 import ClassHero from '../../../components/our-programs/classes/class-hero';
 import ClassSignup from '../../../components/our-programs/classes/class-signup';
 function Classes() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {

@@ -10,6 +10,7 @@ import Partners from '../../../components/our-programs/freecyclery/partners';
 
 function Freecyclery() {
   const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [secimageURL, setSecImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
