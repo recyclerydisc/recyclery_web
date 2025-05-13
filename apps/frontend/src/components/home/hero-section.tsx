@@ -1,12 +1,31 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import headerPoster from '../../assets/images/home/header-poster.jpg';
 import { BgImage } from '../generic/bg-image';
 import { Button } from '../generic/buttons';
 import { H1 } from '../generic/styled-tags';
 
-export default function HeroSection() {
+function HeroSection() {
+  const [imageURL, setImageURL] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    fetch(`/images/1`)
+      .then(res => res.json())
+      .then(data => {
+        if (data?.bucket_link) {
+          setImageURL(data.bucket_link);
+        } else {
+          setImageURL(headerPoster);
+        }
+      })
+      .catch(err => {
+        console.error('image URL was not fetched correctly', err);
+        setImageURL(headerPoster);
+      });
+  }, []);
+
   return (
-    <BgImage image={headerPoster} className="min-h-[32rem]">
+    <BgImage image={imageURL} className="min-h-[32rem]">
       <H1>the recyclery</H1>
       <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
         The Recyclery Collective is an educational bike shop that promotes sustainability by giving
@@ -23,3 +42,5 @@ export default function HeroSection() {
     </BgImage>
   );
 }
+
+export default HeroSection;
