@@ -24,7 +24,7 @@ function FTWNB() {
   }, []);
 
   return (
-    <>
+    <main>
       {/* <NavBar /> */}
 
       <section
@@ -93,7 +93,7 @@ function FTWNB() {
       </section>
 
       {/* <Footer /> */}
-    </>
+    </main>
   );
 }
 

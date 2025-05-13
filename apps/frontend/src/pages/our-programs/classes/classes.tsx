@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import ClassDescription from '../../../components/classes/class-description';
-import ClassHero from '../../../components/classes/class-hero';
-import ClassSignup from '../../../components/classes/class-signup';
 import headerImage from '../../../components/classes/header-image.png';
+import ClassDescription from '../../../components/our-programs/classes/class-description';
+import ClassHero from '../../../components/our-programs/classes/class-hero';
+import ClassSignup from '../../../components/our-programs/classes/class-signup';
 function Classes() {
   const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);
 
@@ -23,12 +23,12 @@ function Classes() {
   }, []);
 
   return (
-    <div>
+    <main>
       {/* again I'm going to have to pass in an image from supabase here */}
       <ClassHero />
       <ClassDescription />
       <ClassSignup />
-    </div>
+    </main>
   );
 }
 

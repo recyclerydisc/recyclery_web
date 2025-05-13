@@ -1,7 +1,7 @@
-import { H2, Section } from '../../generic/styled-tags';
-import DashedBorder from './dashed-border';
 import { Link } from 'react-router-dom';
-import React from 'react';
+import { Button } from '../../../components/generic/buttons';
+import DashedBorder from '../../generic/dashed-border';
+import { H2, H3, Section } from '../../generic/styled-tags';
 
 export default function EarnABike() {
   return (
@@ -16,28 +16,32 @@ export default function EarnABike() {
         tuition for the bike, helmet, and lock.
       </p>
       <div className="grid md:grid-cols-2 mt-8 gap-6">
-        <div className="max-w-64 p-2 bg-green-500 text-white rounded-2xl">
-          <DashedBorder color="F0D9C2" className="flex flex-col items-center px-5 py-8">
-            <p className="text-5xl">1.</p>
-            <h3 className="text-subheading2 mt-2">Complete the Volunteer Application</h3>
-            <Link
-              to="#"
-              className="bg-white hover:bg-green-800 text-darkblue-900 hover:text-white mt-16 px-4 py-2 rounded-xl text-body2 cursor-pointer transition-colors font-brandon"
-            >
-              Click here
-            </Link>
+        <div className="max-w-64 p-2 bg-green-500 text-white rounded-2xl h-[375px]">
+          <DashedBorder
+            color="FFFFFF"
+            className="flex flex-col justify-between items-center px-5 py-8"
+          >
+            <div>
+              <p className="text-5xl">1.</p>
+              <H3 className="mt-2 text-white">Complete the Volunteer Application</H3>
+            </div>
+            <Button color="white">
+              <Link to="#">Click here</Link>
+            </Button>
           </DashedBorder>
         </div>
-        <div className="max-w-64 p-2 bg-green-500 text-white rounded-2xl">
-          <DashedBorder color="F0D9C2" className="flex flex-col items-center px-5 py-8">
-            <p className="text-5xl">2.</p>
-            <h3 className="text-subheading2 mt-2">Complete the Online or In-Person Orientation</h3>
-            <Link
-              to="#"
-              className="bg-white hover:bg-green-800 text-darkblue-900 hover:text-white mt-16 px-4 py-2 rounded-xl text-body2 cursor-pointer transition-colors font-brandon"
-            >
-              Click here
-            </Link>
+        <div className="max-w-64 p-2 bg-green-500 text-white rounded-2xl h-[375px]">
+          <DashedBorder
+            color="FFFFFF"
+            className="flex flex-col justify-between items-center px-5 py-8"
+          >
+            <div>
+              <p className="text-5xl">2.</p>
+              <H3 className="mt-2 text-white">Complete the Online or In-Person Orientation</H3>
+            </div>
+            <Button color="white">
+              <Link to="#">Click here</Link>
+            </Button>
           </DashedBorder>
         </div>
       </div>

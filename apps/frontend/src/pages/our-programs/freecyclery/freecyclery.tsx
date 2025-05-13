@@ -40,7 +40,7 @@ function Freecyclery() {
   }, []);
 
   return (
-    <>
+    <main>
       <BgImage image={heroimageURL} className="min-h-[24rem]">
         <H1>freecyclery</H1>
       </BgImage>
@@ -51,7 +51,7 @@ function Freecyclery() {
       <MakeReferral />
       <EarnABike />
       <Partners />
-    </>
+    </main>
   );
 }
 

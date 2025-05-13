@@ -69,7 +69,7 @@ function WhatWeDo() {
         <img
           src={whatsec1URL}
           alt="Person with bike"
-          className="max-w-[300px] w-full rounded-2xl object-fit"
+          className="max-w-[400px] w-full rounded-2xl object-fit"
         />
       </Section>
       <Section tan>
