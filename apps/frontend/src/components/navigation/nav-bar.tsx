@@ -1,10 +1,10 @@
 import { Bike, Menu } from 'lucide-react';
 import { ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { NavContent } from '../../content/nav-content';
+import { Button } from '../generic/buttons';
 import NavbarItem from './nav-bar-item';
-import { AboutUsSubItems, OurProgramsSubItems, SupportUsSubItems } from './nav-content';
 import SideMenu from './side-menu';
-import { BlueButtonLink } from '../generic/buttons';
 
 export type NavbarSubMenuItemType = {
   icon: ReactNode;
@@ -26,15 +26,19 @@ export default function NavBar() {
           </div>
         </Link>
         <div className="hidden lg:flex justify-center items-center gap-8">
-          <NavbarItem title="About Us" subItems={AboutUsSubItems} />
-          <NavbarItem title="Our Programs" subItems={OurProgramsSubItems} />
-          <NavbarItem title="Support Us" subItems={SupportUsSubItems} />
+          {NavContent.map((item, index) => (
+            <NavbarItem key={index} {...item} />
+          ))}
         </div>
         <div className="space-x-4 hidden lg:block">
-          <BlueButtonLink to="https://therecyclery.square.site/">Shop For Bikes</BlueButtonLink>
-          <BlueButtonLink to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
-            Donate
-          </BlueButtonLink>
+          <Button>
+            <Link to="https://therecyclery.square.site/">Shop For Bikes</Link>
+          </Button>
+          <Button>
+            <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
+              Donate
+            </Link>
+          </Button>
         </div>
         <div className="lg:hidden block">
           <button

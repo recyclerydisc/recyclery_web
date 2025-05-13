@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '../generic/buttons';
 import { H3 } from '../generic/styled-tags';
-import { BlueButtonLink } from '../generic/buttons';
 
 interface ProgramProps {
   children: ReactNode;
@@ -13,7 +14,9 @@ export default function Program({ children, title, learnMoreLink }: ProgramProps
     <div className="space-y-4">
       <H3>{title}</H3>
       <p className="text-body2 font-brandon">{children}</p>
-      <BlueButtonLink to={learnMoreLink}>Learn More</BlueButtonLink>
+      <Button>
+        <Link to={learnMoreLink}>Learn More</Link>
+      </Button>
     </div>
   );
 }

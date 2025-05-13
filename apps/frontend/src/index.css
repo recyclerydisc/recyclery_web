@@ -67,6 +67,8 @@
   --font-bookman: bookman, sans-serif;
   --font-brandon: brandon, sans-serif;
   --font-roc: roc, sans-serif;
+
+  --breakpoint-xs: 350px;
 }
 
 :root {
@@ -79,4 +81,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbar in Chrome, Safari, and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar in IE, Edge, and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
