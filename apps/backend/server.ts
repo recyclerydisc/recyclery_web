@@ -7,7 +7,7 @@ import authRoutes from './routes/authRoutes.js';
 
 import multer from 'multer';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+ 
 interface MulterRequest extends Request {
   file?: Express.Multer.File;
 }
@@ -199,91 +199,77 @@ app.put(
 );
 
 // PUT for upload WHO
-app.put('/uploadpeople/:id', upload.single('file'), (async (req, res) => {
+app.put('/uploadpeople/:id', upload.single('file'), (async (req: MulterRequest, res: Response) => {
   try {
-  const { id } = req.params;
-  const file = req.file;
-  const { name, description, imgUrl } = req.body as {
-    name?: string;
-    description?: string;
-    imgUrl?: string;
-  };
+    const { id } = req.params;
+    const { name, description } = req.body as {
+      name?: string;
+      description?: string;
+    };
 
-  if (!name) {
-    return res.status(400).json({ error: 'Missing name or description' })
-  }
-  if (!file) {
-    return res.status(400).json({ error: 'No file uploaded or missing file name' });
-  }
-  const fileBuffer = file.buffer;
-  const fileName = file.originalname;
+    if (!name) {
+      return res.status(400).json({ error: 'Missing name or description' })
+    }
 
-  const allowedExtensions = ['jpeg', 'png', 'jpg', 'heic', 'gif', 'webp'];
-  const fileExtension = fileName.split('.').pop()?.toLowerCase();
+    const updates: Record<string, unknown> = { name, description };
 
-  if (!fileExtension || !allowedExtensions.includes(fileExtension)) {
-    return res.status(400).json({ error: 'Unsupported file type' });
-  }
+    if (req.file) {
+      const file = req.file
+      const ext = file.originalname.split('.').pop()?.toLowerCase()
+      const allowed = ['jpeg','png','jpg','heic','gif','webp']
+      if (!ext || !allowed.includes(ext)) {
+        return res
+          .status(400)
+          .json({ error: 'Unsupported file type' })
+      }
 
-  const uniqueFileName = `person/${id}-${Date.now()}.${fileExtension}`;
-  
-  const { error: uploadError } = await supabase.storage
-    .from('WHO')
-    .upload(uniqueFileName, fileBuffer, {
-      contentType: `person/${fileExtension}`,
-      upsert: true,
+      const key = `people/${id}-${Date.now()}.${ext}`
+      const { error: upErr } = await supabase.storage
+        .from('who')               // your WHO bucket slug
+        .upload(key, file.buffer, {
+          contentType: `image/${ext}`,
+          upsert: true,
+        })
+      if (upErr) {
+        return res
+          .status(500)
+          .json({ error: 'Failed to upload image to WHO bucket' })
+      }
+      // 4) getPublicUrl is sync
+      const { data: urlData } = supabase.storage
+      .from('who')
+      .getPublicUrl(key)
+      
+      if (!urlData?.publicUrl) {
+        return res
+          .status(500)
+          .json({ error: 'Failed to generate public URL' })
+      }
+
+      updates.person_image = urlData.publicUrl
+    }
+
+    const { data: person, error: dbErr } = await supabase
+        .from('WHO')
+        .update(updates)
+        .eq('person_id', Number(id))
+        .select('*')
+        .single()
+      if (dbErr) {
+        return res
+          .status(500)
+          .json({ error: 'Failed to update person record' })
+      }
+      if (!person) {
+        return res
+          .status(404)
+          .json({ error: 'Person not found' })
+      }
+
+    return res.status(200).json({
+      message: 'Image uploaded and database updated successfully',
+      person,
     });
-
-  if (uploadError) {
-    return res.status(500).json({ uploadError });
-  }
-  
-  const { data: publicUrlData } = supabase.storage
-    .from('WHO')
-    .getPublicUrl(uniqueFileName);
-
-  const updates: Record<string, any> = { name, description };
-  if (imgUrl) {
-    updates.person_image = imgUrl;
-  }
-
-  const { data: dbData, error: dbErr } = await supabase
-    .from('WHO')
-    .update(updates)
-    .eq('person_id', id)
-    .select('*')
-    .single();
-  if (dbErr) {
-    return res.status(500).json({ error: 'Failed to update database' });
-  }
-  if (!dbData) {
-    return res.status(404).json({ error: 'Person not found' });
-  }
-
-  if (!publicUrlData?.publicUrl) {
-    return res.status(500).json({ error: 'Failed to generate public URL' });
-  }
-
-  // Update the database with the new bucket link
-  const { data: dbdata, error: dbError } = await supabase
-    .from('IMAGES') 
-    .update({ bucket_link: publicUrlData.publicUrl })
-    .eq('img_id', id)
-    .select('*')
-    .single();
-
-  if (dbError) {
-    return res.status(500).json({ error: 'Failed to update database' });
-  }
-
-  if (!dbdata) {
-    return res.status(404).json({ error: 'Image not found' });
-  }
-
-  return res.status(200).json({
-    message: 'Image uploaded and database updated successfully',
-    dbdata,
-  });
 
   } catch (error) {
     res.status(500).json({ error });
