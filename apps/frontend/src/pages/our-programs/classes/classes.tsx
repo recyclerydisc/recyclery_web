@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import headerImage from '../../../components/classes/header-image.png';
+import headerImage from '../../../assets/images/our-programs/classes/header-image.png';
 import ClassDescription from '../../../components/our-programs/classes/class-description';
 import ClassHero from '../../../components/our-programs/classes/class-hero';
 import ClassSignup from '../../../components/our-programs/classes/class-signup';
