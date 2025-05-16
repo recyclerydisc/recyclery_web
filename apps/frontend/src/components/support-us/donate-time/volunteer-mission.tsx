@@ -2,7 +2,7 @@ import { H2, Section } from '../../generic/styled-tags';
 import { BlueButtonLink } from '../../generic/buttons';
 import volunteerFun from '../../../assets/images/support-us/donate-time/volunteer-fun.jpg';
 
-export default function VolunteerMission() {
+function VolunteerMission() {
   return (
     <Section className="lg:grid lg:grid-cols-2 gap-24 items-center justify-items-center" tan>
       <div>
@@ -40,3 +40,5 @@ export default function VolunteerMission() {
     </Section>
   );
 }
+
+export default VolunteerMission;

@@ -3,7 +3,7 @@ import headerImage from '../../../assets/images/support-us/donate-time/donate-ti
 import { A, H1 } from '../../generic/styled-tags';
 import { OrangeButtonLink } from '../../generic/buttons';
 
-export default function HeroSection() {
+function HeroSection() {
   return (
     <BgImage image={headerImage} className="min-h-[32rem]">
       <H1 className="mb-6">become a volunteer</H1>
@@ -19,3 +19,5 @@ export default function HeroSection() {
     </BgImage>
   );
 }
+
+export default HeroSection;
