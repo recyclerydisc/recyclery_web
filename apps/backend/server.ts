@@ -119,7 +119,6 @@ app.put('/upload/:id', upload.single('file'), (async (req, res) => {
     const fileBuffer = file.buffer;
     const fileName = file.originalname;
 
-
     const allowedExtensions = ['jpeg', 'png', 'jpg', 'heic', 'gif', 'webp'];
     const fileExtension = fileName.split('.').pop()?.toLowerCase();
 
@@ -147,9 +146,10 @@ app.put('/upload/:id', upload.single('file'), (async (req, res) => {
     if (!publicUrlData?.publicUrl) {
       return res.status(500).json({ error: 'Failed to generate public URL' });
     }
+
     // Update the database with the new bucket link
     const { data: dbdata, error: dbError } = await supabase
-      .from('IMAGES') // Replace with your table name
+      .from('IMAGES') 
       .update({ bucket_link: publicUrlData.publicUrl })
       .eq('img_id', id)
       .select('*')
@@ -173,6 +173,7 @@ app.put('/upload/:id', upload.single('file'), (async (req, res) => {
   }
 }) as RequestHandler
 );
+
 // for UploadHours
 app.put(
   '/uploadhours/:id',
@@ -196,6 +197,100 @@ app.put(
     }
   }) as RequestHandler
 );
+
+// PUT for upload WHO
+app.put('/uploadpeople/:id', upload.single('file'), (async (req, res) => {
+  try {
+  const { id } = req.params;
+  const file = req.file;
+  const { name, description, imgUrl } = req.body as {
+    name?: string;
+    description?: string;
+    imgUrl?: string;
+  };
+
+  if (!name) {
+    return res.status(400).json({ error: 'Missing name or description' })
+  }
+  if (!file) {
+    return res.status(400).json({ error: 'No file uploaded or missing file name' });
+  }
+  const fileBuffer = file.buffer;
+  const fileName = file.originalname;
+
+  const allowedExtensions = ['jpeg', 'png', 'jpg', 'heic', 'gif', 'webp'];
+  const fileExtension = fileName.split('.').pop()?.toLowerCase();
+
+  if (!fileExtension || !allowedExtensions.includes(fileExtension)) {
+    return res.status(400).json({ error: 'Unsupported file type' });
+  }
+
+  const uniqueFileName = `person/${id}-${Date.now()}.${fileExtension}`;
+  
+  const { error: uploadError } = await supabase.storage
+    .from('WHO')
+    .upload(uniqueFileName, fileBuffer, {
+      contentType: `person/${fileExtension}`,
+      upsert: true,
+    });
+
+  if (uploadError) {
+    return res.status(500).json({ uploadError });
+  }
+  
+  const { data: publicUrlData } = supabase.storage
+    .from('WHO')
+    .getPublicUrl(uniqueFileName);
+
+  const updates: Record<string, any> = { name, description };
+  if (imgUrl) {
+    updates.person_image = imgUrl;
+  }
+
+  const { data: dbData, error: dbErr } = await supabase
+    .from('WHO')
+    .update(updates)
+    .eq('person_id', id)
+    .select('*')
+    .single();
+  if (dbErr) {
+    return res.status(500).json({ error: 'Failed to update database' });
+  }
+  if (!dbData) {
+    return res.status(404).json({ error: 'Person not found' });
+  }
+
+  if (!publicUrlData?.publicUrl) {
+    return res.status(500).json({ error: 'Failed to generate public URL' });
+  }
+
+  // Update the database with the new bucket link
+  const { data: dbdata, error: dbError } = await supabase
+    .from('IMAGES') 
+    .update({ bucket_link: publicUrlData.publicUrl })
+    .eq('img_id', id)
+    .select('*')
+    .single();
+
+  if (dbError) {
+    return res.status(500).json({ error: 'Failed to update database' });
+  }
+
+  if (!dbdata) {
+    return res.status(404).json({ error: 'Image not found' });
+  }
+
+  return res.status(200).json({
+    message: 'Image uploaded and database updated successfully',
+    dbdata,
+  });
+
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+}) as RequestHandler
+);
+
 const PORT: number = parseInt(process.env.PORT || '3000', 10);
 app.listen(PORT, () => {
   // console.log(`Server running on port ${PORT}`);
