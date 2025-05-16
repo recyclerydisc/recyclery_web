@@ -10,7 +10,7 @@ export function BgImage({ children, image, opacity = 0.4, className = '' }: BgIm
     <section
       className={`flex flex-col justify-center items-center p-8 text-white text-center ${className}`}
       style={{
-        background: `linear-gradient(rgba(0,0,0,${opacity}), rgba(0,0,0,${opacity})), url(${image})`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,${opacity}), rgba(0,0,0,${opacity})), url(${image})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
