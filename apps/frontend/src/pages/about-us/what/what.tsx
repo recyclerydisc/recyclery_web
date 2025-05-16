@@ -1,12 +1,48 @@
+import { useEffect, useState } from 'react';
 import WhatHero from '../../../assets/images/about-us/what/what-hero.png';
 import WhatSection1 from '../../../assets/images/about-us/what/what-section-1.png';
 import { BgImage } from '../../../components/generic/bg-image';
 import { H1, H2, H3, Section } from '../../../components/generic/styled-tags';
 
 function WhatWeDo() {
+  const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);
+  const [whatsec1URL, setWhatSec1ImageURL] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    fetch(`/images/2`)
+      .then(res => res.json())
+      .then(data => {
+        if (data?.bucket_link) {
+          setHeroImageURL(data.bucket_link);
+        } else {
+          setHeroImageURL(WhatHero);
+        }
+      })
+      .catch(err => {
+        console.error('image URL was not fetched correctly', err);
+        setHeroImageURL(WhatHero);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(`/images/3`)
+      .then(res => res.json())
+      .then(data => {
+        if (data?.bucket_link) {
+          setWhatSec1ImageURL(data.bucket_link);
+        } else {
+          setWhatSec1ImageURL(WhatSection1);
+        }
+      })
+      .catch(err => {
+        console.error('image URL was not fetched correctly', err);
+        setWhatSec1ImageURL(WhatSection1);
+      });
+  }, []);
+
   return (
-    <main>
-      <BgImage image={WhatHero} className="min-h-[32rem]">
+    <main className="w-full">
+      <BgImage image={heroimageURL} className="min-h-[32rem]">
         <H1>what we do</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
           The seed idea of The Recyclery was planted in 2005, with 2025 marking our 20th anniversary
@@ -31,7 +67,7 @@ function WhatWeDo() {
           </div>
         </div>
         <img
-          src={WhatSection1}
+          src={whatsec1URL}
           alt="Person with bike"
           className="max-w-[400px] w-full rounded-2xl object-fit"
         />

@@ -91,6 +91,21 @@ app.use((err: AppError, _req: Request, res: Response, _next: NextFunction) => {
 });
 
 
+app.get('/images/:id', async (req: Request, res: Response) => {
+  const img_ID = parseInt(req.params.id);
+  const { data } = await supabase
+    .from('IMAGES')
+    .select('bucket_link')
+    .eq('img_id', img_ID)
+    .single();
+
+  res.setHeader('Content-Type', 'application/json');
+  res.json({ bucket_link: data?.bucket_link || null });
+});
+
+
+
+
 // PUT to upload photos 
 app.put('/upload/:id', upload.single('file'), (async (req, res) => {
   try {
