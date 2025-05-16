@@ -185,8 +185,8 @@ app.put(
       }
       const { error: dbErr, data: dbData } = await supabase
         .from('HOURS')
-        .update({ content: hours })
-        .eq('hour_id', id)
+        .update({ hours })
+        .eq('id', id)
         .select('*')
         .single();
       if (dbErr) throw dbErr;
