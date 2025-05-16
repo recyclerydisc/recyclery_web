@@ -1,7 +1,7 @@
 import { Bike } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Button } from '../generic/buttons';
 import { FacebookIcon, InstagramIcon } from '../icons/icons';
-import { OrangeButtonLink } from '../generic/buttons';
 
 export default function Footer() {
   return (
@@ -11,15 +11,13 @@ export default function Footer() {
           <Bike className="size-8" />
           <p className="text-heading2 text-nowrap font-roc">the recyclery</p>
         </div>
-        <div className="space-x-4">
-          <OrangeButtonLink
-            to={
-              'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G'
-            }
-          >
-            Donate
-          </OrangeButtonLink>
-          <OrangeButtonLink to={'#'}>Join Our Newsletter</OrangeButtonLink>
+        <div className="flex flex-col xs:flex-row gap-4">
+          <Button color="orange">
+            <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
+              Donate
+            </Link>
+          </Button>
+          <Button color="orange">Join Our Newsletter</Button>
         </div>
       </div>
       <div className="border-[1px] border-white/10" />

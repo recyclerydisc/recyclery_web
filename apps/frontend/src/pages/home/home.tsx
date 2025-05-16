@@ -5,11 +5,11 @@ import VideoSection from '../../components/home/video-section';
 
 export default function Home() {
   return (
-    <>
+    <main>
       <HeroSection />
       <ProgramsSection />
       <CalendarSection />
       <VideoSection />
-    </>
+    </main>
   );
 }

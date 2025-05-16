@@ -1,14 +1,9 @@
 import { ChevronDown } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { NavbarSubMenuItemType } from './nav-bar';
+import { NavContentType } from '../../types';
 
-interface NavbarItemProps {
-  title: string;
-  subItems: NavbarSubMenuItemType[];
-}
-
-export default function NavbarItem({ title, subItems }: NavbarItemProps) {
+export default function NavbarItem({ title, items }: NavContentType) {
   const [isFlyoutOpen, setIsFlyoutOpen] = useState(false);
   const itemRef = useRef<HTMLDivElement>(null);
 
@@ -40,17 +35,17 @@ export default function NavbarItem({ title, subItems }: NavbarItemProps) {
       <div
         className={`absolute top-full -left-7 mt-4 transition-opacity duration-200 ${isFlyoutOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'} bg-tan-500 rounded-2xl p-3 border border-tan-700 shadow-lg space-y-2`}
       >
-        {subItems.map(subItem => {
+        {items.map(item => {
           return (
             <Link
-              key={subItem.title}
-              to={subItem.destination}
+              key={item.title}
+              to={item.destination}
               className="w-[400px] flex justify-start items-center gap-4 px-4 py-3 rounded-2xl bg-tan-500 hover:bg-tan-600 group cursor-pointer transition-colors"
             >
-              <div>{subItem.icon}</div>
+              <div>{item.icon}</div>
               <div>
-                <b className="text-nowrap">{subItem.title}</b>
-                <p className="font-brandon">{subItem.description}</p>
+                <b className="text-nowrap">{item.title}</b>
+                <p className="font-brandon">{item.description}</p>
               </div>
             </Link>
           );

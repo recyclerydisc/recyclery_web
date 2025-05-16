@@ -1,12 +1,48 @@
+import { useEffect, useState } from 'react';
 import OpenshopHero from '../../../assets/images/our-programs/openshop/openshop-hero.png';
 import OpenshopSection1 from '../../../assets/images/our-programs/openshop/openshop-section-1.png';
 import { BgImage } from '../../../components/generic/bg-image';
 import { A, H1, H2, Section } from '../../../components/generic/styled-tags';
 
 function OpenShop() {
+  const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);
+  const [secimageURL, setSecImageURL] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    fetch(`/images/5`)
+      .then(res => res.json())
+      .then(data => {
+        if (data?.bucket_link) {
+          setHeroImageURL(data.bucket_link);
+        } else {
+          setHeroImageURL(OpenshopHero);
+        }
+      })
+      .catch(err => {
+        console.error('image URL was not fetched correctly', err);
+        setHeroImageURL(OpenshopHero);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(`/images/6`)
+      .then(res => res.json())
+      .then(data => {
+        if (data?.bucket_link) {
+          setSecImageURL(data.bucket_link);
+        } else {
+          setSecImageURL(OpenshopSection1);
+        }
+      })
+      .catch(err => {
+        console.error('image URL was not fetched correctly', err);
+        setSecImageURL(OpenshopSection1);
+      });
+  }, []);
+
   return (
     <main className="w-full">
-      <BgImage image={OpenshopHero} className="min-h-[32rem]">
+      <BgImage image={heroimageURL} className="min-h-[32rem]">
         <H1>open shop</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
           Use our tools to fix your own bike with the instruction of Recyclery mechanics.
@@ -39,7 +75,7 @@ function OpenShop() {
           </div>
         </div>
         <img
-          src={OpenshopSection1}
+          src={secimageURL}
           alt="Two people working on a bike"
           className="max-w-[450px] w-full rounded-2xl object-fit"
         />
