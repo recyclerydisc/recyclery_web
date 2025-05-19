@@ -2,7 +2,7 @@ import { ChangeEvent } from 'react';
 import PasswordField from './password-field';
 import TitledInput from './titled-input';
 
-interface InputPasswordProps {
+export type InputPasswordProps = {
   title: string;
   name: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
