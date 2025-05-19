@@ -6,6 +6,7 @@ import VideoSection from '../../components/home/video-section';
 export default function Home() {
   return (
     <main>
+      <title>The Recyclery</title>
       <HeroSection />
       <ProgramsSection />
       <CalendarSection />

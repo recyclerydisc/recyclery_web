@@ -1,7 +1,7 @@
 import { Bike, Megaphone } from 'lucide-react';
 import arrow from '../../../assets/images/our-programs/freecyclery/arrow.svg';
 import circleSketch from '../../../assets/images/our-programs/freecyclery/circle-sketch.svg';
-import { A, H2, H3, Section } from '../../generic/styled-tags';
+import { H2, H3, Section } from '../../generic/styled-tags';
 
 export default function HowItWorks() {
   return (
@@ -51,7 +51,13 @@ export default function HowItWorks() {
           <H3>Earn-A-Bike Fellowship</H3>
           <p className="text-body2 pt-2 font-brandon">
             Adults and youth can earn a Freecyclery bike through our{' '}
-            <A to="#">Earn-a-Bike Fellowship</A> programs.
+            <a
+              href="#earn-a-bike"
+              className="underline text-blue-500 hover:text-blue-800 transition"
+            >
+              Earn-a-Bike Fellowship
+            </a>{' '}
+            programs.
           </p>
         </div>
       </div>

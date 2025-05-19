@@ -26,11 +26,11 @@ function WhoWeAre() {
 
   return (
     <main className="w-full">
+      <title>Who We Are - The Recyclery</title>
       <BgImage image={imageURL} className="min-h-[32rem]">
         <H1>who we are</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
-          The seed idea of The Recyclery was planted in 2005, with 2025 marking our 20th anniversary
-          as well as our milestone of refurbishing 10,000 bikes.
+          Get to know some of our team members.
         </p>
       </BgImage>
       <Section>
@@ -40,6 +40,13 @@ function WhoWeAre() {
             return <MemberCard key={index} {...member} />;
           })}
         </div>
+        <p className="font-brandon pt-12">
+          We are collective owned and operated. The Recyclery is organized by a board of volunteer
+          "collective members." All collective members contribute three hours per week and commit to
+          attending the majority of Collective Meetings which are held on the 2nd and 4th Monday of
+          each month. The meetings are open to anyone who has a stake in The Recyclery. Collective
+          Members make decisions through a consensus process.{' '}
+        </p>
       </Section>
     </main>
   );

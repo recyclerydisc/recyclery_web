@@ -5,7 +5,7 @@ import { H2, H3, Section } from '../../generic/styled-tags';
 
 export default function EarnABike() {
   return (
-    <Section className="flex flex-col items-center text-center" tan>
+    <Section id="earn-a-bike" className="flex flex-col items-center text-center" tan>
       <H2>earn-a-bike fellowship programs</H2>
       <p className="text-body1 font-brandon md:px-12 lg:max-w-[48rem]">
         As an alternative to a referral from a partner organization, we offer opportunities for
@@ -26,7 +26,7 @@ export default function EarnABike() {
               <H3 className="mt-2 text-white">Complete the Volunteer Application</H3>
             </div>
             <Button color="white">
-              <Link to="#">Click here</Link>
+              <Link to="https://www.volgistics.com/appform/1124825310">Click here</Link>
             </Button>
           </DashedBorder>
         </div>

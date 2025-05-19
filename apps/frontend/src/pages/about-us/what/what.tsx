@@ -42,6 +42,7 @@ function WhatWeDo() {
 
   return (
     <main className="w-full">
+      <title>What We Do - The Recyclery</title>
       <BgImage image={heroimageURL} className="min-h-[32rem]">
         <H1>what we do</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">

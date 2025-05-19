@@ -42,6 +42,7 @@ function OpenShop() {
 
   return (
     <main className="w-full">
+      <title>Open Shop - The Recyclery</title>
       <BgImage image={heroimageURL} className="min-h-[32rem]">
         <H1>open shop</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
@@ -91,7 +92,7 @@ function OpenShop() {
           <p>
             Complete bikes are sold during Saturday Open Shop 11am - 2pm, our In-Person Sales
             Wednesday 6pm - 8pm, and 24/7 through our{' '}
-            <A to="https://therecyclery.bigcartel.com/">online shop.</A>
+            <A to="https://therecyclery.square.site/">online shop.</A>
           </p>
         </div>
       </Section>

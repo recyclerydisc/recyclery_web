@@ -59,6 +59,7 @@ export default function AuthCallback() {
 
   return (
     <div className="flex justify-center items-center min-h-[100vh]">
+      <title>Completing Authentication - The Recyclery</title>
       <p className="text-[1rem] text-amber-400">Completing authentication...</p>
     </div>
   );

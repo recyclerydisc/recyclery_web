@@ -1,8 +1,8 @@
 import { H2, Section } from '../../generic/styled-tags';
-import { BlueButtonLink } from '../../generic/buttons';
-import volunteerFun from '../../../assets/images/support-us/donate-time/volunteer-fun.jpg';
+import { Button } from '../../generic/buttons';
+import { Link } from 'react-router-dom';
 
-function VolunteerMission() {
+function VolunteerMission({ image }: { image?: string }) {
   return (
     <Section className="lg:grid lg:grid-cols-2 gap-24 items-center justify-items-center" tan>
       <div>
@@ -28,12 +28,12 @@ function VolunteerMission() {
           work and dedication will make a difference in our neighborhood and the lives of those we
           serve and support.
         </p>
-        <BlueButtonLink to="https://www.volgistics.com/appform/1124825310">
-          Join the Recyclery Today!
-        </BlueButtonLink>
+        <Button>
+          <Link to="https://www.volgistics.com/appform/1124825310">Join the Recyclery Today!</Link>
+        </Button>
       </div>
       <img
-        src={volunteerFun}
+        src={image}
         alt="a volunteer helping someone fix a bike"
         className="rounded-xl w-72 lg:w-96 mt-16 lg:mt-0"
       />

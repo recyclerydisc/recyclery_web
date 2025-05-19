@@ -95,6 +95,7 @@ export default function ResetPassword() {
 
   return (
     <div className="max-w-[400px] mx-[40px] my-auto p-[20px]">
+      <title>Set New Password - The Recyclery</title>
       <h2>Set New Password</h2>
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         <div className="flex flex-col">

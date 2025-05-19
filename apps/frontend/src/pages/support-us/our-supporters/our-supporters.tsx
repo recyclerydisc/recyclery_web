@@ -1,13 +1,15 @@
 import { H1, H2, H3, Section } from '../../../components/generic/styled-tags';
 import { Award, DollarSign } from 'lucide-react';
-import { BlueButtonLink } from '../../../components/generic/buttons';
+import { Button } from '../../../components/generic/buttons';
+import { Link } from 'react-router-dom';
 
 function OurSupporters() {
   return (
     <>
+      <title>Our Supporters - The Recyclery</title>
       <Section className="md:grid md:grid-cols-2 md:gap-4 items-center text-center md:text-left">
         <div>
-          <H1 className="!text-5xl pb-4">our sponsors</H1>
+          <H1 className="!text-5xl !text-black pb-4">our sponsors</H1>
           <p className="text-subheading1">a special thanks to our supporters</p>
           <p className="text-gray-500 text-body1">since 2024</p>
         </div>
@@ -40,10 +42,16 @@ function OurSupporters() {
         <H2>want to become a sponsor?</H2>
         <p className="font-brandon text-subheading1">join us today!</p>
         <div className="space-x-4 mt-8">
-          <BlueButtonLink to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
-            Donate
-          </BlueButtonLink>
-          <BlueButtonLink to="#">Join Our Newsletter</BlueButtonLink>
+          <Button>
+            <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
+              Donate
+            </Link>
+          </Button>
+          <Button>
+            <Link to="https://therecyclery.us1.list-manage.com/subscribe?u=71e053371da882f0463a04165&id=6b561c7610">
+              Join Our Newsletter
+            </Link>
+          </Button>
         </div>
       </Section>
     </>

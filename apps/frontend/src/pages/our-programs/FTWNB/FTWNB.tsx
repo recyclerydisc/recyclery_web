@@ -26,7 +26,7 @@ function FTWNB() {
   return (
     <main>
       {/* <NavBar /> */}
-
+      <title>FTWNB - The Recyclery</title>
       <section
         className="w-full"
         style={{

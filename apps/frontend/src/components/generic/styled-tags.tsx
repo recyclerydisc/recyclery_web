@@ -25,8 +25,18 @@ interface AProps {
 }
 
 export function A({ to, children, className }: AProps) {
+  const onClick = () => {
+    if (to.startsWith('/')) {
+      window.scrollTo(0, 0);
+    }
+  };
+
   return (
-    <Link to={to} className={`underline text-blue-500 hover:text-blue-800 transition ${className}`}>
+    <Link
+      to={to}
+      className={`underline text-blue-500 hover:text-blue-800 transition ${className}`}
+      onClick={onClick}
+    >
       {children}
     </Link>
   );

@@ -17,7 +17,11 @@ export default function Footer() {
               Donate
             </Link>
           </Button>
-          <Button color="orange">Join Our Newsletter</Button>
+          <Button color="orange">
+            <Link to="https://therecyclery.us1.list-manage.com/subscribe?u=71e053371da882f0463a04165&id=6b561c7610">
+              Join Our Newsletter
+            </Link>
+          </Button>
         </div>
       </div>
       <div className="border-[1px] border-white/10" />
@@ -30,12 +34,23 @@ export default function Footer() {
           </p>
         </div>
         <div>
-          <p className="font-brandon">Phone: 773-262-5900</p>
           <p className="font-brandon">
-            <b>Email:</b> info@therecyclery.org
+            Phone:{' '}
+            <Link to="tel:+17732625900" className="hover:underline">
+              773-262-5900
+            </Link>
           </p>
           <p className="font-brandon">
-            <b>Address:</b> 7628 N Paulina St. 60626 Chicago, IL
+            <b>Email:</b>{' '}
+            <Link to="mailto:info@therecyclery.org" className="hover:underline">
+              info@therecyclery.org
+            </Link>
+          </p>
+          <p className="font-brandon">
+            <b>Address:</b>{' '}
+            <Link to="https://maps.app.goo.gl/6Hr9cgBtuzdNBWL28" className="hover:underline">
+              7628 N Paulina St. 60626 Chicago, IL
+            </Link>
           </p>
         </div>
       </div>
@@ -43,7 +58,7 @@ export default function Footer() {
       <div className="flex justify-between items-center">
         <p className="font-brandon text-body2">
           © Copyright 2025{' '}
-          <Link to="/" className="hover:underline">
+          <Link to="/" className="hover:underline" onClick={() => window.scrollTo(0, 0)}>
             The Recyclery Collective
           </Link>
           . All rights reserved.
