@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Button } from '../../../components/generic/buttons';
+import { Button } from '../../generic/buttons';
 import DashedBorder from '../../generic/dashed-border';
 import { H2, H3, Section } from '../../generic/styled-tags';
 
