@@ -7,7 +7,7 @@ import authRoutes from './routes/authRoutes.js';
 
 import multer from 'multer';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+ 
 interface MulterRequest extends Request {
   file?: Express.Multer.File;
 }
@@ -119,7 +119,6 @@ app.put('/upload/:id', upload.single('file'), (async (req, res) => {
     const fileBuffer = file.buffer;
     const fileName = file.originalname;
 
-
     const allowedExtensions = ['jpeg', 'png', 'jpg', 'heic', 'gif', 'webp'];
     const fileExtension = fileName.split('.').pop()?.toLowerCase();
 
@@ -147,9 +146,10 @@ app.put('/upload/:id', upload.single('file'), (async (req, res) => {
     if (!publicUrlData?.publicUrl) {
       return res.status(500).json({ error: 'Failed to generate public URL' });
     }
+
     // Update the database with the new bucket link
     const { data: dbdata, error: dbError } = await supabase
-      .from('IMAGES') // Replace with your table name
+      .from('IMAGES') 
       .update({ bucket_link: publicUrlData.publicUrl })
       .eq('img_id', id)
       .select('*')
@@ -166,6 +166,109 @@ app.put('/upload/:id', upload.single('file'), (async (req, res) => {
     return res.status(200).json({
       message: 'Image uploaded and database updated successfully',
       dbdata,
+    });
+
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+}) as RequestHandler
+);
+
+// for UploadHours
+app.put(
+  '/uploadhours/:id',
+  express.json({ limit: '1mb' }), (async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { hours } = req.body as { hours?: string };
+      if (!hours) {
+        return res.status(400).json({ error: 'Missing hours text' });
+      }
+      const { error: dbErr, data: dbData } = await supabase
+        .from('HOURS')
+        .update({ hours })
+        .eq('id', id)
+        .select('*')
+        .single();
+      if (dbErr) throw dbErr;
+      res.json({ message: 'Hours updated', hours: dbData });
+    } catch (error) {
+      res.status(500).json({ error });
+    }
+  }) as RequestHandler
+);
+
+// PUT for upload WHO
+app.put('/uploadpeople/:id', upload.single('file'), (async (req: MulterRequest, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { name, description } = req.body as {
+      name?: string;
+      description?: string;
+    };
+
+    if (!name) {
+      return res.status(400).json({ error: 'Missing name or description' })
+    }
+
+    const updates: Record<string, unknown> = { name, description };
+
+    if (req.file) {
+      const file = req.file
+      const ext = file.originalname.split('.').pop()?.toLowerCase()
+      const allowed = ['jpeg','png','jpg','heic','gif','webp']
+      if (!ext || !allowed.includes(ext)) {
+        return res
+          .status(400)
+          .json({ error: 'Unsupported file type' })
+      }
+
+      const key = `people/${id}-${Date.now()}.${ext}`
+      const { error: upErr } = await supabase.storage
+        .from('who')               // your WHO bucket slug
+        .upload(key, file.buffer, {
+          contentType: `image/${ext}`,
+          upsert: true,
+        })
+      if (upErr) {
+        return res
+          .status(500)
+          .json({ error: 'Failed to upload image to WHO bucket' })
+      }
+      // 4) getPublicUrl is sync
+      const { data: urlData } = supabase.storage
+      .from('who')
+      .getPublicUrl(key)
+      
+      if (!urlData?.publicUrl) {
+        return res
+          .status(500)
+          .json({ error: 'Failed to generate public URL' })
+      }
+
+      updates.person_image = urlData.publicUrl
+    }
+
+    const { data: person, error: dbErr } = await supabase
+        .from('WHO')
+        .update(updates)
+        .eq('person_id', Number(id))
+        .select('*')
+        .single()
+      if (dbErr) {
+        return res
+          .status(500)
+          .json({ error: 'Failed to update person record' })
+      }
+      if (!person) {
+        return res
+          .status(404)
+          .json({ error: 'Person not found' })
+      }
+
+    return res.status(200).json({
+      message: 'Image uploaded and database updated successfully',
+      person,
     });
 
   } catch (error) {
