@@ -67,6 +67,7 @@ export default function Signup() {
 
   return (
     <div className="flex flex-col justify-center items-center min-h-[90vh] px-8 py-4">
+      <title>Sign Up - The Recyclery</title>
       <Form
         onSubmit={handleSubmit}
         title="Create an Account"

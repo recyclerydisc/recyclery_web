@@ -56,6 +56,7 @@ export default function Login() {
 
   return (
     <div className="flex flex-col justify-center items-center min-h-[80vh]">
+      <title>Log In - The Recyclery</title>
       <form
         className="flex flex-col gap-4 w-full max-w-[400px] p-8 bg-white shadow"
         onSubmit={handleSubmit}

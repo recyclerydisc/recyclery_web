@@ -33,7 +33,9 @@ function HeroSection() {
       </p>
       <div className="flex sm:flex-row flex-col justify-center items-center gap-x-4 gap-y-2 pt-6">
         <Button color="orange">
-          <Link to="#">Join Our Newsletter</Link>
+          <Link to="https://therecyclery.us1.list-manage.com/subscribe?u=71e053371da882f0463a04165&id=6b561c7610">
+            Join Our Newsletter
+          </Link>
         </Button>
         <Button>
           <Link to="https://therecyclery.square.site/">Shop Our Bikes</Link>
