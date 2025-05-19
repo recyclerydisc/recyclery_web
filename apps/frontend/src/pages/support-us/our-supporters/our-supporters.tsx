@@ -1,6 +1,6 @@
-import { H1, H2, H3, Section } from '../../../components/generic/styled-tags';
+import { H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx';
 import { Award, DollarSign } from 'lucide-react';
-import { Button } from '../../../components/generic/buttons';
+import { Button } from '../../../components/generic/buttons.tsx';
 import { Link } from 'react-router-dom';
 
 function OurSupporters() {

@@ -1,9 +1,9 @@
 import DonateHero from '../../../assets/images/support-us/donate-a-bike/donate-hero.png';
 import DonateImage from '../../../assets/images/support-us/donate-a-bike/donate-image.jpeg';
-import { BgImage } from '../../../components/generic/bg-image';
-import DashedBorder from '../../../components/generic/dashed-border';
-import { A, H1, H2, H3, Section } from '../../../components/generic/styled-tags';
-import { collectionPoints } from '../../../content/collection-points';
+import { BgImage } from '../../../components/generic/bg-image.tsx';
+import DashedBorder from '../../../components/generic/dashed-border.tsx';
+import { A, H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx';
+import { collectionPoints } from '../../../content/collection-points.ts';
 
 function DonateABike() {
   return (

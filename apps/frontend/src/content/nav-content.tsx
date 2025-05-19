@@ -1,5 +1,5 @@
 import { Bike } from 'lucide-react';
-import { NavContentType } from '../types';
+import { NavContentType } from '../types.ts';
 
 export const NavContent: NavContentType[] = [
   {

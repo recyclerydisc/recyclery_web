@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
-import TitledInput from './titled-input';
-import TextField from './text-field';
+import TitledInput from './titled-input.tsx';
+import TextField from './text-field.tsx';
 
 export type InputTextProps = {
   title: string;

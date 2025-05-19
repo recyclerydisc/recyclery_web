@@ -5,7 +5,10 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "moduleResolution": "bundler"
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   },
   "include": ["src", "vite.config.ts"]
 }

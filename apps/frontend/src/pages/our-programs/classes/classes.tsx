@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import headerImage from '../../../assets/images/our-programs/classes/header-image.png';
-import ClassDescription from '../../../components/our-programs/classes/class-description';
-import ClassHero from '../../../components/our-programs/classes/class-hero';
-import ClassSignup from '../../../components/our-programs/classes/class-signup';
+import ClassDescription from '../../../components/our-programs/classes/class-description.tsx';
+import ClassHero from '../../../components/our-programs/classes/class-hero.tsx';
+import ClassSignup from '../../../components/our-programs/classes/class-signup.tsx';
 
 function Classes() {
   const [heroImageURL, setHeroImageURL] = useState<string | undefined>(undefined);

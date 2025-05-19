@@ -1,10 +1,10 @@
 import { Bike, Menu } from 'lucide-react';
 import { ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { NavContent } from '../../content/nav-content';
-import { Button } from '../generic/buttons';
-import NavbarItem from './nav-bar-item';
-import SideMenu from './side-menu';
+import { NavContent } from '../../content/nav-content.tsx';
+import { Button } from '../generic/buttons.tsx';
+import NavbarItem from './nav-bar-item.tsx';
+import SideMenu from './side-menu.tsx';
 
 export type NavbarSubMenuItemType = {
   icon: ReactNode;

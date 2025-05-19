@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Button } from '../../generic/buttons';
-import DashedBorder from '../../generic/dashed-border';
-import { H2, H3, Section } from '../../generic/styled-tags';
+import { Button } from '../../generic/buttons.tsx';
+import DashedBorder from '../../generic/dashed-border.tsx';
+import { H2, H3, Section } from '../../generic/styled-tags.tsx';
 
 export default function EarnABike() {
   return (

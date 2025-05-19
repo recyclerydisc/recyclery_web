@@ -1,5 +1,5 @@
-import { DynamicIcon, IconName } from 'lucide-react/dynamic';
-import { H3 } from '../../generic/styled-tags';
+import { DynamicIcon, IconName } from 'lucide-react/dynamic.tsx';
+import { H3 } from '../../generic/styled-tags.tsx';
 
 export type RoleCardProps = {
   name: string;

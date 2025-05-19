@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { EyeClosedIcon, EyeIcon } from './icons';
+import { EyeClosedIcon, EyeIcon } from './icons.tsx';
 
 interface PasswordFieldProps {
   name: string;

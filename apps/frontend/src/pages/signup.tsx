@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import type { SignupRequest } from '../../types/auth.ts';
-import { Form } from '../components/form/form';
-import { Input } from '../components/form/input';
+import { Form } from '../components/form/form.tsx';
+import { Input } from '../components/form/input.tsx';
 
 export default function Signup() {
   const navigate = useNavigate();

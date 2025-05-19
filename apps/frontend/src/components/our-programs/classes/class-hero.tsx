@@ -1,5 +1,5 @@
-import { BgImage } from '../../generic/bg-image';
-import { H1 } from '../../generic/styled-tags';
+import { BgImage } from '../../generic/bg-image.tsx';
+import { H1 } from '../../generic/styled-tags.tsx';
 
 export default function ClassHero({ heroimageURL }: { heroimageURL?: string }) {
   return (

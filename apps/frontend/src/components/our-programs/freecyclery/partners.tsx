@@ -1,5 +1,4 @@
-import { H2, Section } from '../../generic/styled-tags';
-import React from 'react';
+import { H2, Section } from '../../generic/styled-tags.tsx';
 
 export default function Partners() {
   const allImages = import.meta.glob(

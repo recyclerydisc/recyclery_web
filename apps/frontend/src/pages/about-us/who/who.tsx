@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import WhoHero from '../../../assets/images/about-us/who/who-hero.png';
-import MemberCard from '../../../components/about-us/who-we-are/member-card';
-import { BgImage } from '../../../components/generic/bg-image';
-import { H1, H2, Section } from '../../../components/generic/styled-tags';
-import { members } from '../../../content/members';
+import MemberCard from '../../../components/about-us/who-we-are/member-card.tsx';
+import { BgImage } from '../../../components/generic/bg-image.tsx';
+import { H1, H2, Section } from '../../../components/generic/styled-tags.tsx';
+import { members } from '../../../content/members.tsx';
 
 function WhoWeAre() {
   const [imageURL, setImageURL] = useState<string | undefined>(undefined);

@@ -1,7 +1,7 @@
-import { BgImage } from '../../generic/bg-image';
-import { A, H1 } from '../../generic/styled-tags';
-import { Button } from '../../generic/buttons';
 import { Link } from 'react-router-dom';
+import { BgImage } from '../../generic/bg-image.tsx';
+import { Button } from '../../generic/buttons.tsx';
+import { A, H1 } from '../../generic/styled-tags.tsx';
 
 function HeroSection({ image }: { image?: string }) {
   return (

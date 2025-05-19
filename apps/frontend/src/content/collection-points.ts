@@ -1,4 +1,4 @@
-import { CollectionPointType } from '../types';
+import { CollectionPointType } from '../types.ts';
 
 export const collectionPoints: CollectionPointType[] = [
   {

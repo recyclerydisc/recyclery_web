@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import OpenshopHero from '../../../assets/images/our-programs/openshop/openshop-hero.png';
 import OpenshopSection1 from '../../../assets/images/our-programs/openshop/openshop-section-1.png';
-import { BgImage } from '../../../components/generic/bg-image';
-import { A, H1, H2, Section } from '../../../components/generic/styled-tags';
+import { BgImage } from '../../../components/generic/bg-image.tsx';
+import { A, H1, H2, Section } from '../../../components/generic/styled-tags.tsx';
 
 function OpenShop() {
   const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);

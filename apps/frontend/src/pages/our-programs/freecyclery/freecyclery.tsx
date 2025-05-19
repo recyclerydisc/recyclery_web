@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import headerPoster from '../../../assets/images/our-programs/freecyclery/freecyclery-header.png';
 import earnABike from '../../../assets/images/our-programs/freecyclery/earn-a-bike.jpg';
-import { BgImage } from '../../../components/generic/bg-image';
-import { H1 } from '../../../components/generic/styled-tags';
-import AboutSection from '../../../components/our-programs/freecyclery/about-section';
-import EarnABike from '../../../components/our-programs/freecyclery/earn-a-bike';
-import HowItWorks from '../../../components/our-programs/freecyclery/how-it-works';
-import MakeReferral from '../../../components/our-programs/freecyclery/make-referral';
-import Partners from '../../../components/our-programs/freecyclery/partners';
+import { BgImage } from '../../../components/generic/bg-image.tsx';
+import { H1 } from '../../../components/generic/styled-tags.tsx';
+import AboutSection from '../../../components/our-programs/freecyclery/about-section.tsx';
+import EarnABike from '../../../components/our-programs/freecyclery/earn-a-bike.tsx';
+import HowItWorks from '../../../components/our-programs/freecyclery/how-it-works.tsx';
+import MakeReferral from '../../../components/our-programs/freecyclery/make-referral.tsx';
+import Partners from '../../../components/our-programs/freecyclery/partners.tsx';
 
 function Freecyclery() {
   const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);

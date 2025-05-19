@@ -1,5 +1,5 @@
-import Program from './program';
-import { A, H2, Section } from '../generic/styled-tags';
+import Program from './program.tsx';
+import { A, H2, Section } from '../generic/styled-tags.tsx';
 
 export default function ProgramsSection() {
   return (

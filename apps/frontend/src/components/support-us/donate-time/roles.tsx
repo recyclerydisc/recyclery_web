@@ -1,5 +1,5 @@
-import { H2, Section } from '../../generic/styled-tags';
-import RoleCard, { RoleCardProps } from './role-card';
+import { H2, Section } from '../../generic/styled-tags.tsx';
+import RoleCard, { RoleCardProps } from './role-card.tsx';
 
 const roles: RoleCardProps[] = [
   {
