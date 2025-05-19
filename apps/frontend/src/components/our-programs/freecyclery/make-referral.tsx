@@ -2,7 +2,7 @@ import { Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import deliveryBike from '../../../assets/images/our-programs/freecyclery/delivery-bike.png';
 import squigglyCross from '../../../assets/images/our-programs/freecyclery/squiggly-cross.svg';
-import { referralAccordionContent } from '../../../content/referral-info.tsx';
+import { referralAccordionContent } from '../../../content/referral-info.ts';
 import Accordion from '../../generic/accordion.tsx';
 import DashedBorder from '../../generic/dashed-border.tsx';
 import { A, H2, Section } from '../../generic/styled-tags.tsx';
