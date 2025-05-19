@@ -1,5 +1,5 @@
-import { H2, Section } from '../../generic/styled-tags';
-import { Button } from '../../generic/buttons';
+import { H2, Section } from '../../generic/styled-tags.tsx';
+import { Button } from '../../generic/buttons.tsx';
 import { Link } from 'react-router-dom';
 
 function VolunteerMission({ image }: { image?: string }) {

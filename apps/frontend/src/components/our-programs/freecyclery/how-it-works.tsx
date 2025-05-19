@@ -1,7 +1,7 @@
 import { Bike, Megaphone } from 'lucide-react';
 import arrow from '../../../assets/images/our-programs/freecyclery/arrow.svg';
 import circleSketch from '../../../assets/images/our-programs/freecyclery/circle-sketch.svg';
-import { H2, H3, Section } from '../../generic/styled-tags';
+import { H2, H3, Section } from '../../generic/styled-tags.tsx';
 
 export default function HowItWorks() {
   return (

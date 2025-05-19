@@ -1,4 +1,4 @@
-import { AccordionItem } from '../types';
+import { AccordionItem } from '../types.ts';
 
 export const referralAccordionContent: AccordionItem[] = [
   {

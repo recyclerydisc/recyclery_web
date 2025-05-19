@@ -1,7 +1,7 @@
 import { CircleCheckBig, CircleMinus, CirclePlus } from 'lucide-react';
 import { useState } from 'react';
-import { AccordionItem } from '../../types';
-import DashedBorder from './dashed-border';
+import { AccordionItem } from '../../types.tsx';
+import DashedBorder from './dashed-border.tsx';
 
 interface AccordionProps {
   items: AccordionItem[];

@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../../hooks/useUser';
+import { useUser } from '../../hooks/useUser.tsx';
 
 export default function ResetPassword() {
   const [password, setPassword] = useState<string>('');

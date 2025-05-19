@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
-import PasswordField from './password-field';
-import TitledInput from './titled-input';
+import PasswordField from './password-field.tsx';
+import TitledInput from './titled-input.tsx';
 
 export type InputPasswordProps = {
   title: string;

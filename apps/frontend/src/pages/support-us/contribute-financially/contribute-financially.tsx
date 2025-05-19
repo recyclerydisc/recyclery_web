@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import ContributeHero from '../../../assets/images/support-us/contribute-financially/contribute-hero.png';
 import ContributeImage from '../../../assets/images/support-us/contribute-financially/contribute-image.png';
-import Accordion from '../../../components/generic/accordion';
-import { BgImage } from '../../../components/generic/bg-image';
-import { Button } from '../../../components/generic/buttons';
-import DashedBorder from '../../../components/generic/dashed-border';
-import { H1, H2, H3, Section } from '../../../components/generic/styled-tags';
-import { donationAccordionContent } from '../../../content/donation-info';
+import Accordion from '../../../components/generic/accordion.tsx';
+import { BgImage } from '../../../components/generic/bg-image.tsx';
+import { Button } from '../../../components/generic/buttons.tsx';
+import DashedBorder from '../../../components/generic/dashed-border.tsx';
+import { H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx';
+import { donationAccordionContent } from '../../../content/donation-info.ts';
 
 function ContributeFinancially() {
   return (

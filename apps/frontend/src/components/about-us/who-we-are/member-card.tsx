@@ -1,4 +1,4 @@
-import { MemberType } from '@/types';
+import { MemberType } from "../../../types.ts";
 
 function MemberCard({ name, img, description }: MemberType) {
   return (

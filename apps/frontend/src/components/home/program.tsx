@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '../generic/buttons';
-import { H3 } from '../generic/styled-tags';
+import { Button } from '../generic/buttons.tsx';
+import { H3 } from '../generic/styled-tags.tsx';
 
 interface ProgramProps {
   children: ReactNode;

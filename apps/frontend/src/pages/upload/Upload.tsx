@@ -1,6 +1,6 @@
 import React, { ChangeEvent, DragEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import drop from '../../assets/images/upload/drop.png';
 
 const Container = styled.div`
@@ -144,7 +144,7 @@ const Upload: React.FC = () => {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('fileName', file.name);
-    
+
 
     try {
         const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/upload/${id}`, { // Replace '2' with the actual ID

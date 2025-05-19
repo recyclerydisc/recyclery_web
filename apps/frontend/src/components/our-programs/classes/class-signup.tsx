@@ -1,5 +1,5 @@
-import { H2, Section } from '../../generic/styled-tags';
-import ClassCard from './class-card';
+import { H2, Section } from '../../generic/styled-tags.tsx';
+import ClassCard from './class-card.tsx';
 
 export default function ClassSignup() {
   return (

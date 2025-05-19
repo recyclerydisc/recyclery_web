@@ -1,6 +1,6 @@
 import { ChangeEvent, DragEvent, FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import drop from '../../assets/images/upload/drop.png';
 
 const Container = styled.div`
@@ -105,7 +105,7 @@ const CancelButton = styled.button`
   font-size: 16px;
   font-weight: 600;
 `;
-const Field = styled.input` margin:8px 0; padding:8px; width:100%; `; 
+const Field = styled.input` margin:8px 0; padding:8px; width:100%; `;
 const TextArea = styled.textarea` margin:8px 0; padding:8px; width:100%; height:100px; `;
 
 

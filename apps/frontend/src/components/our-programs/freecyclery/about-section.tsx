@@ -1,4 +1,4 @@
-import { H2, Section } from '../../generic/styled-tags';
+import { H2, Section } from '../../generic/styled-tags.tsx';
 import squigglyLine from '../../../assets/images/our-programs/freecyclery/squiggly-line.svg';
 
 export default function AboutSection({ imageURL }: { imageURL?: string }) {

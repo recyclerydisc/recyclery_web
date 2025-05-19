@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Input } from '../../components/form/input';
-import { useUser } from '../../hooks/useUser';
+import { Input } from '../../components/form/input.tsx';
+import { useUser } from '../../hooks/useUser.tsx';
 
 interface LoginState {
   email: string;

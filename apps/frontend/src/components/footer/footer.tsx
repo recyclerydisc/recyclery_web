@@ -1,7 +1,7 @@
 import { Bike } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Button } from '../generic/buttons';
-import { FacebookIcon, InstagramIcon } from '../icons/icons';
+import { Button } from '../generic/buttons.tsx';
+import { FacebookIcon, InstagramIcon } from '../icons/icons.tsx';
 
 export default function Footer() {
   return (

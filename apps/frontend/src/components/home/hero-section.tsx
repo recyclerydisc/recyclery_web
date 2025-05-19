@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import headerPoster from '../../assets/images/home/header-poster.jpg';
-import { BgImage } from '../generic/bg-image';
-import { Button } from '../generic/buttons';
-import { H1 } from '../generic/styled-tags';
+import { BgImage } from '../generic/bg-image.tsx';
+import { Button } from '../generic/buttons.tsx';
+import { H1 } from '../generic/styled-tags.tsx';
 
 function HeroSection() {
   const [imageURL, setImageURL] = useState<string | undefined>(undefined);
