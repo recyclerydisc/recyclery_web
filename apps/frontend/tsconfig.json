@@ -6,11 +6,7 @@
       "@/*": ["./src/*"]
     },
     "allowImportingTsExtensions": true,
-    "noEmit": true,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "target": "ES2022",
-    "jsx": "preserve"
+    "noEmit": true
   },
   "include": ["src", "vite.config.ts"]
 }

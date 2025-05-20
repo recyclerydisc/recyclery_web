@@ -1,81 +1,32 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@font-face {
-  font-family: "bookman";
-  font-display: swap;
-  src: url("../src/assets/fonts/Bookman_CE_Bold_Italic.ttf");
-}
+@layer base {
+  @font-face {
+    font-family: "bookman";
+    font-display: swap;
+    src: url("./assets/fonts/Bookman_CE_Bold_Italic.ttf") format("truetype");
+  }
 
-@font-face {
-  font-family: "brandon";
-  font-display: swap;
-  src: url("../src/assets/fonts/Brandon_Grotesque_Medium.ttf");
-}
+  @font-face {
+    font-family: "brandon";
+    font-display: swap;
+    src: url("./assets/fonts/Brandon_Grotesque_Medium.ttf") format("truetype");
+  }
 
-@font-face {
-  font-family: "roc";
-  font-display: swap;
-  src: url("../src/assets/fonts/Roc_Grotesk_Bold.ttf");
-}
-
-@theme {
-  --color-maroon-500: oklch(31.47% 0.1034 21.93);
-  --color-maroon-600: oklch(29.47% 0.1034 21.93);
-  --color-maroon-700: oklch(27.47% 0.1034 21.93);
-  --color-maroon-800: oklch(25.47% 0.1034 21.93);
-  --color-maroon-900: oklch(23.47% 0.1034 21.93);
-
-  --color-tan-500: oklch(89.82% 0.04 67.28);
-  --color-tan-600: oklch(84.82% 0.04 67.28);
-  --color-tan-700: oklch(79.82% 0.04 67.28);
-  --color-tan-800: oklch(74.82% 0.04 67.28);
-  --color-tan-900: oklch(69.82% 0.04 67.28);
-
-  --color-darkblue-500: oklch(24.55% 0.0188 229.7);
-  --color-darkblue-600: oklch(22.55% 0.0188 229.7);
-  --color-darkblue-700: oklch(20.55% 0.0188 229.7);
-  --color-darkblue-800: oklch(18.55% 0.0188 229.7);
-  --color-darkblue-900: oklch(16.55% 0.0188 229.7);
-
-  --color-orange-500: oklch(46.47% 0.1183 41.76);
-  --color-orange-600: oklch(43.47% 0.1183 41.76);
-  --color-orange-700: oklch(40.47% 0.1183 41.76);
-  --color-orange-800: oklch(37.47% 0.1183 41.76);
-  --color-orange-900: oklch(34.47% 0.1183 41.76);
-
-  --color-blue-500: oklch(59.03% 0.0733 232.9);
-  --color-blue-600: oklch(54.03% 0.0733 232.9);
-  --color-blue-700: oklch(49.03% 0.0733 232.9);
-  --color-blue-800: oklch(44.03% 0.0733 232.9);
-  --color-blue-900: oklch(39.03% 0.0733 232.9);
-
-  --color-green-500: oklch(65.96% 0.1425 124.05);
-  --color-green-600: oklch(61.96% 0.1425 124.05);
-  --color-green-700: oklch(57.96% 0.1425 124.05);
-  --color-green-800: oklch(53.96% 0.1425 124.05);
-  --color-green-900: oklch(50.96% 0.1425 124.05);
-
-  --color-background: oklch(98.56% 0.0084 56.32);
-
-  --text-heading1: 32px;
-  --text-heading2: 28px;
-  --text-subheading1: 24px;
-  --text-subheading2: 22px;
-  --text-body1: 20px;
-  --text-body2: 18px;
-
-  --font-bookman: bookman, sans-serif;
-  --font-brandon: brandon, sans-serif;
-  --font-roc: roc, sans-serif;
-
-  --breakpoint-xs: 350px;
+  @font-face {
+    font-family: "roc";
+    font-display: swap;
+    src: url("./assets/fonts/Roc_Grotesk_Bold.ttf") format("truetype");
+  }
 }
 
 :root {
-  font-family: var(--font-roc), Avenir, Helvetica, Arial, sans-serif;
-  font-size: var(--text-body2);
+  font-family: "roc", Avenir, Helvetica, Arial, sans-serif;
+  font-size: 18px;
 
-  background-color: var(--color-background);
+  background-color: oklch(98.56% 0.0084 56.32);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
