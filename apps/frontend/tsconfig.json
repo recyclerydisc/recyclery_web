@@ -10,7 +10,7 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "target": "ES2022",
-    "jsx": "react-jsx"
+    "jsx": "preserve"
   },
   "include": ["src", "vite.config.ts"]
 }
