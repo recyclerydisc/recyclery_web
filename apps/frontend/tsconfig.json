@@ -1,5 +1,5 @@
 {
-  "extends": "@full-stack-template-typescript/typescript-config/react.json",
+  "extends": "../../packages/typescript-config/react.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
