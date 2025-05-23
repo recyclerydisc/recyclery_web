@@ -11,7 +11,7 @@ function DonateABike() {
   const [donateImageURL, setDonateImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    fetch(`/images/12`)
+    fetch(`/images/13`)
       .then(res => res.json())
       .then(data => {
         if (data?.bucket_link) {
@@ -27,7 +27,7 @@ function DonateABike() {
   }, []);
 
   useEffect(() => {
-    fetch(`/images/13`)
+    fetch(`/images/14`)
       .then(res => res.json())
       .then(data => {
         if (data?.bucket_link) {

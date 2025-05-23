@@ -14,7 +14,7 @@ function ContributeFinancially() {
   const [contributeImageURL, setContributeImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    fetch(`/images/10`)
+    fetch(`/images/11`)
       .then(res => res.json())
       .then(data => {
         if (data?.bucket_link) {
@@ -30,7 +30,7 @@ function ContributeFinancially() {
   }, []);
 
   useEffect(() => {
-    fetch(`/images/11`)
+    fetch(`/images/12`)
       .then(res => res.json())
       .then(data => {
         if (data?.bucket_link) {

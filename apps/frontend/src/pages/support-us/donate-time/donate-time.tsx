@@ -10,7 +10,7 @@ function DonateTime() {
   const [volunteerImageURL, setVolunteerImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    fetch(`/images/14`)
+    fetch(`/images/15`)
       .then(res => res.json())
       .then(data => {
         if (data?.bucket_link) {
@@ -26,7 +26,7 @@ function DonateTime() {
   }, []);
 
   useEffect(() => {
-    fetch(`/images/15`)
+    fetch(`/images/16`)
       .then(res => res.json())
       .then(data => {
         if (data?.bucket_link) {
