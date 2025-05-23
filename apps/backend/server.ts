@@ -30,7 +30,7 @@ interface CorsOptions {
 
 const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
-    const allowedOrigins = [process.env.FRONTEND_URL || '', process.env.FRONTEND_URL_DEV || ''];
+    const allowedOrigins = [process.env.FRONTEND_URL || '', process.env.FRONTEND_URL_DEV || '', "https://the-recyclery.vercel.app/"];
 
     if (allowedOrigins.includes(origin || '') || !origin) {
       callback(null, true);
@@ -92,19 +92,78 @@ app.use((err: AppError, _req: Request, res: Response, _next: NextFunction) => {
 
 
 app.get('/images/:id', async (req: Request, res: Response) => {
-  const img_ID = parseInt(req.params.id);
-  const { data } = await supabase
-    .from('IMAGES')
-    .select('bucket_link')
-    .eq('img_id', img_ID)
-    .single();
+  try {
+    const img_ID = parseInt(req.params.id);
+    const { data } = await supabase
+      .from('IMAGES')
+      .select('bucket_link')
+      .eq('img_id', img_ID)
+      .single();
 
-  res.setHeader('Content-Type', 'application/json');
-  res.json({ bucket_link: data?.bucket_link || null });
+    res.setHeader('Content-Type', 'application/json');
+    res.json({ bucket_link: data?.bucket_link || null });
+  } catch (error) {
+    res.status(500).json({ err: 'Failed to fetch image', error});
+  }
 });
 
 
+// GET for getting person in WHO
+app.get('/people/:id', (async (req: Request, res: Response) => {
+  try {
+    const person_ID = parseInt(req.params.id);
+    const { data: person,  error: dbErr} = await supabase
+      .from('WHO')
+      .select('*')
+      .eq('person_id', person_ID)
+      .single();
 
+    if (dbErr) {
+      return res
+        .status(500)
+        .json({ error: 'Failed to update person record' })
+    }
+    if (!person) {
+      return res
+        .status(404)
+        .json({ error: 'Person not found' })
+    }
+
+    res.setHeader('Content-Type', 'application/json');
+    res.json({ person_name: person?.name || null, person_description: person?.description || null , person_image: person?.person_image || null });
+  } catch (error) {
+    res.status(500).json({ err: 'Failed to fetch person', error });
+  }
+}) as RequestHandler
+);
+
+// GET for getting hours in HOURS
+app.get('/hours/:id', (async (req: Request, res: Response) => {
+  try {
+    const hours_ID = parseInt(req.params.id);
+    const {data: hours, error: dbErr} = await supabase
+      .from('HOURS')
+      .select('hours')
+      .eq('id', hours_ID)
+      .single();
+
+    if (dbErr) {
+      return res
+        .status(500)
+        .json({ error: 'Failed to get hours record' })
+    }
+    if (!hours) {
+      return res
+        .status(404)
+        .json({ error: 'Hours not found' })
+    }
+    res.setHeader('Content-Type', 'application/json');
+    res.json({ hours_text: hours?.hours || null });
+  } catch (error) {
+    res.status(500).json({ err: 'Failed to fetch hours', error });
+  }
+}) as RequestHandler
+);
 
 // PUT to upload photos 
 app.put('/upload/:id', upload.single('file'), (async (req, res) => {
@@ -237,8 +296,8 @@ app.put('/uploadpeople/:id', upload.single('file'), (async (req: MulterRequest, 
       }
       // 4) getPublicUrl is sync
       const { data: urlData } = supabase.storage
-      .from('who')
-      .getPublicUrl(key)
+        .from('who')
+        .getPublicUrl(key)
       
       if (!urlData?.publicUrl) {
         return res
