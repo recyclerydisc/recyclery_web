@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import headerPoster from '../../../assets/images/our-programs/freecyclery/freecyclery-header.png';
-import { BgImage } from '../../../components/generic/bg-image';
-import { H1 } from '../../../components/generic/styled-tags';
-import AboutSection from '../../../components/our-programs/freecyclery/about-section';
-import EarnABike from '../../../components/our-programs/freecyclery/earn-a-bike';
-import HowItWorks from '../../../components/our-programs/freecyclery/how-it-works';
-import MakeReferral from '../../../components/our-programs/freecyclery/make-referral';
-import Partners from '../../../components/our-programs/freecyclery/partners';
+import earnABike from '../../../assets/images/our-programs/freecyclery/earn-a-bike.jpg';
+import { BgImage } from '../../../components/generic/bg-image.tsx';
+import { H1 } from '../../../components/generic/styled-tags.tsx';
+import AboutSection from '../../../components/our-programs/freecyclery/about-section.tsx';
+import EarnABike from '../../../components/our-programs/freecyclery/earn-a-bike.tsx';
+import HowItWorks from '../../../components/our-programs/freecyclery/how-it-works.tsx';
+import MakeReferral from '../../../components/our-programs/freecyclery/make-referral.tsx';
+import Partners from '../../../components/our-programs/freecyclery/partners.tsx';
 
 function Freecyclery() {
   const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [secimageURL, setSecImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
@@ -33,7 +33,11 @@ function Freecyclery() {
     fetch(`/images/8`)
       .then(res => res.json())
       .then(data => {
-        setSecImageURL(data.bucket_link);
+        if (data?.bucket_link) {
+          setSecImageURL(data.bucket_link);
+        } else {
+          setSecImageURL(earnABike);
+        }
       })
       .catch(err => {
         console.error('image URL was not fetched correctly', err);
@@ -42,12 +46,14 @@ function Freecyclery() {
 
   return (
     <main>
-      <BgImage image={heroimageURL} className="min-h-[24rem]">
+      <title>Freecyclery - The Recyclery</title>
+      <BgImage image={heroimageURL} className="min-h-[32rem]">
         <H1>freecyclery</H1>
+        <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
+          Earn a free bike through our referral and fellowship programs.
+        </p>
       </BgImage>
-      {/* Mirai, note that I have to pass in the imageURL from a fetch made on this page, could you
-      make it so I can at least pass a parameter into the component with the image inside */}
-      <AboutSection />
+      <AboutSection imageURL={secimageURL} />
       <HowItWorks />
       <MakeReferral />
       <EarnABike />

@@ -1,4 +1,4 @@
-import { CollectionPointType } from '../types';
+import { CollectionPointType } from '../types.ts';
 
 export const collectionPoints: CollectionPointType[] = [
   {
@@ -32,7 +32,7 @@ export const collectionPoints: CollectionPointType[] = [
     phone: '773-906-5311',
   },
   {
-    title: 'Patagonia Fultom Market',
+    title: 'Patagonia Fulton Market',
     url: 'https://dropoffyouroldbike.splashthat.com/',
     address: '1115 W Fulton Market, Chicago, IL 60607',
     phone: '312-951-0518',

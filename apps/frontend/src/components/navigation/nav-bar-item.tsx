@@ -1,7 +1,7 @@
 import { ChevronDown } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { NavContentType } from '../../types';
+import { NavContentType } from '../../types.ts';
 
 export default function NavbarItem({ title, items }: NavContentType) {
   const [isFlyoutOpen, setIsFlyoutOpen] = useState(false);

@@ -1,11 +1,16 @@
 {
-  "extends": "@full-stack-template-typescript/typescript-config/react.json",
+  "extends": "../../packages/typescript-config/react.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "moduleResolution": "bundler"
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "jsx": "preserve"
   },
   "include": ["src", "vite.config.ts"]
 }

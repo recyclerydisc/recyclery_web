@@ -1,32 +1,32 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { PublicOnlyRoute } from './components/protected-routes';
-import { UserProvider } from './contexts/user-provider';
-import NavLayout from './layouts/nav-layouts';
-import Login from './pages/account/login';
-import Home from './pages/home/home';
-import SignUp from './pages/signup';
+import { PublicOnlyRoute } from './components/protected-routes.tsx';
+import { UserProvider } from './contexts/user-provider.tsx';
+import NavLayout from './layouts/nav-layouts.tsx';
+import Login from './pages/account/login.tsx';
+import Home from './pages/home/home.tsx';
+import SignUp from './pages/signup.tsx';
 // Pages import added
 
-import WhatWeDo from './pages/about-us/what/what';
-import WhoWeAre from './pages/about-us/who/who';
-import Classes from './pages/our-programs/classes/classes';
-import Freecyclery from './pages/our-programs/freecyclery/freecyclery';
-import FTWNB from './pages/our-programs/FTWNB/FTWNB';
-import OpenShop from './pages/our-programs/openshop/openshop';
-import ContributeFinancially from './pages/support-us/contribute-financially/contribute-financially';
-import DonateABike from './pages/support-us/donate-a-bike/donate-a-bike';
-import DonateTime from './pages/support-us/donate-time/donate-time';
-import OurSupporters from './pages/support-us/our-supporters/our-supporters';
-import UploadPage from './pages/upload/Upload';
-import UploadHours from './pages/upload/UploadHours';
-import UploadPeople from './pages/upload/UploadPeople';
+import WhatWeDo from './pages/about-us/what/what.tsx';
+import WhoWeAre from './pages/about-us/who/who.tsx';
+import Classes from './pages/our-programs/classes/classes.tsx';
+import Freecyclery from './pages/our-programs/freecyclery/freecyclery.tsx';
+import FTWNB from './pages/our-programs/FTWNB/FTWNB.tsx';
+import OpenShop from './pages/our-programs/openshop/openshop.tsx';
+import ContributeFinancially from './pages/support-us/contribute-financially/contribute-financially.tsx';
+import DonateABike from './pages/support-us/donate-a-bike/donate-a-bike.tsx';
+import DonateTime from './pages/support-us/donate-time/donate-time.tsx';
+import OurSupporters from './pages/support-us/our-supporters/our-supporters.tsx';
+import UploadPage from './pages/upload/Upload.tsx';
+import UploadHours from './pages/upload/UploadHours.tsx';
+import UploadPeople from './pages/upload/UploadPeople.tsx';
 
 import './App.css';
-import AuthCallback from './pages/account/auth-callback';
-import EmailVerification from './pages/account/email-verifcation';
-import RequestPasswordReset from './pages/account/request-password-reset';
-import ResetPassword from './pages/account/reset-password';
-import NotFound from './pages/not-found';
+import AuthCallback from './pages/account/auth-callback.tsx';
+import EmailVerification from './pages/account/email-verifcation.tsx';
+import RequestPasswordReset from './pages/account/request-password-reset.tsx';
+import ResetPassword from './pages/account/reset-password.tsx';
+import NotFound from './pages/not-found.tsx';
 
 function App() {
   return (

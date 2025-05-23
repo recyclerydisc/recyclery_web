@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Button } from '../../generic/buttons';
+import { Button } from '../../generic/buttons.tsx';
 
 interface ClassCardProps {
   title: string;

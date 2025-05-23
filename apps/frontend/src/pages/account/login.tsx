@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Input } from '../../components/form/input';
-import { useUser } from '../../hooks/useUser';
+import { Input } from '../../components/form/input.tsx';
+import { useUser } from '../../hooks/useUser.tsx';
 
 interface LoginState {
   email: string;
@@ -56,6 +56,7 @@ export default function Login() {
 
   return (
     <div className="flex flex-col justify-center items-center min-h-[80vh]">
+      <title>Log In - The Recyclery</title>
       <form
         className="flex flex-col gap-4 w-full max-w-[400px] p-8 bg-white shadow"
         onSubmit={handleSubmit}

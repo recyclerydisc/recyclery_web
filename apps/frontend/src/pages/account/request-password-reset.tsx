@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useUser } from '../../hooks/useUser';
+import { useUser } from '../../hooks/useUser.tsx';
 
 export default function RequestPasswordReset() {
   const [email, setEmail] = useState<string>('');
@@ -26,6 +26,7 @@ export default function RequestPasswordReset() {
 
   return (
     <div className="max-w-[400px] mx-[40px] my-auto">
+      <title>Reset Password - The Recyclery</title>
       <h2 className="text-center text-amber-400 mb-5">Reset Password</h2>
       {!success ? (
         <form className="flex flex-col gap-5" onSubmit={handleSubmit}>

@@ -1,8 +1,6 @@
-//import NavBar from '../../components/navigation/nav-bar';
-//import Footer from '../../components/footer/footer';
 import { useEffect, useState } from 'react';
 import bikerepairPic from '../../../assets/images/our-programs/FTWNB/FTWN-B.jpg';
-import { A } from '../../../components/generic/styled-tags';
+import { A } from '../../../components/generic/styled-tags.tsx';
 
 function FTWNB() {
   const [imageURL, setImageURL] = useState<string | undefined>(undefined);
@@ -26,7 +24,7 @@ function FTWNB() {
   return (
     <main>
       {/* <NavBar /> */}
-
+      <title>FTWNB - The Recyclery</title>
       <section
         className="w-full"
         style={{

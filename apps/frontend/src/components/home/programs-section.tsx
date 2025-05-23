@@ -1,5 +1,5 @@
-import Program from './program';
-import { A, H2, Section } from '../generic/styled-tags';
+import Program from './program.tsx';
+import { A, H2, Section } from '../generic/styled-tags.tsx';
 
 export default function ProgramsSection() {
   return (
@@ -45,13 +45,13 @@ export default function ProgramsSection() {
           Overhaul Class. The classes are meant for adults, and you should bring your own bike.
           <br />
           <br />
-          To register, visit our <A to="https://therecyclery.square.site/">online shop</A> (Sundays
-          3-6pm) is another opportunity to work on your bike.
+          To register, visit our{' '}
+          <A to="https://therecyclery.square.site/shop/classes/23">online shop</A>.
           <br />
           <br />
           <u>HOURS:</u>
           <br />
-          Variable, see <A to="/our-programs/classes">sign up page</A>
+          Variable, see <A to="https://therecyclery.square.site/shop/classes/23">sign up page</A>
         </Program>
       </div>
     </Section>

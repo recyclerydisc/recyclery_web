@@ -1,9 +1,9 @@
 import { Bike, XIcon } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { NavContent } from '../../content/nav-content';
-import { Button } from '../generic/buttons';
-import SideMenuItem from './side-menu-item';
+import { NavContent } from '../../content/nav-content.tsx';
+import { Button } from '../generic/buttons.tsx';
+import SideMenuItem from './side-menu-item.tsx';
 
 interface SideMenuProps {
   isSideMenuOpen: boolean;

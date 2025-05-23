@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import headerImage from '../../../assets/images/our-programs/classes/header-image.png';
-import ClassDescription from '../../../components/our-programs/classes/class-description';
-import ClassHero from '../../../components/our-programs/classes/class-hero';
-import ClassSignup from '../../../components/our-programs/classes/class-signup';
+import ClassDescription from '../../../components/our-programs/classes/class-description.tsx';
+import ClassHero from '../../../components/our-programs/classes/class-hero.tsx';
+import ClassSignup from '../../../components/our-programs/classes/class-signup.tsx';
+
 function Classes() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);
+  const [heroImageURL, setHeroImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     fetch(`/images/7`)
@@ -25,8 +25,8 @@ function Classes() {
 
   return (
     <main>
-      {/* again I'm going to have to pass in an image from supabase here */}
-      <ClassHero />
+      <title>Classes - The Recyclery</title>
+      <ClassHero heroimageURL={heroImageURL} />
       <ClassDescription />
       <ClassSignup />
     </main>

@@ -1,7 +1,7 @@
 import { useEffect, useState, ReactNode } from 'react';
 import React from 'react';
-import type { User, UserContextType } from '../../types/auth';
-import { UserContext } from './user-context';
+import type { User, UserContextType } from '../../types/auth.ts';
+import { UserContext } from './user-context.tsx';
 
 interface UserProviderProps {
   children: ReactNode;

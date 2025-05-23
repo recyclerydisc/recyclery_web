@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import headerPoster from '../../assets/images/home/header-poster.jpg';
-import { BgImage } from '../generic/bg-image';
-import { Button } from '../generic/buttons';
-import { H1 } from '../generic/styled-tags';
+import { BgImage } from '../generic/bg-image.tsx';
+import { Button } from '../generic/buttons.tsx';
+import { H1 } from '../generic/styled-tags.tsx';
 
 function HeroSection() {
   const [imageURL, setImageURL] = useState<string | undefined>(undefined);
@@ -33,7 +33,9 @@ function HeroSection() {
       </p>
       <div className="flex sm:flex-row flex-col justify-center items-center gap-x-4 gap-y-2 pt-6">
         <Button color="orange">
-          <Link to="#">Join Our Newsletter</Link>
+          <Link to="https://therecyclery.us1.list-manage.com/subscribe?u=71e053371da882f0463a04165&id=6b561c7610">
+            Join Our Newsletter
+          </Link>
         </Button>
         <Button>
           <Link to="https://therecyclery.square.site/">Shop Our Bikes</Link>

@@ -1,6 +1,6 @@
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { NavContentType } from '../../types';
+import { NavContentType } from '../../types.tsx';
 
 type SideMenuItemProps = {
   currentActiveAccordion: string;

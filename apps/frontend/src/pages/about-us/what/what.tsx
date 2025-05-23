@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import WhatHero from '../../../assets/images/about-us/what/what-hero.png';
 import WhatSection1 from '../../../assets/images/about-us/what/what-section-1.png';
-import { BgImage } from '../../../components/generic/bg-image';
-import { H1, H2, H3, Section } from '../../../components/generic/styled-tags';
+import { BgImage } from '../../../components/generic/bg-image.tsx';
+import { H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx';
 
 function WhatWeDo() {
   const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);
@@ -42,6 +42,7 @@ function WhatWeDo() {
 
   return (
     <main className="w-full">
+      <title>What We Do - The Recyclery</title>
       <BgImage image={heroimageURL} className="min-h-[32rem]">
         <H1>what we do</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">

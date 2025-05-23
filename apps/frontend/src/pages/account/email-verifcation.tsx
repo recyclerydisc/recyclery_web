@@ -22,6 +22,7 @@ export default function EmailVerification() {
 
   return (
     <div className="flex flex-col justify-center items-center text-center pt-[100px]">
+      <title>Email Verification - The Recyclery</title>
       {status === 'checking' && (
         <h1 className="text-[2.5em] font-bold m-0">Checking verification status...</h1>
       )}

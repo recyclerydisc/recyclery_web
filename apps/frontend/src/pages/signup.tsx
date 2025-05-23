@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import type { SignupRequest } from '../../types/auth.ts';
-import { Form } from '../components/form/form';
-import { Input } from '../components/form/input';
+import { Form } from '../components/form/form.tsx';
+import { Input } from '../components/form/input.tsx';
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -67,6 +67,7 @@ export default function Signup() {
 
   return (
     <div className="flex flex-col justify-center items-center min-h-[90vh] px-8 py-4">
+      <title>Sign Up - The Recyclery</title>
       <Form
         onSubmit={handleSubmit}
         title="Create an Account"

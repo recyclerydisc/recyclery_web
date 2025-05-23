@@ -1,13 +1,14 @@
 import DonateHero from '../../../assets/images/support-us/donate-a-bike/donate-hero.png';
 import DonateImage from '../../../assets/images/support-us/donate-a-bike/donate-image.jpeg';
-import { BgImage } from '../../../components/generic/bg-image';
-import DashedBorder from '../../../components/generic/dashed-border';
-import { A, H1, H2, H3, Section } from '../../../components/generic/styled-tags';
-import { collectionPoints } from '../../../content/collection-points';
+import { BgImage } from '../../../components/generic/bg-image.tsx';
+import DashedBorder from '../../../components/generic/dashed-border.tsx';
+import { A, H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx';
+import { collectionPoints } from '../../../content/collection-points.ts';
 
-export default function DonateABike() {
+function DonateABike() {
   return (
     <main>
+      <title>Donate a Bike - The Recyclery</title>
       <BgImage image={DonateHero} className="min-h-[32rem]">
         <H1>donate a bike</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
@@ -59,8 +60,9 @@ export default function DonateABike() {
               <DashedBorder className="flex-1/3 p-8 space-y-2">
                 <H3>2. email us</H3>
                 <p className="font-brandon">
-                  Send an email to <A to="">donatebikes@therecyclery.org</A> and we'll reach out to
-                  you about scheduling a pick-up.
+                  Send an email to{' '}
+                  <A to="mailto:donatebikes@therecyclery.org">donatebikes@therecyclery.org</A> and
+                  we'll reach out to you about scheduling a pick-up.
                 </p>
               </DashedBorder>
             </div>
@@ -90,3 +92,5 @@ export default function DonateABike() {
     </main>
   );
 }
+
+export default DonateABike;

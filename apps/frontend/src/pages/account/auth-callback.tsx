@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../../hooks/useUser';
+import { useUser } from '../../hooks/useUser.tsx';
 
 export default function AuthCallback() {
   const navigate = useNavigate();
@@ -59,6 +59,7 @@ export default function AuthCallback() {
 
   return (
     <div className="flex justify-center items-center min-h-[100vh]">
+      <title>Completing Authentication - The Recyclery</title>
       <p className="text-[1rem] text-amber-400">Completing authentication...</p>
     </div>
   );
