@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import DonateHero from '../../../assets/images/support-us/donate-a-bike/donate-hero.png';
 import DonateImage from '../../../assets/images/support-us/donate-a-bike/donate-image.jpeg';
 import { BgImage } from '../../../components/generic/bg-image.tsx';
@@ -6,10 +7,45 @@ import { A, H1, H2, H3, Section } from '../../../components/generic/styled-tags.
 import { collectionPoints } from '../../../content/collection-points.ts';
 
 function DonateABike() {
+  const [heroImageURL, setHeroImageURL] = useState<string | undefined>(undefined);
+  const [donateImageURL, setDonateImageURL] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    fetch(`/images/13`)
+      .then(res => res.json())
+      .then(data => {
+        if (data?.bucket_link) {
+          setHeroImageURL(data.bucket_link);
+        } else {
+          setHeroImageURL(DonateHero);
+        }
+      })
+      .catch(err => {
+        console.error('image URL was not fetched correctly', err);
+        setHeroImageURL(DonateHero);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(`/images/14`)
+      .then(res => res.json())
+      .then(data => {
+        if (data?.bucket_link) {
+          setDonateImageURL(data.bucket_link);
+        } else {
+          setDonateImageURL(DonateImage);
+        }
+      })
+      .catch(err => {
+        console.error('image URL was not fetched correctly', err);
+        setDonateImageURL(DonateImage);
+      });
+  }, []);
+
   return (
     <main>
       <title>Donate a Bike - The Recyclery</title>
-      <BgImage image={DonateHero} className="min-h-[32rem]">
+      <BgImage image={heroImageURL} className="min-h-[32rem]">
         <H1>donate a bike</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
           Donate your old bikes to either support our programs or help people in need
@@ -27,7 +63,7 @@ function DonateABike() {
         </div>
         <div className="flex-1 flex justify-center">
           <img
-            src={DonateImage}
+            src={donateImageURL}
             alt="why donate image"
             className="rounded-2xl object-cover aspect-16/9 max-w-[500px] w-full"
           />

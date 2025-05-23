@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ContributeHero from '../../../assets/images/support-us/contribute-financially/contribute-hero.png';
 import ContributeImage from '../../../assets/images/support-us/contribute-financially/contribute-image.png';
@@ -9,10 +10,45 @@ import { H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx
 import { donationAccordionContent } from '../../../content/donation-info.ts';
 
 function ContributeFinancially() {
+  const [heroImageURL, setHeroImageURL] = useState<string | undefined>(undefined);
+  const [contributeImageURL, setContributeImageURL] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    fetch(`/images/11`)
+      .then(res => res.json())
+      .then(data => {
+        if (data?.bucket_link) {
+          setHeroImageURL(data.bucket_link);
+        } else {
+          setHeroImageURL(ContributeHero);
+        }
+      })
+      .catch(err => {
+        console.error('image URL was not fetched correctly', err);
+        setHeroImageURL(ContributeHero);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(`/images/12`)
+      .then(res => res.json())
+      .then(data => {
+        if (data?.bucket_link) {
+          setContributeImageURL(data.bucket_link);
+        } else {
+          setContributeImageURL(ContributeImage);
+        }
+      })
+      .catch(err => {
+        console.error('image URL was not fetched correctly', err);
+        setHeroImageURL(ContributeImage);
+      });
+  }, []);
+
   return (
     <main>
       <title>Contribute Financially - The Recyclery</title>
-      <BgImage image={ContributeHero} className="min-h-[32rem]">
+      <BgImage image={heroImageURL} className="min-h-[32rem]">
         <H1>contribute financially</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
           Donate money directly to help fund our programs
@@ -37,7 +73,7 @@ function ContributeFinancially() {
                 support!
               </p>
               <img
-                src={ContributeImage}
+                src={contributeImageURL}
                 alt="donation image"
                 className="w-full aspect-16/9 object-cover rounded-2xl mb-4"
               />

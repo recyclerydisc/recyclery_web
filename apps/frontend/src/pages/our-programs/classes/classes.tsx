@@ -8,7 +8,7 @@ function Classes() {
   const [heroImageURL, setHeroImageURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    fetch(`/images/7`)
+    fetch(`/images/10`)
       .then(res => res.json())
       .then(data => {
         if (data?.bucket_link) {
