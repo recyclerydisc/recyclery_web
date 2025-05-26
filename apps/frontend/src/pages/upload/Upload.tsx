@@ -2,6 +2,8 @@ import React, { ChangeEvent, DragEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 import drop from '../../assets/images/upload/drop.png';
+import { H1, H2, H3 } from '../../components/generic/styled-tags.tsx';
+import { useUser } from '../../hooks/useUser.tsx';
 
 const Container = styled.div`
   display: flex;
@@ -145,15 +147,15 @@ const Upload: React.FC = () => {
     formData.append('file', file);
     formData.append('fileName', file.name);
 
-
     try {
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/upload/${id}`, { // Replace '2' with the actual ID
-            method: 'PUT',
-            body: formData,
-        });
-        console.log('Response status:', response.status); // Log response status
-        const responseData = await response.json();
-        console.log('Response data:', responseData); // Log response data
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/upload/${id}`, {
+        // Replace '2' with the actual ID
+        method: 'PUT',
+        body: formData,
+      });
+      console.log('Response status:', response.status); // Log response status
+      const responseData = await response.json();
+      console.log('Response data:', responseData); // Log response data
       if (!response.ok) {
         throw new Error('Failed to upload file');
       }
@@ -161,9 +163,20 @@ const Upload: React.FC = () => {
       alert('File uploaded successfully!');
       setFile(null);
     } catch (error) {
-      alert( error );
+      alert(error);
     }
   };
+
+  const { isAuthenticated } = useUser();
+  if (!isAuthenticated) {
+    return (
+      <main>
+        <H1 className="mt-30 text-center !text-black">You're not supposed to be here!</H1>
+        <H3 className="m-10 text-center">(unless you just forgot to login)</H3>
+        <H2 className="text-brandon text-center m-30">Please login to reach the upload page!</H2>
+      </main>
+    );
+  }
 
   return (
     <Container>
