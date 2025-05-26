@@ -1,8 +1,12 @@
-import { H2, Section } from '../../generic/styled-tags.tsx';
-import { Button } from '../../generic/buttons.tsx';
 import { Link } from 'react-router-dom';
+import { EditLink } from '../../../components/generic/EditLink.tsx';
+import { useUser } from '../../../hooks/useUser.tsx';
+import { Button } from '../../generic/buttons.tsx';
+import { H2, Section } from '../../generic/styled-tags.tsx';
 
 function VolunteerMission({ image }: { image?: string }) {
+  const { isAuthenticated } = useUser();
+
   return (
     <Section className="lg:grid lg:grid-cols-2 gap-24 items-center justify-items-center" tan>
       <div>
@@ -32,11 +36,14 @@ function VolunteerMission({ image }: { image?: string }) {
           <Link to="https://www.volgistics.com/appform/1124825310">Join the Recyclery Today!</Link>
         </Button>
       </div>
-      <img
-        src={image}
-        alt="a volunteer helping someone fix a bike"
-        className="rounded-xl w-72 lg:w-96 mt-16 lg:mt-0"
-      />
+      <div>
+        <img
+          src={image}
+          alt="a volunteer helping someone fix a bike"
+          className="rounded-xl w-72 lg:w-96 mt-16 lg:mt-0"
+        />
+        {isAuthenticated && <EditLink id="16"></EditLink>}
+      </div>
     </Section>
   );
 }

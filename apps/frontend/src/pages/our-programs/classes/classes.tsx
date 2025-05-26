@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import headerImage from '../../../assets/images/our-programs/classes/header-image.png';
+import { EditLink } from '../../../components/generic/EditLink.tsx';
 import ClassDescription from '../../../components/our-programs/classes/class-description.tsx';
 import ClassHero from '../../../components/our-programs/classes/class-hero.tsx';
 import ClassSignup from '../../../components/our-programs/classes/class-signup.tsx';
+import { useUser } from '../../../hooks/useUser.tsx';
 
 function Classes() {
   const [heroImageURL, setHeroImageURL] = useState<string | undefined>(undefined);
+  const { isAuthenticated } = useUser();
 
   useEffect(() => {
     fetch(`/images/10`)
@@ -27,6 +30,7 @@ function Classes() {
     <main>
       <title>Classes - The Recyclery</title>
       <ClassHero heroimageURL={heroImageURL} />
+      {isAuthenticated && <EditLink id="10"></EditLink>}
       <ClassDescription />
       <ClassSignup />
     </main>

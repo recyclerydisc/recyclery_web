@@ -3,12 +3,15 @@ import DonateHero from '../../../assets/images/support-us/donate-a-bike/donate-h
 import DonateImage from '../../../assets/images/support-us/donate-a-bike/donate-image.jpeg';
 import { BgImage } from '../../../components/generic/bg-image.tsx';
 import DashedBorder from '../../../components/generic/dashed-border.tsx';
+import { EditLink } from '../../../components/generic/EditLink.tsx';
 import { A, H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx';
 import { collectionPoints } from '../../../content/collection-points.ts';
+import { useUser } from '../../../hooks/useUser.tsx';
 
 function DonateABike() {
   const [heroImageURL, setHeroImageURL] = useState<string | undefined>(undefined);
   const [donateImageURL, setDonateImageURL] = useState<string | undefined>(undefined);
+  const { isAuthenticated } = useUser();
 
   useEffect(() => {
     fetch(`/images/13`)
@@ -51,6 +54,7 @@ function DonateABike() {
           Donate your old bikes to either support our programs or help people in need
         </p>
       </BgImage>
+      {isAuthenticated && <EditLink id="13"></EditLink>}
       <Section className="flex flex-col lg:flex-row justify-between items-center lg:gap-16 gap-8">
         <div className="flex-1">
           <H2>why donate a bike</H2>
@@ -67,6 +71,7 @@ function DonateABike() {
             alt="why donate image"
             className="rounded-2xl object-cover aspect-16/9 max-w-[500px] w-full"
           />
+          {isAuthenticated && <EditLink id="14" className="ml-5"></EditLink>}
         </div>
       </Section>
       <Section tan>

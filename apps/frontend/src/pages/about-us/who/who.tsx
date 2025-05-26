@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react';
 import WhoHero from '../../../assets/images/about-us/who/who-hero.png';
 import MemberCard from '../../../components/about-us/who-we-are/member-card.tsx';
 import { BgImage } from '../../../components/generic/bg-image.tsx';
+import { EditLink } from '../../../components/generic/EditLink.tsx';
 import { H1, H2, Section } from '../../../components/generic/styled-tags.tsx';
 import { members } from '../../../content/members.ts';
+import { useUser } from '../../../hooks/useUser.tsx';
 
 function WhoWeAre() {
   const [imageURL, setImageURL] = useState<string | undefined>(undefined);
+  const { isAuthenticated } = useUser();
 
   useEffect(() => {
     fetch(`/images/4`)
@@ -33,6 +36,7 @@ function WhoWeAre() {
           Get to know some of our team members.
         </p>
       </BgImage>
+      {isAuthenticated && <EditLink id="4"></EditLink>}
       <Section>
         <H2>staff and collective members</H2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

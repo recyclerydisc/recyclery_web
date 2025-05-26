@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react';
 import WhatHero from '../../../assets/images/about-us/what/what-hero.png';
 import WhatSection1 from '../../../assets/images/about-us/what/what-section-1.png';
 import { BgImage } from '../../../components/generic/bg-image.tsx';
+import { EditLink } from '../../../components/generic/EditLink.tsx';
 import { H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx';
+import { useUser } from '../../../hooks/useUser.tsx';
 
 function WhatWeDo() {
   const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);
   const [whatsec1URL, setWhatSec1ImageURL] = useState<string | undefined>(undefined);
+  const { isAuthenticated } = useUser();
 
   useEffect(() => {
     fetch(`/images/2`)
@@ -50,6 +53,7 @@ function WhatWeDo() {
           as well as our milestone of refurbishing 10,000 bikes.
         </p>
       </BgImage>
+      {isAuthenticated && <EditLink id="2"></EditLink>}
       <Section className="flex md:flex-row-reverse flex-col justify-center items-center md:gap-16 gap-8">
         <div className="flex flex-col gap-6">
           <div>
@@ -72,6 +76,7 @@ function WhatWeDo() {
           alt="Person with bike"
           className="max-w-[400px] w-full rounded-2xl object-fit"
         />
+        {isAuthenticated && <EditLink id="3"></EditLink>}
       </Section>
       <Section tan>
         <H2>our core values</H2>
