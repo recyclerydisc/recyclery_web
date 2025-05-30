@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import bikerepairPic from '../../../assets/images/our-programs/FTWNB/FTWN-B.jpg';
 import whiteplaceholderPic from '../../../assets/images/our-programs/FTWNB/white-png-base.jpg';
 import { BgImage } from '../../../components/generic/bg-image.tsx';
-import { EditLink } from '../../../components/generic/EditLink.tsx';
+import { EditLink } from '../../../components/generic/edit-image-button.tsx';
 import { A, H1, H2, Section } from '../../../components/generic/styled-tags.tsx';
 import { useUser } from '../../../hooks/useUser.tsx';
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import headerImage from '../../../assets/images/our-programs/classes/header-image.png';
-import { EditLink } from '../../../components/generic/EditLink.tsx';
+import { EditLink } from '../../../components/generic/edit-image-button.tsx';
 import ClassDescription from '../../../components/our-programs/classes/class-description.tsx';
 import ClassHero from '../../../components/our-programs/classes/class-hero.tsx';
 import ClassSignup from '../../../components/our-programs/classes/class-signup.tsx';

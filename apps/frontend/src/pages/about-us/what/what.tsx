@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import WhatHero from '../../../assets/images/about-us/what/what-hero.png';
 import WhatSection1 from '../../../assets/images/about-us/what/what-section-1.png';
 import { BgImage } from '../../../components/generic/bg-image.tsx';
-import { EditLink } from '../../../components/generic/EditLink.tsx';
+import { EditLink } from '../../../components/generic/edit-image-button.tsx';
 import { H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx';
 import { useUser } from '../../../hooks/useUser.tsx';
 

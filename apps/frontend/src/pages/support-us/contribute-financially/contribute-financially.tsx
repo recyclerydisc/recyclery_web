@@ -6,7 +6,7 @@ import Accordion from '../../../components/generic/accordion.tsx';
 import { BgImage } from '../../../components/generic/bg-image.tsx';
 import { Button } from '../../../components/generic/buttons.tsx';
 import DashedBorder from '../../../components/generic/dashed-border.tsx';
-import { EditLink } from '../../../components/generic/EditLink.tsx';
+import { EditLink } from '../../../components/generic/edit-image-button.tsx';
 import { H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx';
 import { donationAccordionContent } from '../../../content/donation-info.ts';
 import { useUser } from '../../../hooks/useUser.tsx';
