@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import earnABike from '../../../assets/images/our-programs/freecyclery/earn-a-bike.jpg';
 import headerPoster from '../../../assets/images/our-programs/freecyclery/freecyclery-header.png';
 import { BgImage } from '../../../components/generic/bg-image.tsx';
-import { EditLink } from '../../../components/generic/EditLink.tsx';
+import { EditLink } from '../../../components/generic/edit-image-button.tsx';
 import { H1 } from '../../../components/generic/styled-tags.tsx';
 import AboutSection from '../../../components/our-programs/freecyclery/about-section.tsx';
 import EarnABike from '../../../components/our-programs/freecyclery/earn-a-bike.tsx';

@@ -5,11 +5,15 @@ import { NavContentType } from '../../types.tsx';
 type SideMenuItemProps = {
   currentActiveAccordion: string;
   handleAccordionSelect: (arg0: string) => void;
+  isSideMenuOpen: boolean;
+  setIsSideMenuOpen: (arg0: boolean) => void;
 } & NavContentType;
 
 export default function SideMenuItem({
   currentActiveAccordion,
   handleAccordionSelect,
+  isSideMenuOpen,
+  setIsSideMenuOpen,
   title,
   items,
 }: SideMenuItemProps) {
@@ -31,17 +35,18 @@ export default function SideMenuItem({
       <div className="space-y-2 px-2">
         {items.map(item => {
           return (
-            <Link
-              key={item.title}
-              to={item.destination}
-              className="w-full flex justify-start items-center gap-4 px-4 py-3 rounded-2xl bg-tan-500 hover:bg-tan-600 group cursor-pointer transition-colors"
-            >
-              <div>{item.icon}</div>
-              <div>
-                <b className="text-body2 text-nowrap">{item.title}</b>
-                <p className="font-brandon">{item.description}</p>
-              </div>
-            </Link>
+            <button key={item.title} onClick={() => setIsSideMenuOpen(!isSideMenuOpen)} className="w-full">
+              <Link
+                to={item.destination}
+                className="w-full flex justify-start items-center gap-4 px-4 py-3 rounded-2xl bg-tan-500 hover:bg-tan-600 cursor-pointer transition-colors"
+              >
+                <div>{item.icon}</div>
+                <div className="w-full">
+                  <p className="w-full text-left text-body2 text-nowrap">{item.title}</p>
+                  <p className="w-full text-left font-brandon">{item.description}</p>
+                </div>
+              </Link>
+            </button>
           );
         })}
       </div>

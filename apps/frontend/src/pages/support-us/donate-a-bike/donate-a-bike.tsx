@@ -3,7 +3,7 @@ import DonateHero from '../../../assets/images/support-us/donate-a-bike/donate-h
 import DonateImage from '../../../assets/images/support-us/donate-a-bike/donate-image.jpeg';
 import { BgImage } from '../../../components/generic/bg-image.tsx';
 import DashedBorder from '../../../components/generic/dashed-border.tsx';
-import { EditLink } from '../../../components/generic/EditLink.tsx';
+import { EditLink } from '../../../components/generic/edit-image-button.tsx';
 import { A, H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx';
 import { collectionPoints } from '../../../content/collection-points.ts';
 import { useUser } from '../../../hooks/useUser.tsx';
@@ -120,7 +120,7 @@ function DonateABike() {
       </Section>
       <Section>
         <H2 className="text-center">collection points</H2>
-        <ul className="flex flex-wrap gap-6 font-brandon">
+        <ul className="flex justify-center items-center flex-wrap gap-6 font-brandon">
           {collectionPoints.map((collectionPoint, index) => (
             <li key={index} className="w-[300px]">
               <A to={collectionPoint.url}>{collectionPoint.title}</A>

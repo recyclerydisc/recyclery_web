@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import WhoHero from '../../../assets/images/about-us/who/who-hero.png';
 import MemberCard from '../../../components/about-us/who-we-are/member-card.tsx';
 import { BgImage } from '../../../components/generic/bg-image.tsx';
-import { EditLink } from '../../../components/generic/EditLink.tsx';
+import { EditLink } from '../../../components/generic/edit-image-button.tsx';
 import { H1, H2, Section } from '../../../components/generic/styled-tags.tsx';
 import { members } from '../../../content/members.ts';
 import { useUser } from '../../../hooks/useUser.tsx';

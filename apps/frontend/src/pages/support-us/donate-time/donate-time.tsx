@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import headerImage from '../../../assets/images/support-us/donate-time/donate-time-header.jpg';
 import volunteerFun from '../../../assets/images/support-us/donate-time/volunteer-fun.jpg';
-import { EditLink } from '../../../components/generic/EditLink.tsx';
+import { EditLink } from '../../../components/generic/edit-image-button.tsx';
 import HeroSection from '../../../components/support-us/donate-time/hero-section.tsx';
 import Roles from '../../../components/support-us/donate-time/roles.tsx';
 import VolunteerMission from '../../../components/support-us/donate-time/volunteer-mission.tsx';

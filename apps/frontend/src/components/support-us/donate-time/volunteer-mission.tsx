@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { EditLink } from '../../../components/generic/EditLink.tsx';
+import { EditLink } from '../../generic/edit-image-button.js';
 import { useUser } from '../../../hooks/useUser.tsx';
 import { Button } from '../../generic/buttons.tsx';
 import { H2, Section } from '../../generic/styled-tags.tsx';

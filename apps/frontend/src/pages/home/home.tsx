@@ -1,4 +1,4 @@
-import { EditLink } from '../../components/generic/EditLink.tsx';
+import { EditLink } from '../../components/generic/edit-image-button.tsx';
 import CalendarSection from '../../components/home/calendar-section.tsx';
 import HeroSection from '../../components/home/hero-section.tsx';
 import ProgramsSection from '../../components/home/programs-section.tsx';
