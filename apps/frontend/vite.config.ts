@@ -15,7 +15,14 @@ export default defineConfig(({ mode }) => {
         '/images': {
           target: env.VITE_BACKEND_URL,
           changeOrigin: true,
-
+        },
+        '/hours': {
+          target: env.VITE_BACKEND_URL,
+          changeOrigin: true,
+        },
+        '/people': {
+          target: env.VITE_BACKEND_URL,
+          changeOrigin: true,
         },
       },
     },
