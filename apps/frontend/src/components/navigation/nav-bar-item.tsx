@@ -37,17 +37,18 @@ export default function NavbarItem({ title, items }: NavContentType) {
       >
         {items.map(item => {
           return (
-            <Link
-              key={item.title}
-              to={item.destination}
-              className="w-[400px] flex justify-start items-center gap-4 px-4 py-3 rounded-2xl bg-tan-500 hover:bg-tan-600 group cursor-pointer transition-colors"
-            >
-              <div>{item.icon}</div>
-              <div>
-                <b className="text-nowrap">{item.title}</b>
-                <p className="font-brandon">{item.description}</p>
-              </div>
-            </Link>
+            <button key={item.title} onClick={() => setIsFlyoutOpen(false)} className="w-[400px]">
+              <Link
+                to={item.destination}
+                className="w-full flex justify-start items-center gap-4 px-4 py-3 rounded-2xl bg-tan-500 hover:bg-tan-600 cursor-pointer transition-colors"
+              >
+                <div>{item.icon}</div>
+                <div className="w-full">
+                  <p className="w-full text-left text-body2 text-nowrap">{item.title}</p>
+                  <p className="w-full text-left font-brandon">{item.description}</p>
+                </div>
+              </Link>
+            </button>
           );
         })}
       </div>

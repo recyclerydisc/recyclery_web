@@ -120,7 +120,7 @@ function DonateABike() {
       </Section>
       <Section>
         <H2 className="text-center">collection points</H2>
-        <ul className="flex flex-wrap gap-6 font-brandon">
+        <ul className="flex justify-center items-center flex-wrap gap-6 font-brandon">
           {collectionPoints.map((collectionPoint, index) => (
             <li key={index} className="w-[300px]">
               <A to={collectionPoint.url}>{collectionPoint.title}</A>

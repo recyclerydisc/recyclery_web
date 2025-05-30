@@ -61,6 +61,8 @@ export default function SideMenu({ isSideMenuOpen, setIsSideMenuOpen }: SideMenu
               {...item}
               currentActiveAccordion={currentActiveAccordion}
               handleAccordionSelect={handleAccordionSelect}
+              isSideMenuOpen={isSideMenuOpen}
+              setIsSideMenuOpen={setIsSideMenuOpen}
             />
           ))}
         </div>
