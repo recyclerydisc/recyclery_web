@@ -166,7 +166,7 @@ app.get('/hours/:id', (async (req: Request, res: Response) => {
 );
 
 // PUT to upload photos 
-app.put('/upload/:id', upload.single('file'), (async (req, res) => {
+app.put('/upload/:id', upload.single('file'), (async (req, res, next: NextFunction) => {
   try {
     const { id } = req.params;
     const file = req.file;
@@ -229,6 +229,7 @@ app.put('/upload/:id', upload.single('file'), (async (req, res) => {
 
   } catch (error) {
     res.status(500).json({ error });
+    next(error);
   }
 }) as RequestHandler
 );
@@ -236,7 +237,7 @@ app.put('/upload/:id', upload.single('file'), (async (req, res) => {
 // for UploadHours
 app.put(
   '/uploadhours/:id',
-  express.json({ limit: '1mb' }), (async (req, res) => {
+  express.json({ limit: '1mb' }), (async (req, res, next: NextFunction) => {
     try {
       const { id } = req.params;
       const { hours } = req.body as { hours?: string };
@@ -253,12 +254,13 @@ app.put(
       res.json({ message: 'Hours updated', hours: dbData });
     } catch (error) {
       res.status(500).json({ error });
+      next(error);
     }
   }) as RequestHandler
 );
 
 // PUT for upload WHO
-app.put('/uploadpeople/:id', upload.single('file'), (async (req: MulterRequest, res: Response) => {
+app.put('/uploadpeople/:id', upload.single('file'), (async (req: MulterRequest, res: Response, next: NextFunction) => {
   try {
     const { id } = req.params;
     const { name, description } = req.body as {
@@ -332,6 +334,7 @@ app.put('/uploadpeople/:id', upload.single('file'), (async (req: MulterRequest, 
 
   } catch (error) {
     res.status(500).json({ error });
+    next(error);
   }
 }) as RequestHandler
 );
