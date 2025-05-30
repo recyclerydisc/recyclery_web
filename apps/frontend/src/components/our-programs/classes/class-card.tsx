@@ -49,9 +49,9 @@ export default function ClassCard({
       </span>
       <p className="text-gray-600 mb-2">{sessions}</p>
       <p className="text-gray-600 mb-4">{description}</p>
-      <Button>
-        <Link to={buttonLink}>{buttonText}</Link>
-      </Button>
+      <Link to={buttonLink}>
+        <Button>{buttonText}</Button>
+      </Link>
     </div>
   );
 }

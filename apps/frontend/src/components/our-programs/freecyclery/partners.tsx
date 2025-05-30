@@ -17,7 +17,12 @@ export default function Partners() {
       <H2>freecyclery partners</H2>
       <div className="flex justify-center flex-wrap gap-x-12 gap-y-2 max-w-[72rem]">
         {images.map(image => (
-          <img src={image.src} alt={image.alt} className="max-h-28 object-contain" />
+          <img
+            src={image.src}
+            alt={image.alt}
+            key={image.alt}
+            className="max-h-28 object-contain"
+          />
         ))}
       </div>
     </Section>

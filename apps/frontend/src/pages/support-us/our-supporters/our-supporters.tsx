@@ -42,16 +42,12 @@ function OurSupporters() {
         <H2>want to become a sponsor?</H2>
         <p className="font-brandon text-subheading1">join us today!</p>
         <div className="space-x-4 mt-8">
-          <Button>
-            <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
-              Donate
-            </Link>
-          </Button>
-          <Button>
-            <Link to="https://therecyclery.us1.list-manage.com/subscribe?u=71e053371da882f0463a04165&id=6b561c7610">
-              Join Our Newsletter
-            </Link>
-          </Button>
+          <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
+            <Button>Donate</Button>
+          </Link>
+          <Link to="https://therecyclery.us1.list-manage.com/subscribe?u=71e053371da882f0463a04165&id=6b561c7610">
+            <Button>Join Our Newsletter</Button>
+          </Link>
         </div>
       </Section>
     </>

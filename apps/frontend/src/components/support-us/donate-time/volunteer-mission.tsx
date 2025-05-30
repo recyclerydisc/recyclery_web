@@ -28,9 +28,9 @@ function VolunteerMission({ image }: { image?: string }) {
           work and dedication will make a difference in our neighborhood and the lives of those we
           serve and support.
         </p>
-        <Button>
-          <Link to="https://www.volgistics.com/appform/1124825310">Join the Recyclery Today!</Link>
-        </Button>
+        <Link to="https://www.volgistics.com/appform/1124825310">
+          <Button>Join the Recyclery Today!</Button>
+        </Link>
       </div>
       <img
         src={image}

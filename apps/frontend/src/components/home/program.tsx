@@ -14,11 +14,9 @@ export default function Program({ children, title, learnMoreLink }: ProgramProps
     <div className="space-y-4">
       <H3>{title}</H3>
       <p className="text-body2 font-brandon">{children}</p>
-      <Button>
-        <Link to={learnMoreLink} onClick={() => window.scrollTo(0, 0)}>
-          Learn More
-        </Link>
-      </Button>
+      <Link to={learnMoreLink} onClick={() => window.scrollTo(0, 0)}>
+        <Button>Learn More</Button>
+      </Link>
     </div>
   );
 }

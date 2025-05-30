@@ -12,16 +12,12 @@ export default function Footer() {
           <p className="text-heading2 text-nowrap font-roc">the recyclery</p>
         </div>
         <div className="flex flex-col xs:flex-row gap-4">
-          <Button color="orange">
-            <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
-              Donate
-            </Link>
-          </Button>
-          <Button color="orange">
-            <Link to="https://therecyclery.us1.list-manage.com/subscribe?u=71e053371da882f0463a04165&id=6b561c7610">
-              Join Our Newsletter
-            </Link>
-          </Button>
+          <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
+            <Button color="orange">Donate</Button>
+          </Link>
+          <Link to="https://therecyclery.us1.list-manage.com/subscribe?u=71e053371da882f0463a04165&id=6b561c7610">
+            <Button color="orange">Join Our Newsletter</Button>
+          </Link>
         </div>
       </div>
       <div className="border-[1px] border-white/10" />

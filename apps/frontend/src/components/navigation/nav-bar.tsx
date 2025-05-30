@@ -31,14 +31,12 @@ export default function NavBar() {
           ))}
         </div>
         <div className="space-x-4 hidden lg:block">
-          <Button>
-            <Link to="https://therecyclery.square.site/">Shop For Bikes</Link>
-          </Button>
-          <Button>
-            <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
-              Donate
-            </Link>
-          </Button>
+          <Link to="https://therecyclery.square.site/">
+            <Button>Shop For Bikes</Button>
+          </Link>
+          <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
+            <Button>Donate</Button>
+          </Link>
         </div>
         <div className="lg:hidden block">
           <button

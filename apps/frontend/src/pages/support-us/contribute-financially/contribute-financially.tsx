@@ -41,11 +41,11 @@ function ContributeFinancially() {
                 alt="donation image"
                 className="w-full aspect-16/9 object-cover rounded-2xl mb-4"
               />
-              <Button color="orange" className="w-full">
-                <Link to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G&ssrt=1746749857705">
+              <Link to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G&ssrt=1746749857705">
+                <Button color="orange" className="w-full">
                   Make A Donation
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </div>
           </DashedBorder>
         </div>
