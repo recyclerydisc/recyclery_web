@@ -119,14 +119,16 @@ app.get('/people/:id', (async (req: Request, res: Response) => {
       .single();
 
     if (dbErr) {
-      return res
+      res
         .status(500)
-        .json({ error: 'Failed to update person record' })
+        .json({ error: 'Failed to update person record' });
+      return 
     }
     if (!person) {
-      return res
+      res
         .status(404)
-        .json({ error: 'Person not found' })
+        .json({ error: 'Person not found' });
+      return 
     }
 
     res.setHeader('Content-Type', 'application/json');
@@ -148,14 +150,16 @@ app.get('/hours/:id', (async (req: Request, res: Response) => {
       .single();
 
     if (dbErr) {
-      return res
+      res
         .status(500)
-        .json({ error: 'Failed to get hours record' })
+        .json({ error: 'Failed to get hours record' });
+      return 
     }
     if (!hours) {
-      return res
+      res
         .status(404)
-        .json({ error: 'Hours not found' })
+        .json({ error: 'Hours not found' });
+      return 
     }
     res.setHeader('Content-Type', 'application/json');
     res.json({ hours_text: hours?.hours || null });
@@ -172,7 +176,8 @@ app.put('/upload/:id', upload.single('file'), (async (req, res, next: NextFuncti
     const file = req.file;
 
     if (!file) {
-      return res.status(400).json({ error: 'No file uploaded or missing file name' });
+      res.status(400).json({ error: 'No file uploaded or missing file name' });
+      return 
     }
 
     const fileBuffer = file.buffer;
@@ -182,7 +187,8 @@ app.put('/upload/:id', upload.single('file'), (async (req, res, next: NextFuncti
     const fileExtension = fileName.split('.').pop()?.toLowerCase();
 
     if (!fileExtension || !allowedExtensions.includes(fileExtension)) {
-      return res.status(400).json({ error: 'Unsupported file type' });
+      res.status(400).json({ error: 'Unsupported file type' });
+      return 
     }
 
     const uniqueFileName = `images/${id}-${Date.now()}.${fileExtension}`;
@@ -195,7 +201,8 @@ app.put('/upload/:id', upload.single('file'), (async (req, res, next: NextFuncti
       });
 
     if (uploadError) {
-      return res.status(500).json({ error: 'Failed to upload image to Supabase' });
+      res.status(500).json({ error: 'Failed to upload image to Supabase' });
+      return 
     }
     
     const { data: publicUrlData } = supabase.storage
@@ -203,7 +210,8 @@ app.put('/upload/:id', upload.single('file'), (async (req, res, next: NextFuncti
       .getPublicUrl(uniqueFileName);
     
     if (!publicUrlData?.publicUrl) {
-      return res.status(500).json({ error: 'Failed to generate public URL' });
+      res.status(500).json({ error: 'Failed to generate public URL' });
+      return 
     }
 
     // Update the database with the new bucket link
@@ -215,11 +223,13 @@ app.put('/upload/:id', upload.single('file'), (async (req, res, next: NextFuncti
       .single();
 
     if (dbError) {
-      return res.status(500).json({ error: 'Failed to update database' });
+      res.status(500).json({ error: 'Failed to update database' });
+      return 
     }
 
     if (!dbdata) {
-      return res.status(404).json({ error: 'Image not found' });
+      res.status(404).json({ error: 'Image not found' });
+      return 
     }
 
     return res.status(200).json({
@@ -242,7 +252,8 @@ app.put(
       const { id } = req.params;
       const { hours } = req.body as { hours?: string };
       if (!hours) {
-        return res.status(400).json({ error: 'Missing hours text' });
+        res.status(400).json({ error: 'Missing hours text' });
+        return 
       }
       const { error: dbErr, data: dbData } = await supabase
         .from('HOURS')
@@ -269,7 +280,8 @@ app.put('/uploadpeople/:id', upload.single('file'), (async (req: MulterRequest, 
     };
 
     if (!name) {
-      return res.status(400).json({ error: 'Missing name or description' })
+      res.status(400).json({ error: 'Missing name or description' });
+      return 
     }
 
     const updates: Record<string, unknown> = { name, description };
@@ -279,9 +291,10 @@ app.put('/uploadpeople/:id', upload.single('file'), (async (req: MulterRequest, 
       const ext = file.originalname.split('.').pop()?.toLowerCase()
       const allowed = ['jpeg','png','jpg','heic','gif','webp']
       if (!ext || !allowed.includes(ext)) {
-        return res
+        res
           .status(400)
-          .json({ error: 'Unsupported file type' })
+          .json({ error: 'Unsupported file type' });
+        return 
       }
 
       const key = `people/${id}-${Date.now()}.${ext}`
@@ -292,9 +305,10 @@ app.put('/uploadpeople/:id', upload.single('file'), (async (req: MulterRequest, 
           upsert: true,
         })
       if (upErr) {
-        return res
+        res
           .status(500)
-          .json({ error: 'Failed to upload image to WHO bucket' })
+          .json({ error: 'Failed to upload image to WHO bucket' });
+        return 
       }
       // 4) getPublicUrl is sync
       const { data: urlData } = supabase.storage
@@ -302,9 +316,10 @@ app.put('/uploadpeople/:id', upload.single('file'), (async (req: MulterRequest, 
         .getPublicUrl(key)
       
       if (!urlData?.publicUrl) {
-        return res
+        res
           .status(500)
-          .json({ error: 'Failed to generate public URL' })
+          .json({ error: 'Failed to generate public URL' });
+        return 
       }
 
       updates.person_image = urlData.publicUrl
@@ -317,20 +332,22 @@ app.put('/uploadpeople/:id', upload.single('file'), (async (req: MulterRequest, 
         .select('*')
         .single()
       if (dbErr) {
-        return res
+        res
           .status(500)
-          .json({ error: 'Failed to update person record' })
+          .json({ error: 'Failed to update person record' });
+        return 
       }
       if (!person) {
-        return res
+        res
           .status(404)
-          .json({ error: 'Person not found' })
+          .json({ error: 'Person not found' });
+        return 
       }
-
-    return res.status(200).json({
+    res.status(200).json({
       message: 'Image uploaded and database updated successfully',
       person,
     });
+    return 
 
   } catch (error) {
     //res.status(500).json({ error });
