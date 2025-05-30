@@ -2,15 +2,15 @@
   "rewrites": [
     {
       "source": "/images/:id",
-      "destination": "https://recyclery-web-backend.vercel.app"
+      "destination": "https://recyclery-web-backend.vercel.app/images/:id"
     },
     {
       "source": "/people/:id",
-      "destination": "https://recyclery-web-backend.vercel.app"
+      "destination": "https://recyclery-web-backend.vercel.app/people/:id"
     },
     {
       "source": "/hours/:id",
-      "destination": "https://recyclery-web-backend.vercel.app"
+      "destination": "https://recyclery-web-backend.vercel.app/hours/:id"
     },
     {
       "source": "/(.*)",
