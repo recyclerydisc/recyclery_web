@@ -6,12 +6,15 @@ import Accordion from '../../../components/generic/accordion.tsx';
 import { BgImage } from '../../../components/generic/bg-image.tsx';
 import { Button } from '../../../components/generic/buttons.tsx';
 import DashedBorder from '../../../components/generic/dashed-border.tsx';
+import { EditLink } from '../../../components/generic/edit-image-button.tsx';
 import { H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx';
 import { donationAccordionContent } from '../../../content/donation-info.ts';
+import { useUser } from '../../../hooks/useUser.tsx';
 
 function ContributeFinancially() {
   const [heroImageURL, setHeroImageURL] = useState<string | undefined>(undefined);
   const [contributeImageURL, setContributeImageURL] = useState<string | undefined>(undefined);
+  const { isAuthenticated } = useUser();
 
   useEffect(() => {
     fetch(`/images/11`)
@@ -54,6 +57,7 @@ function ContributeFinancially() {
           Donate money directly to help fund our programs
         </p>
       </BgImage>
+      {isAuthenticated && <EditLink id="11"></EditLink>}
       <Section>
         <H2 className="text-center">make a donation today</H2>
         <div className="bg-tan-500 p-2 rounded-2xl">
@@ -77,6 +81,7 @@ function ContributeFinancially() {
                 alt="donation image"
                 className="w-full aspect-16/9 object-cover rounded-2xl mb-4"
               />
+              {isAuthenticated && <EditLink id="12" className="mb-5"></EditLink>}
               <Button color="orange" className="w-full">
                 <Link to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G&ssrt=1746749857705">
                   Make A Donation
