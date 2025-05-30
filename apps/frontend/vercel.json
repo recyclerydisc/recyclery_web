@@ -1,6 +1,18 @@
 {
   "rewrites": [
     {
+      "source": "/images/:id",
+      "destination": "https://recyclery-web-backend.vercel.app"
+    },
+    {
+      "source": "/people/:id",
+      "destination": "https://recyclery-web-backend.vercel.app"
+    },
+    {
+      "source": "/hours/:id",
+      "destination": "https://recyclery-web-backend.vercel.app"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

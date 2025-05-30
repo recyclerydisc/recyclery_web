@@ -1,7 +1,11 @@
-import { H2, Section } from '../../generic/styled-tags.tsx';
 import squigglyLine from '../../../assets/images/our-programs/freecyclery/squiggly-line.svg';
+import { EditLink } from '../../generic/edit-image-button.js';
+import { useUser } from '../../../hooks/useUser.tsx';
+import { H2, Section } from '../../generic/styled-tags.tsx';
 
 export default function AboutSection({ imageURL }: { imageURL?: string }) {
+  const { isAuthenticated } = useUser();
+
   return (
     <Section className="lg:py-0 lg:grid lg:grid-cols-2 gap-24 items-center justify-items-center">
       <div>
@@ -17,11 +21,14 @@ export default function AboutSection({ imageURL }: { imageURL?: string }) {
           alt="squiggly line"
           className="hidden lg:block h-[30rem] absolute left-[50%] translate-x-[-50%] z-0"
         />
+
         <img
           src={imageURL}
           alt="woman holding a bike"
           className="rounded-xl h-[20rem] lg:absolute lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[5rem] lg:z-10"
         />
+        {/* putting the EditLink button component in this aboutsection component was the cleanest way to visually add the button */}
+        {isAuthenticated && <EditLink id="8" className="mt-10"></EditLink>}
       </div>
     </Section>
   );

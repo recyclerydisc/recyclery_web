@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react';
 import OpenshopHero from '../../../assets/images/our-programs/openshop/openshop-hero.png';
 import OpenshopSection1 from '../../../assets/images/our-programs/openshop/openshop-section-1.png';
 import { BgImage } from '../../../components/generic/bg-image.tsx';
+import { EditLink } from '../../../components/generic/edit-image-button.tsx';
 import { A, H1, H2, Section } from '../../../components/generic/styled-tags.tsx';
+import { useUser } from '../../../hooks/useUser.tsx';
 
 function OpenShop() {
   const [heroimageURL, setHeroImageURL] = useState<string | undefined>(undefined);
   const [secimageURL, setSecImageURL] = useState<string | undefined>(undefined);
+  const { isAuthenticated } = useUser();
 
   useEffect(() => {
     fetch(`/images/5`)
@@ -49,6 +52,7 @@ function OpenShop() {
           Use our tools to fix your own bike with the instruction of Recyclery mechanics.
         </p>
       </BgImage>
+      {isAuthenticated && <EditLink id="5"></EditLink>}
       <Section className="flex lg:flex-row flex-col justify-center items-center lg:gap-16 gap-8">
         <div className="flex flex-col gap-6">
           <div>
@@ -80,6 +84,7 @@ function OpenShop() {
           alt="Two people working on a bike"
           className="max-w-[450px] w-full rounded-2xl object-fit"
         />
+        {isAuthenticated && <EditLink id="6"></EditLink>}
       </Section>
       <Section tan>
         <H2>hours</H2>
