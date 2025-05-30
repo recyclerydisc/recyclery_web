@@ -228,7 +228,7 @@ app.put('/upload/:id', upload.single('file'), (async (req, res, next: NextFuncti
     });
 
   } catch (error) {
-    res.status(500).json({ error });
+    //res.status(500).json({ error });
     next(error);
   }
 }) as RequestHandler
@@ -253,7 +253,7 @@ app.put(
       if (dbErr) throw dbErr;
       res.json({ message: 'Hours updated', hours: dbData });
     } catch (error) {
-      res.status(500).json({ error });
+      //res.status(500).json({ error });
       next(error);
     }
   }) as RequestHandler
@@ -333,7 +333,7 @@ app.put('/uploadpeople/:id', upload.single('file'), (async (req: MulterRequest, 
     });
 
   } catch (error) {
-    res.status(500).json({ error });
+    //res.status(500).json({ error });
     next(error);
   }
 }) as RequestHandler
