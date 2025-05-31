@@ -6,7 +6,7 @@ interface EditLinkProps {
   className?: string;
 }
 
-export function EditLink({ id, className = ''}: EditLinkProps) {
+export function EditHoursButton({ id, className = ''}: EditLinkProps) {
   const { isAuthenticated } = useUser();
   if (!isAuthenticated) {
     return null;
